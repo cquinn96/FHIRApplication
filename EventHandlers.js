@@ -34,13 +34,10 @@ function populateListOfPatients(entries) {
 		
 		var status;
 		//var identifier = entries[i].content.Patient.identifier[0].label.value;
-		//if (entries[i].summary.length >= 1)
 		if(entries[i].summary != null)
 		{
 			var summary = entries[i].summary;
 		}
-		//var carePlanURL = 'http://hl7connect.healthintersections.com.au/svc/fhir/careplan/search?patient.name='+name;
-		//var diagnosticReportURL = 'http://hl7connect.healthintersections.com.au/open/diagnosticreport/_search?subject.name='+name;
 		hasDiagnosticReport(patientID, i);
 		hasCarePlan(patientID, i);
 
@@ -66,22 +63,12 @@ function populateListOfPatients(entries) {
 										'</tr>'+
 									'</table>'+
 								'</li>');
-		
-		// loading2_crop_small.gif
-		
-		//var a = document.getElementById("diagnosticReport");
-		//a.onclick = diagnosticReport;
+
 		
 		// nameArray[i] = name;
-		
 		// var patientHash = {};
 		// patientHash[patientID] = name;
 		
-		// resultsHash[i] = {
-			// patientID : name
-		// }
-		
-		//resultsHash[i][patientID] = name;
 		
 		patientArray[i] = { 
 					key: patientID,
@@ -170,8 +157,6 @@ function fetchAllResources(type, searchBy, query) {
     $.ajax({
        type: "GET",
 	   //data: {'_id' :'1'},
-	   //data: {'_id' : b},
-	   //data: {'given' : 'Evelyn'},
 	   dataType: 'json',
 	   beforeSend: function(xhr) {
 	   		//xhr.setRequestHeader('Content-type', 'application/json');
@@ -205,9 +190,6 @@ function fetchAllResources(type, searchBy, query) {
 }
 
 var diagnosticReport = function fetchDiagnosticReport(patient, numEntries) {
-	
-	// console.log('Patient ID: ' + patient.key);
-	// console.log('Patient name: ' + patient.value);
 	
 	patientID = patient.key;
 	name = patient.value;
@@ -396,22 +378,6 @@ function hasCarePlan(patientID, position) {
 
 $(document).ready(function(){
 	//run after the page has loaded. 
-	// searchPatients.onkeyup = function () {
-		// var input = document.getElementById('searchPatients');	
-		// var filter = input.value.toUpperCase();
-		// var lis = document.getElementsByTagName('li');
-		// console.log(filter);
-    
-		// for (var i = 0; i < lis.length; i++) {
-			// var name = lis[i].getElementsByClassName('name')[0].innerHTML;
-			
-			// if (name.toUpperCase().indexOf(filter) != -1) 
-				// lis[i].style.display = 'block';
-			// else
-				// lis[i].style.display = 'none';
-		// }
-	// }
-	
 	//search button has a click/touch
 	$('#loginButton').bind('vmousedown', function () {
 		var searchForDropDown = document.getElementById('searchFor');
@@ -436,8 +402,6 @@ $(document).ready(function(){
 
 		// uploadPatient(name, gender);	
 	// });
-	
-	
 
 // bind to the submit event of our form
 $("#patientUploadForm").submit(function() {

@@ -18,7 +18,16 @@ function displayReports(entries, totalReports, name) {
 		{
 			if(entries[i].content.contained != null)
 			{
-				displayReport(entries[i].content.contained, entries[i].title, i);
+
+				// if(entries[i].content.contained.name == undefined)
+					// console.log('name is undefined');
+				// if(entries[i].content.contained.name == null)
+					// console.log('name is null');
+			
+				if(entries[i].content.contained[0].name != null)
+					displayReport(entries[i].content.contained, entries[i].title, i);
+				else
+					displayReportDiv(entries[i], entries[i].title, i);
 			}
 			else
 			{
@@ -28,50 +37,38 @@ function displayReports(entries, totalReports, name) {
 	}
 }
 
+//There is no contained, so only show the 'div' value returned
 function displayReportDiv(entry, reportTitle, rowNumber) {
-	$('#reportRows').children('li').remove();
-	$('#reportRows').append('<li>'+
-						'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-							'<tr class="orange">'+
-								'<td class="status"></td>'+
-								'<td class="name"><h2>' + reportTitle +'<h2></td>'+
-							'</tr>'+
-							'<tr>'+
-							'<td colspan="4">'+
-								'<table class="innerTable2" >'+
-								'<div id="row'+rowNumber+'">');
+	console.log('in DisplayReportDiv');
+	appendReportTitle(reportTitle, rowNumber);
 							
-		$('#row'+rowNumber).append('<tr>'+
-							'<td>'+entry.content.text.div+'</td>'+
-						'</tr>');
+	$('#row'+rowNumber).append('<tr>'+
+									'<td>'+entry.content.text.div+'</td>'+
+								'</tr>');
 }
 
 function displayReport(containedResults, reportTitle, rowNumber) {
-	$('#reportRows').append('<li>'+
-						'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-							'<tr class="orange">'+
-								'<td class="status"></td>'+
-								'<td class="name"><h2>' + reportTitle +'<h2></td>'+
-								//'<td class="doctor">DR. P SMITH</td>'+
-							'</tr>'+
-							'<tr>'+
-							'<td colspan="4">'+
-								'<table class="innerTable2" >'+
-								//'<tr>'+
-								//	'<td><h1>Test Name</h1></td>'+
-								//	'<td><h1>Result</h1></td>'+
-								//	'<td><h1>(Units)</h1></td>'+
-								//'</tr>'+
-								'<div id="row'+rowNumber+'">');
-							
+console.log('in DisplayReport');
+	appendReportTitle(reportTitle, rowNumber);
 	for (var i = 0; i < containedResults.length; i++){
 		
-		var testName = containedResults[i].name.coding[0].display;
-		var units = containedResults[i].valueQuantity.units;
-		
-		if(containedResults[i].valueQuantity.value != null)
+		if(containedResults[i].name != null)
 		{
-			var value = containedResults[i].valueQuantity.value;
+			var testName = containedResults[i].name.coding[0].display;
+			console.log('Has a Test Nname:' + testName);
+		}
+		
+		if(containedResults[i].valueQuantity != null)
+		{
+			if(containedResults[i].valueQuantity.value != null)
+			{
+				var units = containedResults[i].valueQuantity.units;
+			}
+			
+			if(containedResults[i].valueQuantity.value != null)
+			{
+				var value = containedResults[i].valueQuantity.value;
+			}
 		}
 		// if(containedResults[i].referenceRange != null && containedResults.referenceRange != null)
 		// {
@@ -84,4 +81,18 @@ function displayReport(containedResults, reportTitle, rowNumber) {
 							'<td>'+units+'</td>'+
 						'</tr>');
 	}	
+}
+
+function appendReportTitle(reportTitle, rowNumber){
+	$('#reportRows').append('<li>'+
+						'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
+							'<tr class="orange">'+
+								'<td class="status"></td>'+
+								'<td class="name"><h2>' + reportTitle +'<h2></td>'+
+								'<td class="doctor">DR. P SMITH</td>'+
+							'</tr>'+
+							'<tr>'+
+							'<td colspan="4">'+
+								'<table class="innerTable2" >'+
+								'<div id="row'+rowNumber+'">');
 }

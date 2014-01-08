@@ -46,7 +46,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 		}
 		
 	$('#row'+rowNumber).append('<h3>Current Concerns: </h3><ul>');	
-	
 	if(content.concern != null)
 	{
 		for(var i =0; i < content.concern.length; i++)
@@ -57,7 +56,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 	}	
 	$('#row'+rowNumber).append('</ul></br>');	
 
-	//$('#row'+rowNumber).append('<h3>Current Goals: </h3><ul>');	
 	$('#row'+rowNumber).append('<table id="goalTable'+rowNumber+'">'+
 						'<tr>'+
 						'<th>Goal #</th> '+
@@ -69,7 +67,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 		for(var i =0; i < content.goal.length; i++)
 		{
 			var goal = content.goal[i].description;
-			//$('#row'+rowNumber).append('<li>Goal '+(i+1)+ ': '+goal +'</li>');
 			$('#goalTable'+rowNumber).append('<tr>'+
 												'<td>'+(i+1)+ '</td>'+ 
 												'<td>'+goal +'</td>'+
@@ -78,8 +75,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 	}	
 	$('#row'+rowNumber).append('</ul></br>');	
 	
-	
-	//$('#row'+rowNumber).append('<h3>Activities: </h3>');			
 	$('#row'+rowNumber).append('<table id="activityTable'+rowNumber+'">'+
 							'<tr>'+
 							'<th>Activity #</th> '+
@@ -90,7 +85,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 	{
 		for(var i =0; i < content.activity.length; i++)
 		{
-			//var activityText = content.activity[i].simple.code.text;
 			var activityDetails = content.activity[i].simple.details;
 			$('#activityTable'+rowNumber).append('<tr>'+
 												'<td>'+(i+1)+ '</td>'+ 
@@ -98,25 +92,4 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 												'</tr>');
 		}
 	}	
-
-	//$('#row'+rowNumber).append('</ul></br>');
-		
-	// var containedResults = 	entry.content.contained;
-					
-	// for (var i = 0; i < containedResults.length; i++){
-	
-		// var type = containedResults[i].resourceType;
-		// if(containedResults[i].code != null)
-		// {
-			// var text = containedResults[i].code.text;
-		// }
-		// var status = containedResults[i].status;
-		
-		// $('#row'+rowNumber).append('<tr>'+
-							// '<td>'+type+': </td> '+
-							// '<td> '+text+' </td>'+
-							// '<td> Status: '+status+'</td>'+
-						// '</tr>');
-	// }	
-		
 }
