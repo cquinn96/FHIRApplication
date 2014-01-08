@@ -14,6 +14,7 @@ function populateListOfPatients(entries) {
 			var name = entries[i].content.name[0].given[0] + ' ' + entries[i].content.name[0].family[0];
 		}
 		
+		
 		if(name == undefined)
 			continue;
 		
