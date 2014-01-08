@@ -1,0 +1,79 @@
+*{text-shadow:0 0 0;}
+
+.nameCellWrapper{overflow: hidden;height: 120px; padding-right: 10px; margin-bottom: 0; text-align: left; }
+.statusIndicator{ padding: 5px; height: 100%; background-color: #ae4848; float: left; border-left: none; }
+.patientsDetails{ padding-left: 30px;overflow: hidden;font-size:13px;font-weight:400;line-height: 0px;}
+.patientsDetails p {font-size:14px;font-weight:400;letter-spacing:-1px}
+.patientsDetails h1 {font-size:45px;font-weight:700;letter-spacing:-4px}
+.doctorsName{overflow: hidden;text-align: right;}
+.patientName{font-size:30px;font-weight:900;}
+.darkCell{background-color:#c4c4cf;}
+
+#headerUnderBar{
+	width:100%;
+	background-color: #34364e;
+	height:34px;
+	line-height: 34px;
+	font-size: 12px;
+	font-weight:900;
+	color: #9699b7;
+}
+#wardDoctor{
+	padding-left: 15px;
+	display:inline;
+	float:left;
+}
+#wardTime{
+	padding-right: 15px;
+	display:inline;
+	float:right;
+}
+ul {
+	display: inline;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.tableContainer{ width:100%; border-collapse: collapse; border-spacing: 0; background-color: #dfdee7;}
+
+img { display: block; }
+
+/*tr.red{ height: 100px; border-bottom:1px solid #ae4848;}*/
+tr.red{ height: 80px; border-bottom:1px solid #ae4848;}
+tr.orange{ height: 100px; border-bottom:1px solid #d9c2b4;}
+tr.green{ height: 100px; border-bottom:1px solid green;}
+
+
+td.statusRed{ width: 8px; background-color:#d5c0c7;}
+td.statusOrange{ width: 8px; background-color:#d9c2b4;}
+td.statusGreen{ width: 8px; background-color:Green;}
+/*td.picture{ width: 70px; padding-left:40px; padding-right:40px; }*/
+td.picture{ width: 60px; padding-left:10px; padding-right:10px; }
+td.name{}
+td.doctor{ padding-right:10px; text-align: right; vertical-align:bottom; font-size: 14px; font-weight:800;}
+
+td.name h1{font-size: 50px; font-weight:900; letter-spacing:-4px; display: inline;}
+td.name p{font-size: 14px; font-weight:200; letter-spacing:0 ;  padding-left: 40px; display: inline;}
+
+
+.innerTable{height: 100px; width:100%; border-collapse: collapse; border-spacing: 0; background-color: #c4c4cf; border-bottom: 1px solid #b2b2c0;}
+
+/* styles for drop down table cells, note first two cells i.e status indicator and arrow are different than every other cell. */
+td.detailStatusRed{ width: 8px; background-color:#ae4848;}
+td.detailStatusOrange{ width: 8px; background-color:#cf6f1a;}
+td.detailStatusGreen{ width: 8px; background-color:#ae4848;}
+
+td.detailArrowDown{position:relative; width:32px; vertical-align: top; top:-2px;}
+
+td.innerTableCell{text-align:center; border-right: 1px solid #b2b2bf;  }
+td.innerTableCell img{ display: block; margin-left: auto; margin-right: auto;}
+td.innerTableCell h1{ font-size:14px; text-transform:uppercase;}
