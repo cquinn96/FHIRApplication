@@ -41,7 +41,8 @@ ul li {
 	padding: 0;
 }
 
-
+/*div.ui-input-text { max-width: 800px }
+.ui-btn-inner { max-width: 800px } */
 
 .tableContainer{ width:100%; border-collapse: collapse; border-spacing: 0; background-color: #dfdee7;}
 
