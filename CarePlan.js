@@ -1,8 +1,8 @@
 function populateCarePlanRows(entries, totalCarePlans, name) {
 	$('#carePlanHeader').text('Results for: ' + name + ' (' + totalCarePlans + ' found)');
+	$('#carePlanRows').children('li').remove();
 	if(entries.length == 0)
 	{
-		$('#carePlanRows').children('li').remove();
 		$('#carePlanRows').append('<li>'+
 				'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
 					'<tr class="orange">'+
@@ -24,8 +24,6 @@ function populateCarePlanRows(entries, totalCarePlans, name) {
 //totalReports is the number of reports found (same as entries.length)
 //name is the name of the patient/subject of the report
 function displayCarePlan(entry, reportTitle, rowNumber) {
-	
-	$('#carePlanRows').children('li').remove();
 	$('#carePlanRows').append('<li>'+
 					'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
 						'<tr class="orange">'+

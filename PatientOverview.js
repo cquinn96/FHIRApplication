@@ -85,7 +85,12 @@ function populatePatientOverview(entry, patientInfo) {
 							'</td>'+
 						'</tr>'+
 					'</table>'+
-				'</li>');
+				'</li>'+
+				'<br/><a id="uploadCarePlan" href=javascript:void(0);>Create New Care Plan</a>');
+				
+	$('#uploadCarePlan').click(function() {
+		gotoCarePlanUploadPage(patientInfo);
+	});
 				
 	if(phoneNumber == undefined)
 		$('#phoneRow').remove();
@@ -93,4 +98,18 @@ function populatePatientOverview(entry, patientInfo) {
 	if(address == undefined)
 		$('#addressRow').remove();
 	
+}
+
+function gotoCarePlanUploadPage(patientInfo) {
+	$.mobile.changePage("index.html#UploadCarePlan");
+	
+	console.log('>>> gotoCarePlanUploadPage()');
+	
+	var patientID = patientInfo.key;
+	var name = patientInfo.value;
+	
+	console.log(patientID);
+	console.log(name);
+	
+	console.log('<<< gotoCarePlanUploadPage()');
 }

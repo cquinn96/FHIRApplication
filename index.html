@@ -24,6 +24,7 @@
 	<script type="text/javascript" src="CarePlan.js"></script>
 	<script type="text/javascript" src="DiagnosticReport.js"></script>
 	<script type="text/javascript" src="UploadPatient.js"></script>
+	<script type="text/javascript" src="UploadCarePlan.js"></script>
 	<script type="text/javascript" src="PatientOverview.js"></script>
 	<script type="text/javascript" src="EventHandlers.js"></script>
 	<script type="text/javascript">
@@ -68,6 +69,10 @@
 				<input id="loginButton" type="submit" value="Search">		
 				
 				<a href="#UploadPatientPage">Upload Patient</a>
+<!-- 				<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a" aria-disabled="false">
+					<span class="ui-btn-inner"><span class="ui-btn-text">Upload Patient</span></span>
+					<input id="UploadPatientPage" href="#UploadPatientPage" onclick="#UploadPatientPage" value="UploadPatient" class="ui-btn-hidden" data-disabled="false">
+				</div> -->
 				
 				</br>
 				<div data-role="popup" id="serverResponseDialog">
@@ -135,12 +140,12 @@
 		
 			<article data-role="content">
 			
-<!-- 				<form id="patientUploadForm">				
-					<label for="text-1">Forename:</label>
-					<input type="text" name="forename" id="forename" value="">
-					<label for="text-1">Surname:</label>
-					<input type="text" name="surname" id="surname" value="">
-					<label for="text-2">Gender:</label>			
+				<form id="carePlanUploadForm">				
+					<label for="text-1">Condition:</label>
+					<input type="text" id="condition" value="">
+					<label for="text-1">Concern:</label>
+					<input type="text" id="concern" value="">
+<!-- 					<label for="text-2">Gender:</label>			
 					<select id="gender">
 					<option value="M">Male</option>
 					<option value="F">Female</option>
@@ -156,11 +161,11 @@
 					<label for="text-1">County:</label>
 					<input type="text" name="county" id="county" value="">
 					<label for="text-1">Post Code:</label>
-					<input type="text" name="postcode" id="postcode" value="">
-					<input id="patientUploadButton" type="submit" value="Upload Record">
-				</form>	 -->		
+					<input type="text" name="postcode" id="postcode" value=""> -->
+					<input id="carePlanUploadButton" type="submit" value="Upload Care Plan">
+				</form>			
 
-				<a href="index.html">Back</a>
+				<a href="index.html">Home</a>
 				
 				</br>
 				<div data-role="popup" id="serverResponseDialog">
@@ -305,8 +310,8 @@
 				<ul id="patientOverviewRow">
 				</ul>	
 			<br/>
-			<a href="#UploadCarePlan">Create New Care Plan</a><br/>
-			<a href="#UploadDiagnosticReport">Create New Diagnostic Report</a>
+<!-- 			<a href="#UploadCarePlan">Create New Care Plan</a><br/> -->
+<!-- 			<a href="#UploadDiagnosticReport">Create New Diagnostic Report</a> -->
 		
 	</div><!-- /page -->
 </body>
