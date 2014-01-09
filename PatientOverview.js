@@ -75,10 +75,10 @@ function populatePatientOverview(entry, patientInfo) {
 								'<tr>'+
 									'<td><b>Hospital Number: </b>'+hosNumber+'</td>'+
 								'</tr>'+
-								'<tr>'+
+								'<tr id ="phoneRow">'+
 									'<td><b>Phone Number: </b>'+phoneNumber+' ('+phoneNumberUse+')</td>'+
 								'</tr>'+
-								'<tr>'+
+								'<tr id="addressRow">'+
 									'<td><b>Address ('+addressUse+'): </b>'+address+'</td>'+
 								'</tr>'+
 								'</table>'+
@@ -86,5 +86,11 @@ function populatePatientOverview(entry, patientInfo) {
 						'</tr>'+
 					'</table>'+
 				'</li>');
+				
+	if(phoneNumber == undefined)
+		$('#phoneRow').remove();
+		
+	if(address == undefined)
+		$('#addressRow').remove();
 	
 }
