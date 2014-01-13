@@ -52,9 +52,7 @@ function populatePatientOverview(entry, patientInfo) {
 	
 	$('#patientOverviewHeader').text('Patient overview for ' + name);
 	
-	
 	$('#patientOverviewRow').children('li').remove();
-	
 	$('#patientOverviewRow').append('<li>'+
 					'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
 						'<tr class="red">'+

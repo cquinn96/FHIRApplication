@@ -29,7 +29,9 @@ function uploadCarePlan(event){
 	
 	//var reference = patientID;
 	var condition = "Obesity";
-	var concern = "Obesity";
+	var concern = document.getElementById('concern').value;;
+	var goal =  document.getElementById('goal').value;
+	var activity =  document.getElementById('activity').value;
 	
 	var hosNumber = 12345678;
 	
@@ -230,7 +232,7 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
         '</member>'+
     '</participant>'+
     '<goal>'+
-      '<description value="Target weight is 80 kg"/>'+
+      '<description value="'+goal+'"/>'+
     '</goal>'+
     '<activity>'+
         '<prohibited value="false"/>'+
@@ -250,7 +252,7 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
           '<reference value="Patient/'+patientID+'"/>'+
           '<display value="'+name+'"/>'+
         '</performer>'+
-		'<details value="He will reduce intake of coffee and chocolate"/>'+
+		'<details value="'+activity+'"/>'+
       '</simple>'+
     '</activity>'+
 '</CarePlan>';

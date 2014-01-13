@@ -2,6 +2,7 @@
 var nameArray = [];
 var resultsHash = {};
 var patientArray = [];
+var checkReports = [];
 
 //populates results into table when data has been received from server
 function populateListOfPatients(entries) {
@@ -13,7 +14,6 @@ function populateListOfPatients(entries) {
 		{
 			var name = entries[i].content.name[0].given[0] + ' ' + entries[i].content.name[0].family[0];
 		}
-		
 		
 		if(name == undefined)
 			continue;
@@ -41,7 +41,7 @@ function populateListOfPatients(entries) {
 		hasDiagnosticReport(patientID, i);
 		hasCarePlan(patientID, i);
 
-		$('#patientRows').append('<li>'+
+		$('#patientRows').append('<li id="patient'+i+'">'+
 									'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
 										'<tr class="red">'+
 										'<td class="statusRed"></td>'+
@@ -68,7 +68,6 @@ function populateListOfPatients(entries) {
 		// nameArray[i] = name;
 		// var patientHash = {};
 		// patientHash[patientID] = name;
-		
 		
 		patientArray[i] = { 
 					key: patientID,
@@ -99,6 +98,14 @@ function populateListOfPatients(entries) {
 			patientOverview(patientArray[pos], entries.length);
 		});
 		
+		if(isNaN(patientID))
+		{
+			console.log('Patient ID is not a number, its: ' + patientID);
+			var toRemove = 'patient'+i;
+			
+			$('#patient'+i).remove();
+		}
+		
 	}	
 }
 
@@ -118,8 +125,6 @@ function populateListOfPractitioners(entries) {
 		//{
 			var name = entries[i].content.name.given[0] + ' ' + entries[i].content.name.family[0];
 		//}
-		
-		console.log(name);
 		
 		if(entries[i].content.gender != null)
 		{
@@ -214,7 +219,6 @@ var diagnosticReport = function fetchDiagnosticReport(patient, numEntries) {
        url: 'http://hl7connect.healthintersections.com.au/open/Diagnosticreport/_search?subject._id='+patientID+'&_format=json',
        success: function(msg, status) {   		
 			//console.log(JSON.stringify(msg));
-			console.log('request Sucess');
             if (msg.title == 'Search results for resource type DiagnosticReport') {
 				$.mobile.changePage("index.html#DiagnosticReportPage");
 				displayReports(msg.entry, msg.totalResults, name);
@@ -313,7 +317,6 @@ var patientOverview = function fetchPatientOverview(patient, numEntries) {
     });
 }
 
-var checkReports = [];
 //Will check if the patient has a diagnostic report
 function hasDiagnosticReport(patientID, position) {
 	//console.log("in function: hasDiagnosticReport" + name);
@@ -335,7 +338,8 @@ function hasDiagnosticReport(patientID, position) {
             }
             else {
                 // Request failed
-				document.write('failed');
+				//document.write('failed');
+				console.log('failed');
 			}
         },
         error: function (msg) {
@@ -366,7 +370,8 @@ function hasCarePlan(patientID, position) {
             }
             else {
                 // Request failed
-				document.write('Oops, somethings gone wrong.');
+				//document.write('Oops, somethings gone wrong.');
+				console.log('failed');
 			}
         },
         error: function (msg) {
@@ -411,5 +416,4 @@ $("#patientUploadForm").submit(function() {
 $("#carePlanUploadForm").submit(function() {
 	uploadCarePlan(event)
 });
-
 })

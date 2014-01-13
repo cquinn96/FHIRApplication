@@ -56,7 +56,7 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 
 	$('#row'+rowNumber).append('<table id="goalTable'+rowNumber+'">'+
 						'<tr>'+
-						'<th>Goal #</th> '+
+						'<th>Goal</th> '+
 						'<th>Description</th>'+
 						'</tr>');
 	
@@ -66,7 +66,7 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 		{
 			var goal = content.goal[i].description;
 			$('#goalTable'+rowNumber).append('<tr>'+
-												'<td>'+(i+1)+ '</td>'+ 
+												'<td class="numberRow">'+(i+1)+ '</td>'+ 
 												'<td>'+goal +'</td>'+
 												'</tr>');
 		}
@@ -75,8 +75,9 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 	
 	$('#row'+rowNumber).append('<table id="activityTable'+rowNumber+'">'+
 							'<tr>'+
-							'<th>Activity #</th> '+
+							'<th>Activity</th> '+
 							'<th>Description</th>'+
+							'<th>\tDate</th>'+
 							'</tr>');
 							
 	if(content.activity != null)
@@ -84,9 +85,22 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 		for(var i =0; i < content.activity.length; i++)
 		{
 			var activityDetails = content.activity[i].simple.details;
+			if(activityDetails == undefined)
+			{
+				activityDetails = content.activity[i].simple.code.text;
+			}
+			
+			var date = 'No date given';
+			if(content.activity[i].simple.timingPeriod != null)
+			{
+				date = content.activity[i].simple.timingPeriod.start;
+				date = date.substring(0,10);
+			}
+
 			$('#activityTable'+rowNumber).append('<tr>'+
-												'<td>'+(i+1)+ '</td>'+ 
+												'<td class="numberRow">'+(i+1)+ '</td>'+ 
 												'<td>'+activityDetails +'</td>'+
+												'<td>\t'+date +'</td>'+
 												'</tr>');
 		}
 	}	

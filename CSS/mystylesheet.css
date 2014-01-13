@@ -43,6 +43,7 @@ ul li {
 
 /*div.ui-input-text { max-width: 800px }
 .ui-btn-inner { max-width: 800px } */
+td.numberRow {text-align:center}
 
 .tableContainer{ width:100%; border-collapse: collapse; border-spacing: 0; background-color: #dfdee7;}
 

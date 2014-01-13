@@ -141,27 +141,14 @@
 			<article data-role="content">
 			
 				<form id="carePlanUploadForm">				
-					<label for="text-1">Condition:</label>
-					<input type="text" id="condition" value="">
 					<label for="text-1">Concern:</label>
 					<input type="text" id="concern" value="">
-<!-- 					<label for="text-2">Gender:</label>			
-					<select id="gender">
-					<option value="M">Male</option>
-					<option value="F">Female</option>
-					</select>
-					<label for="text-1">Date of Birth (YYYY-MM-DD):</label>
-					<input type="text" name="dob" id="dob" value="">
-					<label for="text-1">Phone Number:</label>
-					<input type="text" name="phone" id="phone" value="">
-					<label for="text-1">Address Line 1:</label>
-					<input type="text" name="address1" id="address1" value="">
-					<label for="text-1">City:</label>
-					<input type="text" name="city" id="city" value="">
-					<label for="text-1">County:</label>
-					<input type="text" name="county" id="county" value="">
-					<label for="text-1">Post Code:</label>
-					<input type="text" name="postcode" id="postcode" value=""> -->
+					<label for="text-1">Goal:</label><a id="addGoal" href=javascript:void(0);>+</a>
+					<input type="text" id="goal" value="">
+					<div id="goalInputDiv">
+					</div>
+					<label for="text-1">Activity:</label>
+					<input type="text" id="activity" value="">
 					<input id="carePlanUploadButton" type="submit" value="Upload Care Plan">
 				</form>			
 
@@ -314,5 +301,19 @@
 <!-- 			<a href="#UploadDiagnosticReport">Create New Diagnostic Report</a> -->
 		
 	</div><!-- /page -->
+	
+	<script>
+	
+		$('#addGoal').click(function() {
+		var uploadCarePlanForm = document.getElementById('goalInputDiv');
+		var goalInput = document.createElement('input');
+		goalInput.id = 'goal2';             // No setAttribute required
+		goalInput.type = 'text' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
+		goalInput.value = ''
+		//uploadCarePlanForm.appendChild(goalInput);
+		//document.body.appendChild(uploadCarePlanForm);
+		//gotoCarePlanUploadPage(patientInfo);
+	});
+	</script>
 </body>
 </html>
