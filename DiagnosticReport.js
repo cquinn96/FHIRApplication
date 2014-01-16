@@ -1,7 +1,7 @@
 function displayReports(entries, totalReports, name) {
 	$('#pageHeader').text('Results for: ' + name + ' (' + totalReports + ' reports found)');
 	
-	$('#reportRows').children('li').remove();
+	$('#reportCollabsibleSet').children('div').remove();
 	if(entries.length == 0)
 	{
 		$('#reportRows').append('<li>'+
@@ -139,26 +139,14 @@ function displayReport(containedResults, reportTitle, rowNumber) {
 							);					
 	}
 	
-	$('#reportListView'+rowNumber).listview("refresh");	
 	$("#reportCollabsibleSet" ).collapsibleset( "refresh" );
+	$('#reportListView'+rowNumber).listview("refresh");	
 	//$('#report'+rowNumber).collapsibleset( "refresh" );
 
 }
 
 function appendReportTitle(reportTitle, rowNumber){
-	// $('#reportRows').append('<li>'+
-						// '<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-							// '<tr class="orange">'+
-								// '<td class="status"></td>'+
-								// '<td class="name"><h2>' + reportTitle +'<h2></td>'+
-								// '<td class="doctor">DR. P SMITH</td>'+
-							// '</tr>'+
-							// '<tr>'+
-							// '<td colspan="4">'+
-								// '<table class="innerTable2" >'+
-								// '<div id="row'+rowNumber+'">');
-								
-								
+										
 	$('#reportCollabsibleSet').append(
 									'<div data-role="collapsible" id="report'+rowNumber+'">'+
 										'<h2>' + reportTitle +'</h2>'+
@@ -168,26 +156,10 @@ function appendReportTitle(reportTitle, rowNumber){
 	
 			
 	$('#report'+rowNumber).append(
-							'<ul data-role="listview" data-filter="true" data-filter-theme="c" data-divider-theme="d" id="reportListView'+rowNumber+'">'+
+							'<ul data-role="listview" data-theme="a" data-inset="false" data-filter="true" data-filter-theme="b" data-divider-theme="a" id="reportListView'+rowNumber+'">'+
 							'</ul>'
 							);
 	
-	// $('#report'+rowNumber).append(
-        // '<ul data-role="listview" data-theme="d" data-divider-theme="d">'+
-		// '</ul>');
-
-			
-	 // $('#DiagnosticReportPage').append(
-						// '<div data-role="collapsible-set" data-theme="b" data-content-theme="d">'+
-							// '<div data-role="collapsible">'+
-								// '<h2>Report Title</h2>'+
-								// '<ul data-role="listview" data-filter="true" data-filter-theme="c" data-divider-theme="d" id="reportListView">'+
-									// '<li><a href="index.html">Acura</a></li>'+
-									// //'<div id="row'+rowNumber+'">'+
-								// '</ul>'+
-							// '</div>'+
-						// '</div>'
-						// );
 						
 	$( '#reportListView'+rowNumber).listview({
 	  create: function( event, ui ) {}

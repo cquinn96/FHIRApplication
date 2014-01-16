@@ -38,31 +38,47 @@ function populateListOfPatients(entries) {
 		{
 			var summary = entries[i].summary;
 		}
-		hasDiagnosticReport(patientID, i);
-		hasCarePlan(patientID, i);
+		//hasDiagnosticReport(patientID, i);
+		//hasCarePlan(patientID, i);
 
-		$('#patientRows').append('<li id="patient'+i+'">'+
-									'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-										'<tr class="red">'+
-										'<td class="statusRed"></td>'+
-										'<td class="picture"><img src="images/faces/faceImageTest.png">'+
-										'</td> <td class="name"><h1>'+name+'<h1> <p>DOB: '+dob+'</p> <p>SSN: '+hosNumber+'</p></</td>'+
-										'<td class="doctor">'+title+'</td>'+
-										'</tr>'+
-										'<tr><td colspan="4">'+
-											'<table class="innerTable">'+
-											'<tr><td class="detailStatusRed"></td>'+
-											'<td class="detailArrowDown"><img src="images/arrows/redArrowDown.png"></td>'+
-											// '<td class="innerTableCell"><h1>discharge</h1><img src="images/dischargeStatus/one.png"></td>'+
-											'<td class="innerTableCell"><h1><a id="patientOverview'+i+'" href=javascript:void(0);>Patient Overview</a></h1><img src="images/alertStatus/clearStatus.png"></td>'+
-											'<td class="innerTableCell"><h1><a id="diagnosticReport'+i+'" href=javascript:void(0);>Diagnostic Report</a></h1><img id="hasReportImage'+i+'" src="images/loading_gif_transparent.gif"></td>'+
-											'<td class="innerTableCell"><h1><a id="carePlan'+i+'" href=javascript:void(0);>CarePlan</a></h1><img id="hasCarePlanImage'+i+'" src="images/loading_gif_transparent.gif"></td>'+
-											'</tr>'+
-											'</table>'+
-										'</td>'+
-										'</tr>'+
-									'</table>'+
-								'</li>');
+		//name
+		//hosnumber
+		//title
+		//dob
+
+		$('#patientRows').append('<li><a href="#">'+
+									'<h2>'+name+'</h2>' +
+				        '<p><strong>Date of birth - '+dob+'</strong></p>'+
+				        '<p>Click to view more details about '+name+'</p>'+
+				        '<p class="ui-li-aside">Hospital # - <strong>'+hosNumber+'</strong></p></a>'+
+				        '</li>'
+
+
+
+			/*<li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+				    <li><a href="index.html">
+				        <h2>Stephen Weber</h2>
+				        <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+				        <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+				        <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+				    </a></li>
+				    <li><a href="index.html">
+				        <h2>jQuery Team</h2>
+				        <p><strong>Boston Conference Planning</strong></p>
+				        <p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+				        <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+				    </a></li>
+				    <li data-role="list-divider">Thursday, October 7, 2010 <span class="ui-li-count">1</span></li>
+				    <li><a href="index.html">
+				        <h2>Avery Walker</h2>
+				        <p><strong>Re: Dinner Tonight</strong></p>
+				        <p>Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait! </p>
+				        <p class="ui-li-aside"><strong>4:48</strong>PM</p>
+				    </a></li>
+					*/
+			);
+
+		$("#patientRows").listview("refresh");
 
 		
 		// nameArray[i] = name;
@@ -194,23 +210,11 @@ function fetchAllResources(type, searchBy, query) {
     });
 }
 
-var diagnosticReport = function fetchDiagnosticReport(patient, numEntries) {
+ function fetchDiagnosticReport(patientID, patientName) {
 	
-	patientID = patient.key;
-	name = patient.value;
+	patientID = patientID;
+	name = patientName;
 	
-	// Abort any remaining GET requests
-	for(var i =0; i < numEntries; i++){
-		if(checkReports[i].readyState != 4)
-		{
-			checkReports[i].abort();
-		}
-		if(checkCarePlans[i].readyState != 4)
-		{
-			checkCarePlans[i].abort();
-		}
-	}
-
 	$( "#serverResponseLoading" ).popup( "open" );
     $.ajax({
        type: "GET",
@@ -220,8 +224,15 @@ var diagnosticReport = function fetchDiagnosticReport(patient, numEntries) {
        success: function(msg, status) {   		
 			//console.log(JSON.stringify(msg));
             if (msg.title == 'Search results for resource type DiagnosticReport') {
-				$.mobile.changePage("index.html#DiagnosticReportPage");
-				displayReports(msg.entry, msg.totalResults, name);
+            	if(msg.entry.length == 0)
+				{
+					$( "#popupDiagnosticReport" ).popup( "open" )
+				}
+				else
+				{
+					$.mobile.changePage("index.html#DiagnosticReportPage");
+					displayReports(msg.entry, msg.totalResults, name);
+				}
             }
             else {
                 // Request failed
@@ -236,22 +247,11 @@ var diagnosticReport = function fetchDiagnosticReport(patient, numEntries) {
 }
 
 
-var carePlan = function fetchCarePlan(patient, numEntries) {
+function fetchCarePlan(patientID, patientName) {
 
-	patientID = patient.key;
-	name = patient.value;
+	patientID = patientID;
+	name = patientName;
 
-	// Abort any remaining GET requests
-	for(var i =0; i < numEntries; i++){
-		if(checkReports[i].readyState != 4)
-		{
-			checkReports[i].abort();
-		}
-		if(checkCarePlans[i].readyState != 4)
-		{
-			checkCarePlans[i].abort();
-		}
-	}
 	
 	$( "#serverResponseLoading" ).popup( "open" );
     $.ajax({
@@ -261,8 +261,15 @@ var carePlan = function fetchCarePlan(patient, numEntries) {
        url: 'http://hl7connect.healthintersections.com.au/open/careplan/_search?patient._id='+patientID+'&_format=json',
        success: function(msg, status) {   		
             if (msg.title == 'Search results for resource type CarePlan') {
-				$.mobile.changePage("index.html#CarePlanPage");
-				populateCarePlanRows(msg.entry, msg.totalResults, name);	
+            	if(msg.entry.length == 0)
+				{
+					$( "#popupCarePlan" ).popup( "open" )
+				}
+				else
+				{
+					$.mobile.changePage("index.html#CarePlanPage");
+					populateCarePlanRows(msg.entry, msg.totalResults, name);	
+				}
             }
             else {
                 // Login request failed
@@ -317,70 +324,6 @@ var patientOverview = function fetchPatientOverview(patient, numEntries) {
     });
 }
 
-//Will check if the patient has a diagnostic report
-function hasDiagnosticReport(patientID, position) {
-	//console.log("in function: hasDiagnosticReport" + name);
-    checkReports[position] = $.ajax({
-       type: "GET",
-	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/Diagnosticreport/_search?subject._id='+patientID+'&_format=json',
-       success: function(msg, status) {   		
-			//console.log(JSON.stringify(msg));
-            if (msg.title == 'Search results for resource type DiagnosticReport') {
-				if(msg.entry.length>=1){
-					$('#hasReportImage'+position).attr('src','images/alertStatus/clearStatus.png');
-					return;
-					}
-				else {
-					$('#hasReportImage'+position).attr('src','images/alertStatus/dangerStatus.png');
-					return;
-				}
-            }
-            else {
-                // Request failed
-				//document.write('failed');
-				console.log('failed');
-			}
-        },
-        error: function (msg) {
-            // search request failed
-			//document.write(JSON.stringify(msg, 2));
-        }
-    });
-}
-
-var checkCarePlans = [];
-//Will check if the patient has a diagnostic report
-function hasCarePlan(patientID, position) {
-	//console.log("in function: hasDiagnosticReport" + name);
-    checkCarePlans[position] = $.ajax({
-       type: "GET",
-	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/careplan/_search?patient._id='+patientID+'&_format=json',
-       success: function(msg, status) {   		
-            if (msg.title == 'Search results for resource type CarePlan') {
-				if(msg.entry.length>=1){
-					$('#hasCarePlanImage'+position).attr('src','images/alertStatus/clearStatus.png');
-					return;
-					}
-				else {
-					$('#hasCarePlanImage'+position).attr('src','images/alertStatus/dangerStatus.png');
-					return;
-				}
-            }
-            else {
-                // Request failed
-				//document.write('Oops, somethings gone wrong.');
-				console.log('failed');
-			}
-        },
-        error: function (msg) {
-            // search request failed
-			//document.write(JSON.stringify(msg, 2));
-        }
-    });
-}
-
 $(document).ready(function(){
 	//run after the page has loaded. 
 	//search button has a click/touch
@@ -408,12 +351,32 @@ $(document).ready(function(){
 		// uploadPatient(name, gender);	
 	// });
 
-// bind to the submit event of our form
-$("#patientUploadForm").submit(function() {
-	uploadPatient(event)
-});
+	// bind to the submit event of our form
+	$("#patientUploadForm").submit(function() {
+		uploadPatient(event)
+	});
 
-$("#carePlanUploadForm").submit(function() {
-	uploadCarePlan(event)
-});
+	$("#carePlanUploadForm").submit(function() {
+		uploadCarePlan(event)
+	});
+
+
+	//function to handle the click of a cell in patient list.
+	$('#patientRows').on('click', 'li', function () {
+		console.log("cell has been clicked");
+		var selected_index = $(this).index();
+		console.log(selected_index);
+
+		patientOverview(patientArray[selected_index], 0);
+
+        
+	});
+	
 })
+
+function goBack()
+  {
+  window.history.back()
+  }
+
+

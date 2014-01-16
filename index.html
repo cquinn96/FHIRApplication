@@ -21,12 +21,12 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
+	<script type="text/javascript" src="EventHandlers.js"></script>
 	<script type="text/javascript" src="CarePlan.js"></script>
 	<script type="text/javascript" src="DiagnosticReport.js"></script>
 	<script type="text/javascript" src="UploadPatient.js"></script>
 	<script type="text/javascript" src="UploadCarePlan.js"></script>
 	<script type="text/javascript" src="PatientOverview.js"></script>
-	<script type="text/javascript" src="EventHandlers.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$('.footable').footable();
@@ -46,6 +46,7 @@
 			<article data-role="content">
 			
 				<form id="loginForm">
+
 							
 					<label for="text-1">Search for:</label>
 					<select id="searchFor">
@@ -68,8 +69,14 @@
 
 				<input id="loginButton" type="submit" value="Search">		
 				
-				<a href="#UploadPatientPage">Upload Patient</a>
-<!-- 				<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a" aria-disabled="false">
+				<div style="height: 100%; text-align:center; ">
+					<p>
+						<a href="#UploadPatientPage" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b">Add Patient</a>
+					</p>
+				</div>
+				
+<!-- 				<a href="#UploadPatientPage">Upload Patient</a>
+ --><!-- 				<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a" aria-disabled="false">
 					<span class="ui-btn-inner"><span class="ui-btn-text">Upload Patient</span></span>
 					<input id="UploadPatientPage" href="#UploadPatientPage" onclick="#UploadPatientPage" value="UploadPatient" class="ui-btn-hidden" data-disabled="false">
 				</div> -->
@@ -175,13 +182,14 @@
 		
 		<input type="text" id="searchPatients" />
 
+
 				<div data-role="popup" id="serverResponseLoading">
 					<img src="images/loading2_crop4.gif">
 					<!-- <p>Loading...<p> -->
 				</div>	
 		
-				<ul id="patientRows">
-					<!--<li>
+				<!--<ul id="patientRows">
+					<li>
 						<table class="tableContainer" cellspacing="0" cellpadding="0">
 							<tr class="red">
 								<td class="statusRed"></td>
@@ -217,8 +225,12 @@
 								<td class="doctor">DR. P SMITH</td>
 							</tr>
 						</table>
-					</li>-->
-				</ul>	
+					</li>
+				</ul>	-->
+
+				<ul data-role="listview" data-inset="false" data-theme="a" id="patientRows">
+				    
+				</ul>
 	</div><!-- /page -->
 	
 	
@@ -232,28 +244,16 @@
 			<div id="wardDoctor"></div>
 			<div id="wardTime"></div>
 		</div>	
-		
-		<ul id="reportRows">
-		</ul>	
+				<ul id="reportRows">
+				</ul>	
 				
-<!-- 				<div id="reportRows">
-				</div>	 -->
-		<div data-role="collapsible-set" data-theme="a" data-content-theme="d" id="reportCollabsibleSet">
+		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="reportCollabsibleSet">
 		</div>
 		
-<!-- 		<div data-role="collapsible-set" data-theme="b" data-content-theme="d" id="reportCollabsibleSet2">
-				<div data-role="collapsible">
-					<h2>Report Title</h2>
-					<ul data-role="listview" data-filter="true" data-filter-theme="c" data-divider-theme="d">
-						<li><a href="index.html">Acura</a></li>
-						<div id="row'+rowNumber+'">
-						</div>
-					</ul>
-				</div>
-		</div> -->
-	
+		
 	</div>
 	
+
 	<div data-role="page" id="CarePlanPage">
 
 		<header data-role="header">
@@ -264,58 +264,51 @@
 			<div id="wardDoctor"></div>
 			<div id="wardTime"></div>
 		</div>
-				<ul id="carePlanRows">
-<!-- 					<li>
-						<table class="tableContainer" cellspacing="0" cellpadding="0">
-							<tr class="red">
-								<td class="statusRed"></td>
-								<td class="picture" ><img src="images/faces/faceImageTest.png"></td>
-								<td class="name"><h1>Quinn, Cormac<h1> <p>14/11/1992</p> <p>1204552</p></</td>
-								<td class="doctor">DR. P SMITH</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="innerTable2" >
-									<tr>
-										<td><h1>VTE</h1></td>
-										<td><h1>Diabetic</h1></td>
-										<td><h1>Visitors</h1></td>
-										<td><h1>Nil by month</h1></td>
-										<td><h1>Nut allergy</h1></td>
-									</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
-					</li>
-					<li>
-						<table class="tableContainer" cellspacing="0" cellpadding="0">
-							<tr class="orange">
-								<td class="status"></td>
-								<td class="picture" ><img src="images/faces/faceImageTest.png"></td>
-								<td class="name"><h1>WHITEBOARD, Mark<h1> <p>15/11/1992</p> <p>1245552</p></</td>
-								<td class="doctor">DR. P SMITH</td>
-							</tr>
-						</table>
-					</li> -->
-				</ul>	
+		<ul id="carePlanRows">
+		</ul>	
+				
+		<div data-role="collapsible-set" data-theme="a" data-content-theme="d" data-inset="false" id="carePlanCollabsibleSet">
+		</div>
 	</div>
 	
 	
 	<div data-role="page" data-theme="a" id="PatientOverviewPage">
 
-		<header data-role="header" >
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="patientOverviewHeader">Patient Overview</h1>
 		</header>
 		
 		<div id="headerUnderBar"> 
-			<div id="wardDoctor"></div>
+			<div id="wardDoctor">Patient Contact Details</div>
 			<div id="wardTime"></div>
 		</div>
-				<ul id="patientOverviewRow">
+
+		<ul id="patientOverviewRow" data-role="listview" data-theme="b">
+				
+		</ul>
+
+		<div style="height: 100%; text-align:center; ">
+			<p>
+	    		<a href="#popupDiagnosticReport" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="diagnosticReportClick();">Diagnostic Report</a>
+	    		<div data-role="popup" id="popupDiagnosticReport">
+	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				    <p>This patient doesn't have any diagnostic reports to show.</p>
+				</div>
+	    		<a href="#popupCarePlan" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="carePlanClick();">Care Plan</a>
+	    		<div data-role="popup" id="popupCarePlan">
+	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				    <p>This patient doesn't have a care plan to show.</p>
+				</div>
+				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Add Care Plan</a>
+			</p>
+		</div>
+
+<!-- 				<ul id="patientOverviewRow">
+
 				</ul>	
 			<br/>
-<!-- 			<a href="#UploadCarePlan">Create New Care Plan</a><br/> -->
+			<a href="#UploadCarePlan">Create New Care Plan</a><br/> -->
 <!-- 			<a href="#UploadDiagnosticReport">Create New Diagnostic Report</a> -->
 		
 	</div><!-- /page -->

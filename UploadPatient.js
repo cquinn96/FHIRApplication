@@ -120,20 +120,23 @@ function uploadPatient(event){
     // callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
         // log a message to the console
-		var	patient = { 
-				key: 0,
-				value: name,
-				dob: dob,
-				hosNumber: hosNumber};
 		
-		
-        console.log("It worked!");
-		console.log(response);
-		console.log(textStatus);
+		//console.log(response);
+		//console.log(textStatus);
 		console.log(jqXHR.getResponseHeader('Content-Location'));
-		console.log(jqXHR.getAllResponseHeaders());
+
+		var patientUrl = jqXHR.getResponseHeader('Content-Location');
+
+		var newID = patientUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
+
+		var	patient = { 
+		key: newID,
+		value: name,
+		dob: dob,
+		hosNumber: hosNumber};
+
+		//console.log(jqXHR.getAllResponseHeaders());
 		fetchPatientOverviewAfterUpload(patient);
-		//console.log(jqXHR.getResponseHeader("Location"));
     });
 
     // callback handler that will be called on failure
@@ -158,19 +161,21 @@ function uploadPatient(event){
 
 function fetchPatientOverviewAfterUpload(patient) {
 	name = patient.value;
+	patientID = patient.key;
 	//$( "#serverResponseLoading" ).popup( "open" );
     $.ajax({
        type: "GET",
 	   //data: {'subject.name' : name},
 	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?name='+name+'&_format=json',
+       //url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?name='+name+'&_format=json',
+       url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?_id='+patientID+'&_format=json',
        success: function(msg, status) {   		
             if (msg.title == 'Search results for resource type Patient') {
 				$.mobile.changePage("index.html#PatientOverviewPage");
 				populatePatientOverview(msg.entry[0], patient);	
             }
             else {
-                // Login request failed
+                // request failed
 				document.write('failed');
 			}
         },

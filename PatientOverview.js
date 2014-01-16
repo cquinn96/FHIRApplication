@@ -5,6 +5,9 @@ function populatePatientOverview(entry, patientInfo) {
 	var name = patientInfo.value;
 	var dob = patientInfo.dob;
 	var hosNumber = patientInfo.hosNumber;
+		
+	// Gets the patient ID
+	// var patientID = title.match(/"([^"]+)"/)[1];
 	
 	
 	if(entry.content.telecom != null) {
@@ -49,42 +52,21 @@ function populatePatientOverview(entry, patientInfo) {
 			var addressUse = entry.content.address[0].use;
 		}
 	}
+
 	
-	$('#patientOverviewHeader').text('Patient overview for ' + name);
-	
+	$('#patientOverviewHeader').text(name);
+	//remove all items in list
 	$('#patientOverviewRow').children('li').remove();
-	$('#patientOverviewRow').append('<li>'+
-					'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-						'<tr class="red">'+
-							'<td class="statusRed"></td>'+
-							'<td class="picture" ><img src="images/faces/faceImageTest.png"></td>'+
-							'<td class="name"><h1>'+name+'<h1></td>'+
-							'<td class="doctor">'+title+'</td>'+
-						'</tr>'+
-						'<tr>'+
-							'<td colspan="4">'+
-								'<table class="innerTable2" >'+
-								'<tr>'+
-									'<td><b>Date of Birth: </b>'+dob+'</td>'+
-								'</tr>'+
-								'<tr>'+
-									'<td><b>Gender: </b>'+gender+'</td>'+
-								'</tr>'+
-								'<tr>'+
-									'<td><b>Hospital Number: </b>'+hosNumber+'</td>'+
-								'</tr>'+
-								'<tr id ="phoneRow">'+
-									'<td><b>Phone Number: </b>'+phoneNumber+' ('+phoneNumberUse+')</td>'+
-								'</tr>'+
-								'<tr id="addressRow">'+
-									'<td><b>Address ('+addressUse+'): </b>'+address+'</td>'+
-								'</tr>'+
-								'</table>'+
-							'</td>'+
-						'</tr>'+
-					'</table>'+
-				'</li>'+
-				'<br/><a id="uploadCarePlan" href=javascript:void(0);>Create New Care Plan</a>');
+	//populate new items for list
+	$('#patientOverviewRow').append('<li> <i>Patient ID</i> - ' + patientID +'</li>'+
+									'<li> <i>Hospital Number</i> - '+hosNumber+'</li>'+
+									'<li> <i>Patient Name</i> - ' + name +'</li>'+
+									'<li> <i>Date of Birth</i> - '+dob+'</li>'+
+									'<li> <i>Phone Number</i> - ' + phoneNumber +'</li>'+
+									'<li> <i>Address</i> - ' + address +'</li>');
+
+	//refresh list view, must be done in order to style
+	$("#patientOverviewRow").listview("refresh");
 				
 	$('#uploadCarePlan').click(function() {
 		gotoCarePlanUploadPage(patientInfo);
@@ -98,16 +80,24 @@ function populatePatientOverview(entry, patientInfo) {
 	
 }
 
-function gotoCarePlanUploadPage(patientInfo) {
+function diagnosticReportClick(){
+	console.log("Dig report button clicked pushing to new page");
+	//fetch diag report and change page 
+	fetchDiagnosticReport(patientID, name);
+}
+
+function carePlanClick(){
+	console.log("Care plan button clicked, pushing to new page");
+	//fetch care plan
+	fetchCarePlan(patientID,name);
+}
+
+function addCarePlan(){
+	console.log("Add care plan button clicked, pushing to new page");
+	//fetch care plan
+	gotoCarePlanUploadPage(patientID,name)
+}
+
+function gotoCarePlanUploadPage(patientID,name) {
 	$.mobile.changePage("index.html#UploadCarePlan");
-	
-	console.log('>>> gotoCarePlanUploadPage()');
-	
-	var patientID = patientInfo.key;
-	var name = patientInfo.value;
-	
-	console.log(patientID);
-	console.log(name);
-	
-	console.log('<<< gotoCarePlanUploadPage()');
 }
