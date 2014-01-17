@@ -41,30 +41,22 @@
 
 		<header data-role="header" >
 			<h1>FHIR Application</h1>
-		</header><!-- /header -->
-		
+		</header>
 			<article data-role="content">
-			
 				<form id="loginForm">
-
-							
 					<label for="text-1">Search for:</label>
 					<select id="searchFor">
 					<option value="patient">Patient</option>
 					<option value="practitioner">Practitioner</option>
-					</select>
-							
+					</select>		
 					<label for="text-1">Search by:</label>
-					<!-- <input type="text" name="username" id="username" value=""> -->
 					<select id="searchBy">
 					<option value="_id">ID</option>
 					<option value="name">Name</option>
-					<!-- <option value="family">Surname</option> -->
 					</select>
 					
 					<label for="text-1">Search value:</label>
-					<input type="text" name="query" id="query" value="">
-							
+					<input type="text" name="query" id="query" value="">	
 				</form>			
 
 				<input id="loginButton" type="submit" value="Search">		
@@ -75,27 +67,22 @@
 					</p>
 				</div>
 				
-<!-- 				<a href="#UploadPatientPage">Upload Patient</a>
- --><!-- 				<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a" data-disabled="false" class="ui-submit ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a" aria-disabled="false">
-					<span class="ui-btn-inner"><span class="ui-btn-text">Upload Patient</span></span>
-					<input id="UploadPatientPage" href="#UploadPatientPage" onclick="#UploadPatientPage" value="UploadPatient" class="ui-btn-hidden" data-disabled="false">
-				</div> -->
-				
 				</br>
 				<div data-role="popup" id="serverResponseDialog">
 					<!-- <img src="CSS/themes/images/ajax-loader.gif"> -->
 					<!-- <img src="images/loading.gif" width="1" height="1"> -->
 					<img src="images/loading2_crop4.gif">
-<!-- 					<p>Searching...<p> -->
 				</div>					
 					
 			</article>
 			
 	</div><!-- /page -->
 	
-		<div data-role="page" data-theme="a" id="UploadPatientPage">
 
-		<header data-role="header" >
+	<div data-role="page" data-theme="a" id="UploadPatientPage">
+
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1>Upload Patient Details</h1>
 		</header>
 		
@@ -123,14 +110,9 @@
 					<input type="text" name="county" id="county" value="">
 					<label for="text-1">Post Code:</label>
 					<input type="text" name="postcode" id="postcode" value="">
-					<!-- <input type="text" name="query" id="query" value="">		 -->	
 					<input id="patientUploadButton" type="submit" value="Upload Record">
 				</form>			
 
-						
-
-				<a href="index.html">Back</a>
-				
 				</br>
 				<div data-role="popup" id="serverResponseDialog">
 					<img src="images/loading2_crop4.gif">
@@ -139,9 +121,10 @@
 			</article>
 	</div><!-- /page -->
 	
-		<div data-role="page" data-theme="a" id="UploadCarePlan">
+	<div data-role="page" data-theme="a" id="UploadCarePlan">
 
 		<header data-role="header" >
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1>Add new care plan</h1>
 		</header>
 			<article data-role="content">
@@ -158,8 +141,6 @@
 					</div>
 					<input id="carePlanUploadButton" type="submit" value="Upload Care Plan">
 				</form>			
-
-				<a href="index.html">Home</a>
 				
 				</br>
 				<div data-role="popup" id="serverResponseDialog">
@@ -172,8 +153,9 @@
 	<div data-role="page" id="PatientListPage">
 
 		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1>Search Results</h1>
-		</header><!-- /header -->
+		</header>
 		
 		<div id="headerUnderBar"> 
 			<div id="wardDoctor"></div>
@@ -182,92 +164,55 @@
 		
 		<input type="text" id="searchPatients" />
 
+		<div data-role="popup" id="serverResponseLoading">
+			<img src="images/loading2_crop4.gif">
+		</div>	
 
-				<div data-role="popup" id="serverResponseLoading">
-					<img src="images/loading2_crop4.gif">
-					<!-- <p>Loading...<p> -->
-				</div>	
-		
-				<!--<ul id="patientRows">
-					<li>
-						<table class="tableContainer" cellspacing="0" cellpadding="0">
-							<tr class="red">
-								<td class="statusRed"></td>
-								<td class="picture" ><img src="images/faces/faceImageTest.png"></td>
-								<td class="name"><h1>BROWN, Stephen<h1> <p>14/11/1992</p> <p>1204552</p></</td>
-								<td class="doctor">DR. P SMITH</td>
-							</tr>
-							<tr>
-								<td colspan="4">
-									<table class="innerTable" >
-									<tr>
-										<td class="detailStatusRed"></td>
-										<td class="detailArrowDown"><img src="images/arrows/redArrowDown.png"></td>
-										<td class="innerTableCell"><h1>discharge</h1><img src="images/dischargeStatus/one.png"></td>
-										<td class="innerTableCell"><h1>VTE</h1><img src="images/alertStatus/clearStatus.png"></td>
-										<td class="innerTableCell"><h1>Diabetic</h1><img src="images/alertStatus/clearStatus.png"></td>
-										<td class="innerTableCell"><h1>Visitors</h1><img src="images/alertStatus/dangerStatus.png"></td>
-										<td class="innerTableCell"><h1>Nil by month</h1><img src="images/alertStatus/clearStatus.png"></td>
-										<td class="innerTableCell"><h1>Nut allergy</h1><img src="images/alertStatus/warningStatus.png"></td>
-										<td class="innerTableCell"><h1>Nut allergy</h1><img src="images/alertStatus/clearStatus.png"></td>
-									</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
-					</li>
-					<li>
-						<table class="tableContainer" cellspacing="0" cellpadding="0">
-							<tr class="orange">
-								<td class="status"></td>
-								<td class="picture" ><img src="images/faces/faceImageTest.png"></td>
-								<td class="name"><h1>WHITEBOARD, Mark<h1> <p>15/11/1992</p> <p>1245552</p></</td>
-								<td class="doctor">DR. P SMITH</td>
-							</tr>
-						</table>
-					</li>
-				</ul>	-->
+		<ul data-role="listview" data-inset="false" data-theme="a" id="patientRows">
+		</ul>
 
-				<ul data-role="listview" data-inset="false" data-theme="a" id="patientRows">
-				    
-				</ul>
 	</div><!-- /page -->
 	
 	
 	<div data-role="page" id="DiagnosticReportPage">
 
 		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="pageHeader">Diagnostic Report</h1>
-		</header><!-- /header -->
+		</header>
 		
 		<div id="headerUnderBar"> 
 			<div id="wardDoctor"></div>
 			<div id="wardTime"></div>
 		</div>	
-				<ul id="reportRows">
-				</ul>	
+		<ul id="reportRows">
+		</ul>	
 				
 		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="reportCollabsibleSet">
 		</div>
-		
-		
+
 	</div>
 	
 
 	<div data-role="page" id="CarePlanPage">
 
 		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="carePlanHeader">Care Plan</h1>
-		</header><!-- /header -->
+		</header>
 		
 		<div id="headerUnderBar"> 
 			<div id="wardDoctor"></div>
 			<div id="wardTime"></div>
 		</div>
 		<ul id="carePlanRows">
-		</ul>	
-				
-		<div data-role="collapsible-set" data-theme="a" data-content-theme="d" data-inset="false" id="carePlanCollabsibleSet">
+		</ul>
+
+		<div id="carePlanDiv">
+<!-- 			<div data-role="collapsible-set" data-theme="a" data-content-theme="d" data-inset="false" id="carePlanCollabsibleSet">
+			</div> -->
+		<div data-role="collapsible" data-theme="a" data-content-theme="d" data-inset="false" id="carePlanCollabsible">
+		</div>
 		</div>
 	</div>
 	
@@ -303,15 +248,7 @@
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Add Care Plan</a>
 			</p>
 		</div>
-
-<!-- 				<ul id="patientOverviewRow">
-
-				</ul>	
-			<br/>
-			<a href="#UploadCarePlan">Create New Care Plan</a><br/> -->
-<!-- 			<a href="#UploadDiagnosticReport">Create New Diagnostic Report</a> -->
-		
-	</div><!-- /page -->
+	</div>
 	
 	<script>
 		$('#addGoal').click(function() {
