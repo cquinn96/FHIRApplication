@@ -34,26 +34,28 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 
     //$('div[data-role=collapsible]').collapsible();
     
-    var $concernsC = $('<div data-role="collapsible" data-theme="b" data-collapsed="true"><h3>Current Concerns</h3><span id="concernSpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
+    var $concernsC = $('<div data-role="collapsible" data-theme="a" data-collapsed="true"><h3>Current Concerns</h3><span id="concernSpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
     $concernsC.collapsible();  
     
-    var $goalsC = $('<div data-role="collapsible" data-theme="b" data-collapsed="true"><h3>Current Goals</h3><span id="goalSpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
+    var $goalsC = $('<div data-role="collapsible" data-theme="a" data-collapsed="true"><h3>Current Goals</h3><span id="goalSpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
     $goalsC.collapsible();  
 
-    var $activitiesC = $('<div data-role="collapsible" data-theme="b" data-collapsed="true"><h3>Current Activities</h3><span id="activitySpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
+    var $activitiesC = $('<div data-role="collapsible" data-theme="a" data-collapsed="true"><h3>Current Activities</h3><span id="activitySpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
     $activitiesC.collapsible();  
     
     // List views
-    var $concernList = $('<ul data-role="listview" data-filter="false" data-theme="a" data-divider-theme="d" id="currentConcernsListView'+rowNumber+'"></ul>').appendTo($('#concernSpan'+rowNumber));
+    var $concernList = $('<ul data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentConcernsListView'+rowNumber+'"></ul>').appendTo($('#concernSpan'+rowNumber));
     $concernList.listview();
 
-    var $goalList = $('<ul data-role="listview" data-filter="false" data-theme="a" data-divider-theme="d" id="currentGoalsListView'+rowNumber+'"></ul>').appendTo($('#goalSpan'+rowNumber));
+    // var $goalList = $('<ol data-role="listview" data-inset="false" data-filter="false" data-theme="a" data-divider-theme="d" id="currentGoalsListView'+rowNumber+'"></ol>').appendTo($('#goalSpan'+rowNumber));
+    // $goalList.listview();
+
+    var $goalList = $('<ol data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentGoalsListView'+rowNumber+'"></ol>').appendTo($('#goalSpan'+rowNumber));
     $goalList.listview();
 
-    var $activityList = $('<ul data-role="listview" data-filter="false" data-theme="a" data-divider-theme="d" id="currentActivitesListView'+rowNumber+'"></ul>').appendTo($('#activitySpan'+rowNumber));
+    var $activityList = $('<ol data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentActivitesListView'+rowNumber+'"></ol>').appendTo($('#activitySpan'+rowNumber));
     $activityList.listview();
     
-    //$('#currentConcernsListView'+rowNumber).append('<li><a href="">concern 2</a></li>');
     //$myList.listview('refresh');
 
 	var content = entry.content;
@@ -62,7 +64,7 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 		for(var i =0; i < content.concern.length; i++)
 		{
 			var concern = content.concern[i].display;
-			$('#currentConcernsListView'+rowNumber).append('<li><a href="">'+concern+'</a></li>');
+			$('#currentConcernsListView'+rowNumber).append('<li>'+concern+'</li>');
 		}
 	}	
 
@@ -71,7 +73,8 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 		for(var i =0; i < content.goal.length; i++)
 		{
 			var goal = content.goal[i].description;
-			$('#currentGoalsListView'+rowNumber).append('<li><a href="">'+goal+'</a></li>');
+			// $('#currentGoalsListView'+rowNumber).append('<li><a href="">'+goal+'</a></li>');
+			$('#currentGoalsListView'+rowNumber).append('<li>'+goal+'</li>');
 		}
 	}
 				
@@ -92,7 +95,7 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 				date = date.substring(0,10);
 			}
 
-			$('#currentActivitesListView'+rowNumber).append('<li><a href="">'+activityDetails+'</a></li>');
+			$('#currentActivitesListView'+rowNumber).append('<li>'+activityDetails+'</li>');
 
 			// $('#carePlanListView'+rowNumber).append('<li><a href="">'+activityDetails+''+
 			// 		'<p class="ui-li-aside"><strong>'+date+'</strong></p>'+
