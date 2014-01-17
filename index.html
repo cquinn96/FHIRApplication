@@ -60,7 +60,7 @@
 				</form>			
 
 				<input id="loginButton" type="submit" value="Search">		
-				
+
 				<div style="height: 100%; text-align:center; ">
 					<p>
 						<a href="#UploadPatientPage" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b">Add Patient</a>
@@ -209,10 +209,6 @@
 		</ul>
 
 		<div id="carePlanDiv">
-<!-- 			<div data-role="collapsible-set" data-theme="a" data-content-theme="d" data-inset="false" id="carePlanCollabsibleSet">
-			</div> -->
-		<div data-role="collapsible" data-theme="a" data-content-theme="d" data-inset="false" id="carePlanCollabsible">
-		</div>
 		</div>
 	</div>
 	
@@ -230,12 +226,15 @@
 		</div>
 
 		<ul id="patientOverviewRow" data-role="listview" data-theme="b">
-				
 		</ul>
+
+		<div data-role="popup" id="serverResponseDialog2">
+			<img src="images/loading2_crop4.gif">
+		</div>		
 
 		<div style="height: 100%; text-align:center; ">
 			<p>
-	    		<a href="#popupDiagnosticReport" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="diagnosticReportClick();">Diagnostic Report</a>
+	    		<a href="#popupDiagnosticReport" class="show-page-loading-msg" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="diagnosticReportClick();">Diagnostic Report</a>
 	    		<div data-role="popup" id="popupDiagnosticReport">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have any diagnostic reports to show.</p>

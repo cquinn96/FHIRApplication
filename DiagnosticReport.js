@@ -40,55 +40,55 @@ function displayReportDiv(entry, reportTitle, rowNumber) {
 								'</tr>');
 }
 
-function displayReportLikeDiv(containedResults, reportTitle, rowNumber) {
-	appendReportTitle(reportTitle, rowNumber);
-	var textDiv = '<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\"> &#x0A;&#x0A;  <pre>&#x0A;';
-	textDiv +=  '<table><tr><th>SERUM/PLASMA</th><th>\t\tResult</th><th>\tUnits</th><th>\tReference Range</th>';
-	for (var i = 0; i < containedResults.length; i++){
-		textDiv += '<tr>';
+// function displayReportLikeDiv(containedResults, reportTitle, rowNumber) {
+// 	appendReportTitle(reportTitle, rowNumber);
+// 	var textDiv = '<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\"> &#x0A;&#x0A;  <pre>&#x0A;';
+// 	textDiv +=  '<table><tr><th>SERUM/PLASMA</th><th>\t\tResult</th><th>\tUnits</th><th>\tReference Range</th>';
+// 	for (var i = 0; i < containedResults.length; i++){
+// 		textDiv += '<tr>';
 		
-		if(containedResults[i].name != null)
-		{
-			var testName = containedResults[i].name.coding[0].display;
-			testName = testName.replace(' in Serum or Plasma', '');
-			textDiv += '<td>';
-			textDiv += testName;
-			textDiv += '</td>';
-		}
+// 		if(containedResults[i].name != null)
+// 		{
+// 			var testName = containedResults[i].name.coding[0].display;
+// 			testName = testName.replace(' in Serum or Plasma', '');
+// 			textDiv += '<td>';
+// 			textDiv += testName;
+// 			textDiv += '</td>';
+// 		}
 		
-		if(containedResults[i].valueQuantity != null)
-		{
-			if(containedResults[i].valueQuantity.value != null)
-			{
-				var value = containedResults[i].valueQuantity.value;
-				textDiv += '<td>';
-				textDiv += '\t\t' + value;
-				textDiv += '</td>';
-			}
-			if(containedResults[i].valueQuantity.units != null)
-			{
-				var units = containedResults[i].valueQuantity.units;
-				textDiv += '<td>';
-				textDiv += '\t' + units;
-				textDiv += '</td>';
-			}
-		}
-		if(containedResults[i].referenceRange != null)
-		{
-			var referenceRange = '(' + containedResults[i].referenceRange[0].low.value + ' - ' + containedResults[i].referenceRange[0].high.value + ')';
-			textDiv += '<td>';
-			textDiv += '\t' + referenceRange;
-			textDiv += '</td>';
-		}
-		textDiv += '</tr> &#x0A;';
-	}	
+// 		if(containedResults[i].valueQuantity != null)
+// 		{
+// 			if(containedResults[i].valueQuantity.value != null)
+// 			{
+// 				var value = containedResults[i].valueQuantity.value;
+// 				textDiv += '<td>';
+// 				textDiv += '\t\t' + value;
+// 				textDiv += '</td>';
+// 			}
+// 			if(containedResults[i].valueQuantity.units != null)
+// 			{
+// 				var units = containedResults[i].valueQuantity.units;
+// 				textDiv += '<td>';
+// 				textDiv += '\t' + units;
+// 				textDiv += '</td>';
+// 			}
+// 		}
+// 		if(containedResults[i].referenceRange != null)
+// 		{
+// 			var referenceRange = '(' + containedResults[i].referenceRange[0].low.value + ' - ' + containedResults[i].referenceRange[0].high.value + ')';
+// 			textDiv += '<td>';
+// 			textDiv += '\t' + referenceRange;
+// 			textDiv += '</td>';
+// 		}
+// 		textDiv += '</tr> &#x0A;';
+// 	}	
 	
-	textDiv += '</table></pre>&#x0A;</div>';
+// 	textDiv += '</table></pre>&#x0A;</div>';
 	
-	// $('#row'+rowNumber).append('<tr>'+
-								// '<td>'+textDiv+'</td>'+
-							// '</tr>');
-}
+// 	// $('#row'+rowNumber).append('<tr>'+
+// 								// '<td>'+textDiv+'</td>'+
+// 							// '</tr>');
+// }
 
 function displayReport(containedResults, reportTitle, rowNumber) {
 	appendReportTitle(reportTitle, rowNumber);
@@ -142,7 +142,6 @@ function displayReport(containedResults, reportTitle, rowNumber) {
 	$("#reportCollabsibleSet" ).collapsibleset( "refresh" );
 	$('#reportListView'+rowNumber).listview("refresh");	
 	//$('#report'+rowNumber).collapsibleset( "refresh" );
-
 }
 
 function appendReportTitle(reportTitle, rowNumber){
@@ -152,14 +151,11 @@ function appendReportTitle(reportTitle, rowNumber){
 										'<h2>' + reportTitle +'</h2>'+
 									'</div>'
 									);
-									
-	
-			
+										
 	$('#report'+rowNumber).append(
 							'<ul data-role="listview" data-theme="a" data-inset="false" data-filter="true" data-filter-theme="b" data-divider-theme="a" id="reportListView'+rowNumber+'">'+
 							'</ul>'
 							);
-	
 						
 	$( '#reportListView'+rowNumber).listview({
 	  create: function( event, ui ) {}
@@ -170,6 +166,4 @@ function appendReportTitle(reportTitle, rowNumber){
 	});
 						
 	$('#reportListView'+rowNumber).listview("refresh");
-	//$("#reportCollabsibleSet" ).collapsibleset( "refresh" );
-	//$('#report'+rowNumber).collapsibleset( "refresh" );
 }

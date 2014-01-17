@@ -26,6 +26,9 @@ function populateListOfPatients(entries) {
 		{
 			var hosNumber = entries[i].content.identifier[0].value;
 		}
+
+		if(dob == undefined)
+			dob = 'No data';
 		
 		var title = entries[i].title;
 		
@@ -188,7 +191,6 @@ function fetchAllResources(type, searchBy, query) {
 			//console.log(JSON.stringify(msg));
             if (msg.title == 'Search results for resource type Patient') {
 				//change page
-				//$( "#serverResponseDialog" ).popup( "open" );
 				$.mobile.changePage("index.html#PatientListPage");
 				populateListOfPatients(msg.entry);
 				//populateListOfPatients(msg.entry[0].content.Patient);
@@ -215,7 +217,6 @@ function fetchAllResources(type, searchBy, query) {
 	patientID = patientID;
 	name = patientName;
 	
-	$( "#serverResponseLoading" ).popup( "open" );
     $.ajax({
        type: "GET",
 	   //data: {'subject.name' : name},
@@ -226,7 +227,8 @@ function fetchAllResources(type, searchBy, query) {
             if (msg.title == 'Search results for resource type DiagnosticReport') {
             	if(msg.entry.length == 0)
 				{
-					$( "#popupDiagnosticReport" ).popup( "open" )
+					$.mobile.loading('hide');
+					$( "#popupDiagnosticReport" ).popup( "open" );
 				}
 				else
 				{
@@ -252,8 +254,6 @@ function fetchCarePlan(patientID, patientName) {
 	patientID = patientID;
 	name = patientName;
 
-	
-	$( "#serverResponseLoading" ).popup( "open" );
     $.ajax({
        type: "GET",
 	   //data: {'subject.name' : name},
@@ -263,7 +263,8 @@ function fetchCarePlan(patientID, patientName) {
             if (msg.title == 'Search results for resource type CarePlan') {
             	if(msg.entry.length == 0)
 				{
-					$( "#popupCarePlan" ).popup( "open" )
+					$.mobile.loading('hide');
+					$( "#popupCarePlan" ).popup( "open" );
 				}
 				else
 				{
@@ -301,7 +302,6 @@ var patientOverview = function fetchPatientOverview(patient, numEntries) {
 		}
 	}
 	
-	$( "#serverResponseLoading" ).popup( "open" );
     $.ajax({
        type: "GET",
 	   //data: {'subject.name' : name},
@@ -334,8 +334,9 @@ $(document).ready(function(){
     	var searchByDropDown = document.getElementById('searchBy');
 		var searchBy = searchByDropDown.options[searchByDropDown.selectedIndex].value;
 		var query =  document.getElementById('query').value;
-		$( "#serverResponseDialog" ).popup( "open" );
+		//$( "#serverResponseDialog" ).popup( "open" );
 		//var searchObject = { searchBy : query };	
+		$.mobile.loading('show');
 		fetchAllResources(searchFor, searchBy, query);
 		
 	});
@@ -364,6 +365,7 @@ $(document).ready(function(){
 	//function to handle the click of a cell in patient list.
 	$('#patientRows').on('click', 'li', function () {
 		console.log("cell has been clicked");
+		$.mobile.loading('show');
 		var selected_index = $(this).index();
 		console.log(selected_index);
 

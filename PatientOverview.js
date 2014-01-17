@@ -53,6 +53,15 @@ function populatePatientOverview(entry, patientInfo) {
 		}
 	}
 
+	if(address == undefined)
+			address = 'No data';
+
+	if(phoneNumber == undefined)
+		phoneNumber = 'No data';
+
+	if(dob == undefined)
+		dob = 'No data';
+
 	
 	$('#patientOverviewHeader').text(name);
 	//remove all items in list
@@ -81,19 +90,19 @@ function populatePatientOverview(entry, patientInfo) {
 }
 
 function diagnosticReportClick(){
-	console.log("Dig report button clicked pushing to new page");
+	$.mobile.loading('show');
+	console.log('popup should open');
 	//fetch diag report and change page 
 	fetchDiagnosticReport(patientID, name);
 }
 
 function carePlanClick(){
-	console.log("Care plan button clicked, pushing to new page");
+	$.mobile.loading('show');
 	//fetch care plan
 	fetchCarePlan(patientID,name);
 }
 
 function addCarePlan(){
-	console.log("Add care plan button clicked, pushing to new page");
 	//fetch care plan
 	gotoCarePlanUploadPage(patientID,name)
 }
