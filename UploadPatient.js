@@ -160,14 +160,10 @@ function uploadPatient(event){
 }
 
 function fetchPatientOverviewAfterUpload(patient) {
-	name = patient.value;
 	patientID = patient.key;
-	//$( "#serverResponseLoading" ).popup( "open" );
     $.ajax({
        type: "GET",
-	   //data: {'subject.name' : name},
 	   dataType: 'json',
-       //url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?name='+name+'&_format=json',
        url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?_id='+patientID+'&_format=json',
        success: function(msg, status) {   		
             if (msg.title == 'Search results for resource type Patient') {

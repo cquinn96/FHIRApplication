@@ -4,6 +4,8 @@ function displayReports(entries, totalReports, name) {
 	$('#reportCollabsibleSet').children('div').remove();
 	if(entries.length == 0)
 	{
+
+		// doesnt go in here, added popup instead
 		$('#reportRows').append('<li>'+
 				'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
 					'<tr class="orange">'+
@@ -34,10 +36,13 @@ function displayReports(entries, totalReports, name) {
 //There is no contained, so only show the 'div' value returned
 function displayReportDiv(entry, reportTitle, rowNumber) {
 	appendReportTitle(reportTitle, rowNumber);
+
+	$('#report'+rowNumber).append('<p>'+entry.content.text.div+'</p>');
+	$("#reportCollabsibleSet" ).collapsibleset( "refresh" );
 							
-	$('#row'+rowNumber).append('<tr>'+
-									'<td>'+entry.content.text.div+'</td>'+
-								'</tr>');
+	// $('#row'+rowNumber).append('<tr>'+
+	// 								'<td>'+entry.content.text.div+'</td>'+
+	// 							'</tr>');
 }
 
 // function displayReportLikeDiv(containedResults, reportTitle, rowNumber) {
@@ -92,6 +97,25 @@ function displayReportDiv(entry, reportTitle, rowNumber) {
 
 function displayReport(containedResults, reportTitle, rowNumber) {
 	appendReportTitle(reportTitle, rowNumber);
+
+	$('#report'+rowNumber).append(
+							'<ul data-role="listview" data-theme="a" data-inset="false" data-filter="true" data-filter-theme="b" data-divider-theme="a" id="reportListView'+rowNumber+'">'+
+							'</ul>'
+							);
+						
+	$( '#reportListView'+rowNumber).listview();				
+	// $( '#reportListView'+rowNumber).listview({
+	//   create: function( event, ui ) {}
+	// });
+
+	// $('#reportCollabsible'+rowNumber).collapsibleset({
+	//    create: function(event, ui) {}
+	// });
+						
+	//$('#reportListView'+rowNumber).listview("refresh");
+
+
+
 	for (var i = 0; i < containedResults.length; i++){
 		
 		if(containedResults[i].name != null)
@@ -144,26 +168,10 @@ function displayReport(containedResults, reportTitle, rowNumber) {
 	//$('#report'+rowNumber).collapsibleset( "refresh" );
 }
 
-function appendReportTitle(reportTitle, rowNumber){
-										
+function appendReportTitle(reportTitle, rowNumber){									
 	$('#reportCollabsibleSet').append(
 									'<div data-role="collapsible" id="report'+rowNumber+'">'+
 										'<h2>' + reportTitle +'</h2>'+
 									'</div>'
 									);
-										
-	$('#report'+rowNumber).append(
-							'<ul data-role="listview" data-theme="a" data-inset="false" data-filter="true" data-filter-theme="b" data-divider-theme="a" id="reportListView'+rowNumber+'">'+
-							'</ul>'
-							);
-						
-	$( '#reportListView'+rowNumber).listview({
-	  create: function( event, ui ) {}
-	});
-
-	$('#reportCollabsible'+rowNumber).collapsibleset({
-	   create: function(event, ui) {}
-	});
-						
-	$('#reportListView'+rowNumber).listview("refresh");
 }

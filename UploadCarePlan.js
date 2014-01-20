@@ -4,8 +4,8 @@ var request;
 function uploadCarePlan(event){
 
 	console.log('>>> uploadCarePlan()');
-	console.log(patientID);
-	console.log(name);
+	// console.log(patientID);
+	// console.log(name);
 
     // abort any pending request
     if (request) {
@@ -137,6 +137,15 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
 		console.log(jqXHR.getResponseHeader('Content-Location'));
 		console.log(jqXHR.getAllResponseHeaders());
 		//fetchPatientOverviewAfterUpload(patient);
+
+
+        var patient = { 
+        key: patientID,
+        value: name,
+        dob: dob,
+        hosNumber: hosNumber};
+
+        patientOverview(patient);
     });
 
     // callback handler that will be called on failure
@@ -162,7 +171,7 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
 }
 
 function fetchCarePlanAfterUpload(patient) {
-	name = patient.value;
+	patientID = patient.key;
     $.ajax({
        type: "GET",
 	   dataType: 'json',
@@ -173,7 +182,7 @@ function fetchCarePlanAfterUpload(patient) {
 				populatePatientOverview(msg.entry[0], patient);	
             }
             else {
-                // Login request failed
+                // Request failed
 				document.write('failed');
 			}
         },

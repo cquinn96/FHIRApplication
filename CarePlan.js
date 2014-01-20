@@ -20,8 +20,6 @@ function populateCarePlanRows(entries, totalCarePlans, name) {
 	}
 }
 
-
-
 function displayCarePlan(entry, reportTitle, rowNumber) {
 
     $('#carePlanDiv').append(
@@ -31,9 +29,7 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
     '</div>');
 
     $('#carePlanCollabsible'+rowNumber).collapsible();
-
-    //$('div[data-role=collapsible]').collapsible();
-    
+  
     var $concernsC = $('<div data-role="collapsible" data-theme="a" data-collapsed="true"><h3>Current Concerns</h3><span id="concernSpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
     $concernsC.collapsible();  
     
@@ -46,9 +42,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
     // List views
     var $concernList = $('<ul data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentConcernsListView'+rowNumber+'"></ul>').appendTo($('#concernSpan'+rowNumber));
     $concernList.listview();
-
-    // var $goalList = $('<ol data-role="listview" data-inset="false" data-filter="false" data-theme="a" data-divider-theme="d" id="currentGoalsListView'+rowNumber+'"></ol>').appendTo($('#goalSpan'+rowNumber));
-    // $goalList.listview();
 
     var $goalList = $('<ol data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentGoalsListView'+rowNumber+'"></ol>').appendTo($('#goalSpan'+rowNumber));
     $goalList.listview();

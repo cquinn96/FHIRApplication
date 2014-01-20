@@ -1,17 +1,21 @@
-function populatePatientOverview(entry, patientInfo) {
+function populatePatientOverview(entry) {
 
-	var title = entry.title;
-	var patientID = patientInfo.key;
-	var name = patientInfo.value;
-	var dob = patientInfo.dob;
-	var hosNumber = patientInfo.hosNumber;
-		
-	// Gets the patient ID
-	// var patientID = title.match(/"([^"]+)"/)[1];
+	// calls getPatientDetials in EventHandlers.js
+	var patient = getPatientDetails(entry);
+	
+	var patientID = patient.key;
+	var name = patient.value;
+	var dob = patient.dob;
+	var hosNumber = patient.hosNumber;
+
+	// var title = entry.title;
+	// var patientID = patient.key;
+	// var name = patient.value;
+	// var dob = patient.dob;
+	// var hosNumber = patient.hosNumber;
 	
 	
 	if(entry.content.telecom != null) {
-		console.log('theres a telephone number');
 		var phoneNumber = entry.content.telecom[0].value;
 		var phoneNumberUse = entry.content.telecom[0].use;
 	}
@@ -91,22 +95,25 @@ function populatePatientOverview(entry, patientInfo) {
 
 function diagnosticReportClick(){
 	$.mobile.loading('show');
-	console.log('popup should open');
 	//fetch diag report and change page 
-	fetchDiagnosticReport(patientID, name);
+	//fetchDiagnosticReport(patientID, name);
+	fetchResourceByPatientID(patientID, name, 'Diagnosticreport');
 }
 
 function carePlanClick(){
 	$.mobile.loading('show');
 	//fetch care plan
-	fetchCarePlan(patientID,name);
+    //fetchCarePlan(patientID, name);
+	fetchResourceByPatientID(patientID, name, 'careplan');
+
+	//fetchResourceByPatientID(patient, 'careplan');
 }
 
 function addCarePlan(){
 	//fetch care plan
-	gotoCarePlanUploadPage(patientID,name)
+	gotoCarePlanUploadPage();
 }
 
-function gotoCarePlanUploadPage(patientID,name) {
+function gotoCarePlanUploadPage() {
 	$.mobile.changePage("index.html#UploadCarePlan");
 }
