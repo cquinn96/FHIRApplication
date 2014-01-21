@@ -1,23 +1,27 @@
-function populateCarePlanRows(entries, totalCarePlans, name) {
-	$('#carePlanHeader').text('Results for: ' + name + ' (' + totalCarePlans + ' found)');
+function populateCarePlanRows(entries, totalCarePlans) {
+
+	//var name = entries[0].content.patient.display;
+
+	//$('#carePlanHeader').text('Results for: ' + name + ' (' + totalCarePlans + ' found)');
+	$('#carePlanHeader').text(totalCarePlans + ' care plan(s) found');
 	$('#carePlanDiv').children('div').remove();
-	if(entries.length == 0)
-	{
-		$('#carePlanRows').append('<li>'+
-				'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-					'<tr class="orange">'+
-						'<td class="status"></td>'+
-						'<td class="name"><h2>No care plan found for '+ name + '.<h2></td>'+
-					'</tr>'+
-					'<tr>');
-	}
-	else
-	{
+	// if(entries.length == 0)
+	// {
+	// 	$('#carePlanRows').append('<li>'+
+	// 			'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
+	// 				'<tr class="orange">'+
+	// 					'<td class="status"></td>'+
+	// 					'<td class="name"><h2>No care plan found for '+ name + '.<h2></td>'+
+	// 				'</tr>'+
+	// 				'<tr>');
+	// }
+	// else
+	// {
 		for(var i = 0; i < entries.length; i++)
 		{
 			displayCarePlan(entries[i], entries[i].title, i);
 		}
-	}
+	// }
 }
 
 function displayCarePlan(entry, reportTitle, rowNumber) {

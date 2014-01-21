@@ -1,20 +1,21 @@
-function displayReports(entries, totalReports, name) {
-	$('#pageHeader').text('Results for: ' + name + ' (' + totalReports + ' reports found)');
+function displayReports(entries, totalReports) {
+	// $('#pageHeader').text('Results for: ' + name + ' (' + totalReports + ' reports found)');
 	
 	$('#reportCollabsibleSet').children('div').remove();
-	if(entries.length == 0)
-	{
+	$('#pageHeader').text(totalReports + ' report(s) found');
+	// if(entries.length == 0)
+	// {
 
-		// doesnt go in here, added popup instead
-		$('#reportRows').append('<li>'+
-				'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-					'<tr class="orange">'+
-						'<td class="status"></td>'+
-						'<td class="name"><h2>No report found for '+ name + '.<h2></td>'+
-					'</tr>'+
-					'<tr>');
-	}
-	else {
+	// 	// doesnt go in here, added popup instead
+	// 	$('#reportRows').append('<li>'+
+	// 			'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
+	// 				'<tr class="orange">'+
+	// 					'<td class="status"></td>'+
+	// 					'<td class="name"><h2>No report found for '+ name + '.<h2></td>'+
+	// 				'</tr>'+
+	// 				'<tr>');
+	// }
+	// else {
 		for(var i = 0; i < entries.length; i++)
 		{
 			if(entries[i].content.contained != null)
@@ -30,7 +31,7 @@ function displayReports(entries, totalReports, name) {
 				displayReportDiv(entries[i], entries[i].title, i);
 			}
 		}
-	}
+	// }
 }
 
 //There is no contained, so only show the 'div' value returned

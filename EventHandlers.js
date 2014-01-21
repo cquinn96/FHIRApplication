@@ -38,52 +38,20 @@ function getPatientDetails(entry){
 function populateListOfPatients(entries) {
 	$('#patientRows').children('li').remove();
 	for (var i = 0; i < entries.length; i++){
-		
-		// if(entries[i].content.name[0].given != null && entries[i].content.name[0].family != null)
-		// {
-		// 	var name = entries[i].content.name[0].given[0] + ' ' + entries[i].content.name[0].family[0];
-		// }
-		
-		// if(name == undefined)
-		// 	continue;
-		
-		// if(entries[i].content.birthDate != null)
-		// {
-		// 	var dob = entries[i].content.birthDate;
-		// }
-		// if(entries[i].content.identifier != null)
-		// {
-		// 	var hosNumber = entries[i].content.identifier[0].value;
-		// }
-
-		// if(dob == undefined)
-		// 	dob = 'No data';
-		
-		// var title = entries[i].title;
-		
-		// // Gets the patient ID
-		// var patientID = title.match(/"([^"]+)"/)[1];
-
-
-		// patientArray[i] = { 
-		// 	key: patientID,
-		// 	value: name,
-		// 	dob: dob,
-		// 	hosNumber: hosNumber};
-
 
 		var patient = getPatientDetails(entries[i]);
-		patientArray[i] = patient;
 
-		name = patient.value;
 		patientID = patient.key;
+		name = patient.value;
 		dob = patient.dob;
 		hosNumber = patient.hosNumber;
 
 		if(name == undefined)
 			continue;
 
-		
+
+		patientArray[i] = patient;
+
 		// var status;
 		// //var identifier = entries[i].content.Patient.identifier[0].label.value;
 		// if(entries[i].summary != null)
@@ -122,19 +90,6 @@ function populateListOfPatients(entries) {
 
 		$("#patientRows").listview("refresh");
 		
-
-		
-		// $('#diagnosticReport'+i).click(function() {
-		// // Gets the last few digits of the Diagnostic Report ID link
-		// 	var pos = this.id.substring(16);
-		// 	diagnosticReport(patientArray[pos], entries.length);
-		// });
-		
-		// $('#carePlan'+i).click(function() {
-		// 	var pos = this.id.substring(8);
-		// 	carePlan(patientArray[pos], entries.length);
-		// });
-		
 		// $('#patientOverview'+i).click(function() {
 		// 	var pos = this.id.substring(15);
 		// 	patientOverview(patientArray[pos], entries.length);
@@ -153,18 +108,7 @@ function populateListOfPractitioners(entries) {
 	$('#patientRows').children('li').remove();
 	for (var i = 0; i < entries.length; i++) {
 		
-		//var name = entries[i].content.name.given[0].value + ' ' + entries[i].content.name.family[0].value;
-		
-		//if(entries[i].content.name.text != null)
-		//{
-		//	var name = entries[i].content.name.text;
-		//}
-		
-		//if it's the old way
-		//if(name == undefined)
-		//{
-			var name = entries[i].content.name.given[0] + ' ' + entries[i].content.name.family[0];
-		//}
+		var name = entries[i].content.name.given[0] + ' ' + entries[i].content.name.family[0];
 		
 		if(entries[i].content.gender != null)
 		{
@@ -197,7 +141,7 @@ function populateListOfPractitioners(entries) {
 }
 
 //fetch a list of patients from server
-function fetchAllResources(type, searchBy, query) {
+function fetchAllResourcesOLD(type, searchBy, query) {
     $.ajax({
        type: "GET",
 	   dataType: 'json',
@@ -206,9 +150,25 @@ function fetchAllResources(type, searchBy, query) {
 			//console.log(JSON.stringify(msg));
             if (msg.title == 'Search results for resource type Patient') {
 				//change page
+     //            $.getJSON('http://fhir.beltech2014.com/JSON/allPatients.json', function(json) {
+					// console.log('Getting json 2');
+     //                console.log(json);
+     //            });
+
+  				// var url = 'http://fhir.beltech2014.com/JSON/allPatients.json';
+
+			   //  $.get(url, function (data) {
+			   //    console.log('success');
+			   //    console.log(data.entry);
+			   //    $.mobile.changePage("index.html#PatientListPage");
+				  // populateListOfPatients(data.entry);
+			   //    //var obj = $.parseJSON(data);
+			   //    //console.log(obj);
+			   //  });
+
+
 				$.mobile.changePage("index.html#PatientListPage");
 				populateListOfPatients(msg.entry);
-				//populateListOfPatients(msg.entry[0].content.Patient);
 				//document.write(JSON.stringify(msg.entry[0].content.Patient));
             }
 			else if (msg.title == 'Search results for resource type Practitioner'){
@@ -217,12 +177,18 @@ function fetchAllResources(type, searchBy, query) {
 			}
             else {
                 // Request failed
-				document.write('failed');
+				alert('Oops, something went wrong');
 			}
         },
         error: function (msg) {
             // search request failed
-			document.write(JSON.stringify(msg, 2));
+			//document.write(JSON.stringify(msg, 2));
+			console.log('Server is Down');
+			alert('Server is down, accessing local patient information instead');
+		    $.getJSON('/JSON/allPatients.json', function(json) {
+                $.mobile.changePage("index.html#PatientListPage");
+			    populateListOfPatients(json.entry);
+            });
         }
     });
 }
@@ -241,9 +207,6 @@ function fetchResourceByPatientID(patientID, name, resource) {
 	if(resource == 'patient')
 		searchFor = '_id';
 
-	console.log(name);
-	console.log(patientID);
-
     $.ajax({
        type: "GET",
 	   dataType: 'json',
@@ -258,7 +221,7 @@ function fetchResourceByPatientID(patientID, name, resource) {
 				else
 				{
 					$.mobile.changePage("index.html#CarePlanPage");
-					populateCarePlanRows(msg.entry, msg.totalResults, name);
+					populateCarePlanRows(msg.entry, msg.totalResults);
 				}
             }
             else if (msg.title == 'Search results for resource type DiagnosticReport') {
@@ -270,7 +233,7 @@ function fetchResourceByPatientID(patientID, name, resource) {
 				else
 				{
 					$.mobile.changePage("index.html#DiagnosticReportPage");
-					displayReports(msg.entry, msg.totalResults, name);
+					displayReports(msg.entry, msg.totalResults);
 				}
             }
             else if (msg.title == 'Search results for resource type Patient') {
@@ -278,48 +241,115 @@ function fetchResourceByPatientID(patientID, name, resource) {
 				populatePatientOverview(msg.entry[0]);	
             }
             else {
-                // Login request failed
-				document.write('failed');
+                // Request failed
+				alert('Oops, something went wrong');
 			}
         },
         error: function (msg) {
             // search request failed
-			document.write(JSON.stringify(msg, 2));
+			//document.write(JSON.stringify(msg, 2));
+			console.log('Request to server failed');
+			//alert('Server is down, accessing local patient information instead');
+		    $.getJSON('/JSON/patientOverview1.json', function(json) {
+                $.mobile.changePage("index.html#PatientOverviewPage");
+			    populateListOfPatients(json.entry);
+            });
         }
     });
 }
 
+function fetchAllResources(resource, searchFor, query, initialSearch) {
+	console.log('test');
+	// Searching for a Care Plan
+	//var searchFor = 'patient._id'
 
-var patientOverview = function fetchPatientOverview(patient) {
+	// Searching for a Diagnostic Report
+	//if(resource == 'Diagnosticreport')
+		//searchFor = 'subject._id';
 
-	patientID = patient.key; 
-	name = patient.value;
-	console.log('in fetchPatientOverview()' + name);
+	// Searching for patient overview
+	//if(resource == 'patient')
+		//searchFor = '_id';
 
     $.ajax({
        type: "GET",
-	   //data: {'subject.name' : name},
 	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?_id='+patientID+'&_format=json',
-       success: function(msg, status) {   		
-            if (msg.title == 'Search results for resource type Patient') {
-				$.mobile.changePage("index.html#PatientOverviewPage");
-				populatePatientOverview(msg.entry[0]);	
-            }
-            else {
-                // Request failed
-				document.write('failed');
+       url: 'http://hl7connect.healthintersections.com.au/open/'+resource+'/_search?'+searchFor+'='+query+'&_format=json',
+       success: function(msg, status) {   	
+       		if(initialSearch) {
+	            if (msg.title == 'Search results for resource type Patient') {
+					$.mobile.changePage("index.html#PatientListPage");
+					populateListOfPatients(msg.entry);
+	            }
+				else if (msg.title == 'Search results for resource type Practitioner'){
+					$.mobile.changePage("index.html#PatientListPage");
+					populateListOfPractitioners(msg.entry);
+				}
+	            else {
+	                // Request failed
+					alert('Oops, something went wrong');
+				}
+       		}
+       		else {
+	            if (msg.title == 'Search results for resource type CarePlan') {
+	            	if(msg.entry.length == 0)
+					{
+						$.mobile.loading('hide');
+						$( "#popupCarePlan" ).popup( "open" );
+					}
+					else
+					{
+						$.mobile.changePage("index.html#CarePlanPage");
+						populateCarePlanRows(msg.entry, msg.totalResults);
+					}
+	            }
+	            else if (msg.title == 'Search results for resource type DiagnosticReport') {
+	            	if(msg.entry.length == 0)
+					{
+						$.mobile.loading('hide');
+						$( "#popupDiagnosticReport" ).popup( "open" );
+					}
+					else
+					{
+						$.mobile.changePage("index.html#DiagnosticReportPage");
+						displayReports(msg.entry, msg.totalResults);
+					}
+	            }
+	            else if (msg.title == 'Search results for resource type Patient') {
+					$.mobile.changePage("index.html#PatientOverviewPage");
+					populatePatientOverview(msg.entry[0]);	
+	            }
+	            else {
+	                // Request failed
+					alert('Oops, something went wrong');
+				}
 			}
         },
         error: function (msg) {
             // search request failed
-			document.write(JSON.stringify(msg, 2));
+			//document.write(JSON.stringify(msg, 2));
+			console.log('Server is Down');
+			if(initialSearch){
+				alert('Server is down, accessing local patient information instead');
+			    $.getJSON('/JSON/allPatients.json', function(json) {
+	                $.mobile.changePage("index.html#PatientListPage");
+				    populateListOfPatients(json.entry);
+	            });
+			}
+			else {
+				console.log('Request to server failed');
+			    $.getJSON('/JSON/patientOverview1.json', function(json) {
+	                $.mobile.changePage("index.html#PatientOverviewPage");
+				    populatePatientOverview(json.entry);	
+	            });
+			}
         }
     });
 }
 
 $(document).ready(function(){
 	//run after the page has loaded. 
+
 	//search button has a click/touch
 	$('#loginButton').bind('vmousedown', function () {
 		var searchForDropDown = document.getElementById('searchFor');
@@ -331,20 +361,8 @@ $(document).ready(function(){
 		//$( "#serverResponseDialog" ).popup( "open" );
 		//var searchObject = { searchBy : query };	
 		$.mobile.loading('show');
-		fetchAllResources(searchFor, searchBy, query);
-		
+		fetchAllResources(searchFor, searchBy, query, true);	
 	});
-	
-	// $('#patientUploadButton').bind('vmousedown', function () {
-    	// var genderDropDown = document.getElementById('gender');
-		// var gender = genderDropDown.options[genderDropDown.selectedIndex].value;
-		
-		// var name =  document.getElementById('name').value;
-		
-		// $( "#serverResponseDialog" ).popup( "open" );
-
-		// uploadPatient(name, gender);	
-	// });
 
 	// bind to the submit event of our form
 	$("#patientUploadForm").submit(function() {
@@ -357,17 +375,14 @@ $(document).ready(function(){
 
 	//function to handle the click of a cell in patient list.
 	$('#patientRows').on('click', 'li', function () {
-		console.log("cell has been clicked");
 		$.mobile.loading('show');
 		var selected_index = $(this).index();
-		console.log(selected_index);
+		name = patientArray[selected_index].value;
+		patientID = patientArray[selected_index].key
 
-		console.log(patientArray[selected_index].value);
-
-		patientOverview(patientArray[selected_index]);
-		//fetchResourceByPatientID(patientArray[selected_index].key, patientArray[selected_index].value,  'patient');
+		//patientOverview(patientArray[selected_index]);
+		fetchResourceByPatientID(patientID, name,  'patient');
 	});
-	
 })
 
 function goBack() {

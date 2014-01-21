@@ -145,7 +145,12 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
         dob: dob,
         hosNumber: hosNumber};
 
-        patientOverview(patient);
+        console.log(patientID);
+        console.log(name);
+
+        fetchResourceByPatientID(patientID, name,  'patient');
+
+        //patientOverview(patient);
     });
 
     // callback handler that will be called on failure

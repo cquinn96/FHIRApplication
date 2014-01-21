@@ -1,0 +1,2941 @@
+{
+    "resourceType": "Bundle",
+    "title": "Search results for resource type Patient",
+    "id": "urn:uuid:29482bf9-6b8a-4081-9206-e428ff5d29",
+    "link": [
+        {
+            "href": "http://hl7connect.healthintersections.com.au/open/",
+            "rel": "fhir-base"
+        },
+        {
+            "href": "http://hl7connect.healthintersections.com.au/open/Patient/_search?_format=application/json+fhir&search-id=1152af7c-0421-44f0-ad41-73479705ca&search-sort=_id",
+            "rel": "self"
+        },
+        {
+            "href": "http://hl7connect.healthintersections.com.au/open/Patient/_search?_format=application/json+fhir&search-id=1152af7c-0421-44f0-ad41-73479705ca&search-sort=_id&search-offset=0&_count=50",
+            "rel": "first"
+        },
+        {
+            "href": "http://hl7connect.healthintersections.com.au/open/Patient/_search?_format=application/json+fhir&search-id=1152af7c-0421-44f0-ad41-73479705ca&search-sort=_id&search-offset=50&_count=50",
+            "rel": "next"
+        },
+        {
+            "href": "http://hl7connect.healthintersections.com.au/open/Patient/_search?_format=application/json+fhir&search-id=1152af7c-0421-44f0-ad41-73479705ca&search-sort=_id&search-offset=358&_count=50",
+            "rel": "last"
+        }
+    ],
+    "updated": "2014-01-21T11:42:15Z",
+    "totalResults": "408",
+    "entry": [
+        {
+            "title": "Patient \"000241272\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/000241272",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/000241272/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-16T22:51:36Z",
+            "author": [
+                {
+                    "name": "174.76.81.250"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient HEATHER  CHEN (00234321): Female, born 19880811.&#x0A;      &#x0A;      &#x0A;      \r\n  <br/>Address: 4491 HILL HAVEN DRIVE, NEW ORLEANS LA 70334</div>"
+                },
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "label": "mrn",
+                        "system": "http://www.health.acme.com/GENHOS/patients",
+                        "value": "00234321"
+                    },
+                    {
+                        "use": "official",
+                        "label": "ssn",
+                        "system": "urn:hl7-org:sid/us-ssn",
+                        "value": "436-38-7333"
+                    },
+                    {
+                        "label": "account",
+                        "system": "http://www.health.acme.com/accounts",
+                        "value": "436-38-7333"
+                    }
+                ],
+                "name": [
+                    {
+                        "text": "HEATHER  CHEN",
+                        "family": [
+                            "CHEN"
+                        ],
+                        "given": [
+                            "HEATHER"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "504-321-2072",
+                        "use": "home"
+                    },
+                    {
+                        "system": "phone",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ],
+                    "text": "F"
+                },
+                "address": [
+                    {
+                        "text": "4491 HILL HAVEN DRIVE\\r\\nNEW ORLEANS LA 70334",
+                        "line": [
+                            "4491 HILL HAVEN DRIVE"
+                        ],
+                        "city": "NEW ORLEANS",
+                        "state": "LA",
+                        "zip": "70334"
+                    }
+                ],
+                "maritalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/MaritalStatus",
+                            "code": "S",
+                            "display": "Single"
+                        }
+                    ],
+                    "text": "S"
+                }
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient HEATHER  CHEN (00234321): Female, born 19880811.&#x0A;      &#x0A;      &#x0A;      \r\n  <br/>Address: 4491 HILL HAVEN DRIVE, NEW ORLEANS LA 70334</div>"
+        }, 
+        {
+            "title": "Patient \"000368825\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/000368825",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/000368825/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-16T22:51:32Z",
+            "author": [
+                {
+                    "name": "174.76.81.250"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient KAREEM J BENNETT (00003457): Male, born 19301010.&#x0A;      &#x0A;      &#x0A;      \r\n  <br/>Address: 3603 MARSHVILLE RD., POUGHKEEPSIE NY 12601</div>"
+                },
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "label": "mrn",
+                        "system": "http://www.health.acme.com/GENHOS/patients",
+                        "value": "00003457"
+                    },
+                    {
+                        "use": "official",
+                        "label": "ssn",
+                        "system": "urn:hl7-org:sid/us-ssn",
+                        "value": "108-68-1880"
+                    },
+                    {
+                        "label": "account",
+                        "system": "http://www.health.acme.com/accounts",
+                        "value": "108-68-1880"
+                    }
+                ],
+                "name": [
+                    {
+                        "text": "KAREEM J BENNETT",
+                        "family": [
+                            "BENNETT"
+                        ],
+                        "given": [
+                            "KAREEM",
+                            "J"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "845-673-1816",
+                        "use": "home"
+                    },
+                    {
+                        "system": "phone",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ],
+                    "text": "M"
+                },
+                "address": [
+                    {
+                        "text": "3603 MARSHVILLE RD.\\r\\nPOUGHKEEPSIE NY 12601",
+                        "line": [
+                            "3603 MARSHVILLE RD."
+                        ],
+                        "city": "POUGHKEEPSIE",
+                        "state": "NY",
+                        "zip": "12601"
+                    }
+                ],
+                "maritalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/MaritalStatus",
+                            "code": "M",
+                            "display": "Married"
+                        }
+                    ],
+                    "text": "M"
+                }
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient KAREEM J BENNETT (00003457): Male, born 19301010.&#x0A;      &#x0A;      &#x0A;      \r\n  <br/>Address: 3603 MARSHVILLE RD., POUGHKEEPSIE NY 12601</div>"
+        },
+        {
+            "title": "Patient \"000541508\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/000541508",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/000541508/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-16T22:51:34Z",
+            "author": [
+                {
+                    "name": "174.76.81.250"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient INDIANYA  WATTS (00136674): Female, born 19880811.&#x0A;      &#x0A;      &#x0A;      \r\n  <br/>Address: 1403 W PALMETTO ST, HAMMOND LA 70403</div>"
+                },
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "label": "mrn",
+                        "system": "http://www.health.acme.com/GENHOS/patients",
+                        "value": "00136674"
+                    },
+                    {
+                        "use": "official",
+                        "label": "ssn",
+                        "system": "urn:hl7-org:sid/us-ssn",
+                        "value": "437-71-6785"
+                    },
+                    {
+                        "label": "account",
+                        "system": "http://www.health.acme.com/accounts",
+                        "value": "437-71-6785"
+                    }
+                ],
+                "name": [
+                    {
+                        "text": "INDIANYA  WATTS",
+                        "family": [
+                            "WATTS"
+                        ],
+                        "given": [
+                            "INDIANYA"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "985-981-9268",
+                        "use": "home"
+                    },
+                    {
+                        "system": "phone",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ],
+                    "text": "F"
+                },
+                "address": [
+                    {
+                        "text": "1403 W PALMETTO ST\\r\\nHAMMOND LA 70403",
+                        "line": [
+                            "1403 W PALMETTO ST"
+                        ],
+                        "city": "HAMMOND",
+                        "state": "LA",
+                        "zip": "70403"
+                    }
+                ],
+                "maritalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/MaritalStatus",
+                            "code": "S",
+                            "display": "Single"
+                        }
+                    ],
+                    "text": "S"
+                }
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient INDIANYA  WATTS (00136674): Female, born 19880811.&#x0A;      &#x0A;      &#x0A;      \r\n  <br/>Address: 1403 W PALMETTO ST, HAMMOND LA 70403</div>"
+        },
+        {
+            "title": "Patient \"1\" Version \"2\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/1",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/1/_history/2",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-19T03:30:18Z",
+            "author": [
+                {
+                    "name": "71.42.241.103"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Everywoman, Eve. SSN:&#x0A;            444222222</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "http://hl7.org/fhir/sid/us-ssn",
+                        "value": "444222222"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Everywoman"
+                        ],
+                        "given": [
+                            "Eve"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-555-2003",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F"
+                        }
+                    ]
+                },
+                "birthDate": "1973-05-31",
+                "address": [
+                    {
+                        "use": "home",
+                        "line": [
+                            "2222 Home Street"
+                        ]
+                    }
+                ],
+                "managingOrganization": {
+                    "reference": "Organization/hl7"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Everywoman, Eve. SSN:&#x0A;            444222222</div>"
+        },
+        {
+            "title": "Patient \"10\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/10",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/10/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:41:08Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Betterhalf, Boris. SSN:&#x0A;            444888888</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "http://hl7.org/fhir/sid/us-ssn",
+                        "value": "444888888"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Betterhalf"
+                        ],
+                        "given": [
+                            "Boris"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-555-2008",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M"
+                        }
+                    ]
+                },
+                "address": [
+                    {
+                        "use": "home",
+                        "line": [
+                            "2222 Home Street"
+                        ]
+                    }
+                ],
+                "managingOrganization": {
+                    "reference": "Organization/hl7"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Betterhalf, Boris. SSN:&#x0A;            444888888</div>"
+        },
+        {
+            "title": "Patient \"100\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/100",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/100/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:51Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Garrett, Gordon. MRN:&#x0A;            577419</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577419"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Garrett"
+                        ],
+                        "given": [
+                            "Gordon"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1935-05-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Garrett, Gordon. MRN:&#x0A;            577419</div>"
+        },
+        {
+            "title": "Patient \"101\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/101",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/101/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:51Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Lamb, Greg. MRN:&#x0A;            577420</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577420"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Lamb"
+                        ],
+                        "given": [
+                            "Greg"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1938-08-29",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Lamb, Greg. MRN:&#x0A;            577420</div>"
+        },
+        {
+            "title": "Patient \"102\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/102",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/102/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:51Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Garcia, Jessie. MRN:&#x0A;            577421</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577421"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Garcia"
+                        ],
+                        "given": [
+                            "Jessie"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1949-05-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Garcia, Jessie. MRN:&#x0A;            577421</div>"
+        },
+        {
+            "title": "Patient \"103\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/103",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/103/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:51Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Christensen, Donald. MRN:&#x0A;            577422</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577422"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Christensen"
+                        ],
+                        "given": [
+                            "Donald"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1933-03-02",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Christensen, Donald. MRN:&#x0A;            577422</div>"
+        },
+        {
+            "title": "Patient \"104\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/104",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/104/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hughes, Teresa. MRN:&#x0A;            577423</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577423"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Hughes"
+                        ],
+                        "given": [
+                            "Teresa"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1988-05-22",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hughes, Teresa. MRN:&#x0A;            577423</div>"
+        },
+        {
+            "title": "Patient \"105\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/105",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/105/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Houston, Daryl. MRN:&#x0A;            577424</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577424"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Houston"
+                        ],
+                        "given": [
+                            "Daryl"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1937-02-14",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Houston, Daryl. MRN:&#x0A;            577424</div>"
+        },
+        {
+            "title": "Patient \"106\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/106",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/106/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">West, James. MRN:&#x0A;            577425</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577425"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "West"
+                        ],
+                        "given": [
+                            "James"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1946-06-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">West, James. MRN:&#x0A;            577425</div>"
+        },
+        {
+            "title": "Patient \"107\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/107",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/107/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Nguyen, Glenda. MRN:&#x0A;            577426</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577426"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Nguyen"
+                        ],
+                        "given": [
+                            "Glenda"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1945-02-16",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Nguyen, Glenda. MRN:&#x0A;            577426</div>"
+        },
+        {
+            "title": "Patient \"108\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/108",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/108/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Swanson, Nathaniel. MRN:&#x0A;            577427</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577427"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Swanson"
+                        ],
+                        "given": [
+                            "Nathaniel"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1940-01-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Swanson, Nathaniel. MRN:&#x0A;            577427</div>"
+        },
+        {
+            "title": "Patient \"109\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/109",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/109/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Powers, Vera. MRN:&#x0A;            577428</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577428"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Powers"
+                        ],
+                        "given": [
+                            "Vera"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1945-06-12",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Powers, Vera. MRN:&#x0A;            577428</div>"
+        },
+        {
+            "title": "Patient \"11\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/11",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/11/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:41:08Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Relative, Ralph. SSN:&#x0A;            444999999</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "http://hl7.org/fhir/sid/us-ssn",
+                        "value": "444999999"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Relative"
+                        ],
+                        "given": [
+                            "Ralph"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-555-2009",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M"
+                        }
+                    ]
+                },
+                "address": [
+                    {
+                        "use": "home",
+                        "line": [
+                            "4444 Home Street"
+                        ]
+                    }
+                ],
+                "managingOrganization": {
+                    "reference": "Organization/hl7"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Relative, Ralph. SSN:&#x0A;            444999999</div>"
+        },
+        {
+            "title": "Patient \"110\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/110",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/110/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Chandler, Perry. MRN:&#x0A;            577429</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577429"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Chandler"
+                        ],
+                        "given": [
+                            "Perry"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1960-01-12",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Chandler, Perry. MRN:&#x0A;            577429</div>"
+        },
+        {
+            "title": "Patient \"111\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/111",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/111/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Carroll, Alvin. MRN:&#x0A;            577430</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577430"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Carroll"
+                        ],
+                        "given": [
+                            "Alvin"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1945-06-04",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Carroll, Alvin. MRN:&#x0A;            577430</div>"
+        },
+        {
+            "title": "Patient \"112\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/112",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/112/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Matthews, Florence. MRN:&#x0A;            577431</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577431"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Matthews"
+                        ],
+                        "given": [
+                            "Florence"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1995-01-05",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Matthews, Florence. MRN:&#x0A;            577431</div>"
+        },
+        {
+            "title": "Patient \"113\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/113",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/113/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Frazier, Jordan. MRN:&#x0A;            577432</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577432"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Frazier"
+                        ],
+                        "given": [
+                            "Jordan"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1943-02-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Frazier, Jordan. MRN:&#x0A;            577432</div>"
+        },
+        {
+            "title": "Patient \"114\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/114",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/114/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patrick, Beth. MRN:&#x0A;            577433</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577433"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Patrick"
+                        ],
+                        "given": [
+                            "Beth"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1990-08-10",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Patrick, Beth. MRN:&#x0A;            577433</div>"
+        },
+        {
+            "title": "Patient \"115\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/115",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/115/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:52Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Fleming, Christopher. MRN:&#x0A;            577434</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577434"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Fleming"
+                        ],
+                        "given": [
+                            "Christopher"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1939-03-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Fleming, Christopher. MRN:&#x0A;            577434</div>"
+        },
+        {
+            "title": "Patient \"116\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/116",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/116/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Marshall, Howard. MRN:&#x0A;            577435</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577435"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Marshall"
+                        ],
+                        "given": [
+                            "Howard"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1960-06-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Marshall, Howard. MRN:&#x0A;            577435</div>"
+        },
+        {
+            "title": "Patient \"117\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/117",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/117/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Larson, Erika. MRN:&#x0A;            577436</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577436"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Larson"
+                        ],
+                        "given": [
+                            "Erika"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1935-06-05",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Larson, Erika. MRN:&#x0A;            577436</div>"
+        },
+        {
+            "title": "Patient \"118\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/118",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/118/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Day, Carol. MRN:&#x0A;            577437</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577437"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Day"
+                        ],
+                        "given": [
+                            "Carol"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1963-06-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Day, Carol. MRN:&#x0A;            577437</div>"
+        },
+        {
+            "title": "Patient \"119\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/119",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/119/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Strickland, Veronica. MRN:&#x0A;            577438</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577438"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Strickland"
+                        ],
+                        "given": [
+                            "Veronica"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1963-02-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Strickland, Veronica. MRN:&#x0A;            577438</div>"
+        },
+        {
+            "title": "Patient \"12\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/12",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/12/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:41:08Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Contact, Carrie. SSN:&#x0A;            555222222</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "http://hl7.org/fhir/sid/us-ssn",
+                        "value": "555222222"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Contact"
+                        ],
+                        "given": [
+                            "Carrie"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-555-2010",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F"
+                        }
+                    ]
+                },
+                "address": [
+                    {
+                        "use": "home",
+                        "line": [
+                            "5555 Home Street"
+                        ]
+                    }
+                ],
+                "managingOrganization": {
+                    "reference": "Organization/hl7"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Contact, Carrie. SSN:&#x0A;            555222222</div>"
+        },
+        {
+            "title": "Patient \"120\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/120",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/120/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Mckinney, Valerie. MRN:&#x0A;            577439</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577439"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Mckinney"
+                        ],
+                        "given": [
+                            "Valerie"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1960-06-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Mckinney, Valerie. MRN:&#x0A;            577439</div>"
+        },
+        {
+            "title": "Patient \"121\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/121",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/121/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Ortiz, Lucille. MRN:&#x0A;            577440</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577440"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Ortiz"
+                        ],
+                        "given": [
+                            "Lucille"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1930-04-02",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Ortiz, Lucille. MRN:&#x0A;            577440</div>"
+        },
+        {
+            "title": "Patient \"122\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/122",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/122/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Alvarez, Mitchell. MRN:&#x0A;            577441</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577441"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Alvarez"
+                        ],
+                        "given": [
+                            "Mitchell"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1980-04-08",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Alvarez, Mitchell. MRN:&#x0A;            577441</div>"
+        },
+        {
+            "title": "Patient \"123\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/123",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/123/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Dennis, Charles. MRN:&#x0A;            577442</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577442"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Dennis"
+                        ],
+                        "given": [
+                            "Charles"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1976-06-01",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Dennis, Charles. MRN:&#x0A;            577442</div>"
+        },
+        {
+            "title": "Patient \"124\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/124",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/124/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Schmidt, Lewis. MRN:&#x0A;            577443</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577443"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Schmidt"
+                        ],
+                        "given": [
+                            "Lewis"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1963-02-12",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Schmidt, Lewis. MRN:&#x0A;            577443</div>"
+        },
+        {
+            "title": "Patient \"125\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/125",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/125/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Carr, Rebecca. MRN:&#x0A;            577444</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577444"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Carr"
+                        ],
+                        "given": [
+                            "Rebecca"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1943-09-18",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Carr, Rebecca. MRN:&#x0A;            577444</div>"
+        },
+        {
+            "title": "Patient \"126\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/126",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/126/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Greer, Esther. MRN:&#x0A;            577445</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577445"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Greer"
+                        ],
+                        "given": [
+                            "Esther"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1952-03-26",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Greer, Esther. MRN:&#x0A;            577445</div>"
+        },
+        {
+            "title": "Patient \"127\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/127",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/127/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:53Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Phillips, Eddie. MRN:&#x0A;            577446</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577446"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Phillips"
+                        ],
+                        "given": [
+                            "Eddie"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1942-04-24",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Phillips, Eddie. MRN:&#x0A;            577446</div>"
+        },
+        {
+            "title": "Patient \"128\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/128",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/128/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Sparks, Louise. MRN:&#x0A;            577447</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577447"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Sparks"
+                        ],
+                        "given": [
+                            "Louise"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1968-11-27",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Sparks, Louise. MRN:&#x0A;            577447</div>"
+        },
+        {
+            "title": "Patient \"129\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/129",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/129/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Holloway, Willie. MRN:&#x0A;            577448</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577448"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Holloway"
+                        ],
+                        "given": [
+                            "Willie"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1959-08-02",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Holloway, Willie. MRN:&#x0A;            577448</div>"
+        },
+        {
+            "title": "Patient \"130\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/130",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/130/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Foster, Gabriel. MRN:&#x0A;            577449</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577449"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Foster"
+                        ],
+                        "given": [
+                            "Gabriel"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1967-12-29",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Foster, Gabriel. MRN:&#x0A;            577449</div>"
+        },
+        {
+            "title": "Patient \"131\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/131",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/131/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hodges, Sarah. MRN:&#x0A;            577450</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577450"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Hodges"
+                        ],
+                        "given": [
+                            "Sarah"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1964-07-18",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hodges, Sarah. MRN:&#x0A;            577450</div>"
+        },
+        {
+            "title": "Patient \"132\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/132",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/132/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">White, Wilma. MRN:&#x0A;            577451</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577451"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "White"
+                        ],
+                        "given": [
+                            "Wilma"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1968-07-10",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">White, Wilma. MRN:&#x0A;            577451</div>"
+        },
+        {
+            "title": "Patient \"133\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/133",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/133/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Drake, Ronald. MRN:&#x0A;            577452</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577452"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Drake"
+                        ],
+                        "given": [
+                            "Ronald"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1979-07-18",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Drake, Ronald. MRN:&#x0A;            577452</div>"
+        },
+        {
+            "title": "Patient \"134\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/134",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/134/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Phillips, Wanda. MRN:&#x0A;            577453</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577453"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Phillips"
+                        ],
+                        "given": [
+                            "Wanda"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1980-04-23",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Phillips, Wanda. MRN:&#x0A;            577453</div>"
+        },
+        {
+            "title": "Patient \"135\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/135",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/135/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hansen, Chris. MRN:&#x0A;            577454</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577454"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Hansen"
+                        ],
+                        "given": [
+                            "Chris"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1956-11-28",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hansen, Chris. MRN:&#x0A;            577454</div>"
+        },
+        {
+            "title": "Patient \"136\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/136",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/136/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Reynolds, Julio. MRN:&#x0A;            577455</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577455"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Reynolds"
+                        ],
+                        "given": [
+                            "Julio"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1970-04-13",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Reynolds, Julio. MRN:&#x0A;            577455</div>"
+        },
+        {
+            "title": "Patient \"137\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/137",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/137/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Roberson, Jonathan. MRN:&#x0A;            577456</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577456"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Roberson"
+                        ],
+                        "given": [
+                            "Jonathan"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1945-10-01",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Roberson, Jonathan. MRN:&#x0A;            577456</div>"
+        },
+        {
+            "title": "Patient \"138\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/138",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/138/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Crawford, Carla. MRN:&#x0A;            577457</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577457"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Crawford"
+                        ],
+                        "given": [
+                            "Carla"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1969-02-03",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Crawford, Carla. MRN:&#x0A;            577457</div>"
+        },
+        {
+            "title": "Patient \"139\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/139",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/139/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hicks, Ronald. MRN:&#x0A;            577458</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577458"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Hicks"
+                        ],
+                        "given": [
+                            "Ronald"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "M",
+                            "display": "Male"
+                        }
+                    ]
+                },
+                "birthDate": "1942-09-28",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hicks, Ronald. MRN:&#x0A;            577458</div>"
+        },
+        {
+            "title": "Patient \"140\" Version \"1\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/140",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/140/_history/1",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-15T04:40:54Z",
+            "author": [
+                {
+                    "name": "service"
+                }
+            ],
+            "published": "2014-01-21T11:42:15Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hughes, Mae. MRN:&#x0A;            577459</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "https://github.com/projectcypress/cypress/patient",
+                        "value": "577459"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Hughes"
+                        ],
+                        "given": [
+                            "Mae"
+                        ]
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F",
+                            "display": "Female"
+                        }
+                    ]
+                },
+                "birthDate": "1958-05-14",
+                "managingOrganization": {
+                    "reference": "Organization/1"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Hughes, Mae. MRN:&#x0A;            577459</div>"
+        }
+    ]
+}

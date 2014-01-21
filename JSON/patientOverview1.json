@@ -1,0 +1,90 @@
+{
+    "resourceType": "Bundle",
+    "title": "Search results for resource type Patient",
+    "id": "urn:uuid:b003ed4c-d5fc-4978-bf0f-6396649517",
+    "link": [
+        {
+            "href": "http://hl7connect.healthintersections.com.au/open/",
+            "rel": "fhir-base"
+        },
+        {
+            "href": "http://hl7connect.healthintersections.com.au/open/Patient/_search?_format=application/json+fhir&search-id=cc8299de-b88f-41cb-a04d-d13ae7005a&_id=1&search-sort=_id",
+            "rel": "self"
+        }
+    ],
+    "updated": "2014-01-21T17:06:32Z",
+    "totalResults": "1",
+    "entry": [
+        {
+            "title": "Patient \"1\" Version \"2\"",
+            "id": "http://hl7connect.healthintersections.com.au/open/Patient/1",
+            "link": [
+                {
+                    "href": "http://hl7connect.healthintersections.com.au/open/Patient/1/_history/2",
+                    "rel": "self"
+                }
+            ],
+            "updated": "2014-01-19T03:30:18Z",
+            "author": [
+                {
+                    "name": "71.42.241.103"
+                }
+            ],
+            "published": "2014-01-21T17:06:32Z",
+            "content": {
+                "resourceType": "Patient",
+                "text": {
+                    "status": "generated",
+                    "div": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Everywoman, Eve. SSN:&#x0A;            444222222</div>"
+                },
+                "identifier": [
+                    {
+                        "label": "SSN",
+                        "system": "http://hl7.org/fhir/sid/us-ssn",
+                        "value": "444222222"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Everywoman"
+                        ],
+                        "given": [
+                            "Eve"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-555-2003",
+                        "use": "work"
+                    }
+                ],
+                "gender": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                            "code": "F"
+                        }
+                    ]
+                },
+                "birthDate": "1973-05-31",
+                "address": [
+                    {
+                        "use": "home",
+                        "line": [
+                            "2222 Home Street"
+                        ]
+                    }
+                ],
+                "managingOrganization": {
+                    "reference": "Organization/hl7"
+                },
+                "active": true
+            },
+            "summary": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">Everywoman, Eve. SSN:&#x0A;            444222222</div>"
+        }
+    ]
+}
