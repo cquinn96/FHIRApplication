@@ -14,11 +14,17 @@ function uploadAppointment(event){
     // serialize the data in the form
     var serializedData = $form.serialize();
 	
-	//var reference = patientID;
-	var condition = "Obesity";
-	var concern = document.getElementById('concern').value;
-	var goal =  document.getElementById('goal').value;
-	var activity =  document.getElementById('activity').value;
+	var description = document.getElementById('description').value;
+	var startDate =  document.getElementById('startDate').value;
+	var startTime =  document.getElementById('startTime').value;
+    var endDate =  document.getElementById('endDate').value;
+    var endTime =  document.getElementById('endTime').value;
+
+    console.log('Start date: ' + startDate);
+    console.log('End date: ' + endDate);
+    console.log(endTime);
+
+    //Discussion on the results of your recent MRI
 	
 	var hosNumber = 12345678;
 	
@@ -31,18 +37,18 @@ myData = '<Appointment xmlns="http://hl7.org/fhir">'+
   '</text>'+
   '<priority value="5"/>'+
   '<status value="normal"/>'+
-  '<description value="Discussion on the results of your recent MRI"/>'+
-  '<start value="2013-12-10T09:00:00Z"/>'+
-  '<end value="2013-12-10T11:00:00Z"/>'+
+  '<description value="'+description+'"/>'+
+  '<start value="'+startDate+'T'+startTime+':00Z"/>'+
+  '<end value="'+endDate+'T'+endTime+':00Z"/>'+
   '<timezone value="AEST"/>'+
   '<location>'+
   '  <reference value="Location/1"/>'+
   '</location>'+
-  '<comment value="TestFurther expand on the results of the MRI and determine the next actions that may be appropriate."/>'+
+  '<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate."/>'+
   '<participant>'+
   '  <individual>'+
-  '    <reference value="Patient/362"/>'+
-  '    <display value="Cormac Test"/>'+
+  '    <reference value="Patient/'+patientID+'"/>'+
+  '    <display value="'+name+'"/>'+
   '  </individual>'+
   '  <required value="required"/>'+
   '  <status value="accepted"/>'+
@@ -85,7 +91,7 @@ myData = '<Appointment xmlns="http://hl7.org/fhir">'+
 		// console.log(jqXHR.getAllResponseHeaders());   
         alert('Added appointment successfully');
         //TODO: TEST THE RELOAD
-        location.reload();
+        //location.reload();
     });
 
     // callback handler that will be called on failure

@@ -130,7 +130,7 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
         // dob: dob,
         // hosNumber: hosNumber};
 
-        alert('Success!');
+        alert('Added care plan successfully');
 
         //fetchResource('patient', '_id', patientID, false);
         //patientOverview(patient);
@@ -155,26 +155,3 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
     // prevent default posting of form
     event.preventDefault();
 }
-
-// function fetchCarePlanAfterUpload(patient) {
-// 	patientID = patient.key;
-//     $.ajax({
-//        type: "GET",
-// 	   dataType: 'json',
-//        url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?_id='+patientID+'&_format=json',
-//        success: function(msg, status) {   		
-//             if (msg.title == 'Search results for resource type Patient') {
-// 				$.mobile.changePage("index.html#PatientOverviewPage");
-// 				populatePatientOverview(msg.entry[0], patient);	
-//             }
-//             else {
-//                 // Request failed
-// 				document.write('failed');
-// 			}
-//         },
-//         error: function (msg) {
-//             // search request failed
-// 			document.write(JSON.stringify(msg, 2));
-//         }
-//     });
-// }

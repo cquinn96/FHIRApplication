@@ -5,12 +5,23 @@ function displayAppointments(entries, totalAppointments) {
 
 	for(var i = 0; i < entries.length; i++)
 	{
-		displayIndividualAppointment(entries[i].content, entries[i].content.start, i);
+		displayIndividualAppointment(entries[i].content, i);
 	}
 }
 
-function displayIndividualAppointment(content, appointmentTitle, rowNumber) {
-	appendAppointmentTitle(appointmentTitle, rowNumber);
+function displayIndividualAppointment(content, rowNumber) {
+
+	var startPeriod = content.start;
+	var endPeriod = content.end;
+
+	var startDate = startPeriod.substring(0,10);
+	var endDate = endPeriod.substring(0,10);
+
+	var startTime = startPeriod.substring(11,16);
+	var endTime = endPeriod.substring(11,16);
+
+	var title = 'Date: ' + startDate + ' Time: ' + startTime + ' - ' + endTime;
+	appendAppointmentTitle(title, rowNumber);
 
 	$('#appointment'+rowNumber).append('<p>'+content.description+'</p>');
 	$("#appointmentCollabsibleSet" ).collapsibleset( "refresh" );							

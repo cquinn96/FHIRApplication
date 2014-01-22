@@ -299,6 +299,8 @@ $(document).ready(function(){
 		addActivityDiv.appendChild(activityInputDiv);
 	});
 
+	//$('#endDate').formatDate('yyyy/mm/dd');
+
 })
 
 function goBack() {

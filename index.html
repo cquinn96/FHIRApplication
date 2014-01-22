@@ -132,13 +132,22 @@
 		</header>
 		<article data-role="content">
 			<form id="appointmentUploadForm">				
-				<label for="text-1">Concern:</label>
-				<input type="text" id="concern" value="">
-				<label for="text-1">Goal: </label><a id="addGoal" style="text-decoration: none" href=javascript:void(0);>+</a>
-				<input type="text" id="goal" value="">
-				<label for="text-1">Activity: </label><a id="addActivity" style="text-decoration: none" href=javascript:void(0);>+</a>
-				<input type="text" id="activity" value="">
-				<input id="appointmentUploadButton" type="submit" value="Upload Care Plan">
+				<label for="startDate">Start Date:</label>
+				<!-- <input type="text" id="startDate" value=""> -->
+				<input type="date" data-clear-btn="false" name="date-1" id="startDate" value="">
+
+				<label for="startTime">Start Time:</label>
+   				<input type="time" data-clear-btn="false" name="time-1" id="startTime" value="">
+
+				<label for="endDate">End Date:</label>
+     			<input type="date" data-clear-btn="false" name="date-1" id="endDate" value="">
+
+				<label for="endTime">End Time:</label>
+   				<input type="time" data-clear-btn="false" name="time-1" id="endTime" value="">
+
+   				<label for="description">Description:</label>
+				<input type="text" id="description" value="">
+				<input id="appointmentUploadButton" type="submit" value="Add Appointment">
 			</form>					
 		</article>
 	</div>
