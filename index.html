@@ -24,8 +24,10 @@
 	<script type="text/javascript" src="EventHandlers.js"></script>
 	<script type="text/javascript" src="CarePlan.js"></script>
 	<script type="text/javascript" src="DiagnosticReport.js"></script>
+	<script type="text/javascript" src="Appointment.js"></script>
 	<script type="text/javascript" src="UploadPatient.js"></script>
 	<script type="text/javascript" src="UploadCarePlan.js"></script>
+	<script type="text/javascript" src="UploadAppointment.js"></script>
 	<script type="text/javascript" src="PatientOverview.js"></script>
 	<script type="text/javascript">
 		$(function () {
@@ -38,120 +40,110 @@
 <body>
 
 	<div data-role="page" data-theme="a">
-
 		<header data-role="header" >
 			<h1>FHIR Application</h1>
 		</header>
-			<article data-role="content">
-				<form id="loginForm">
-					<label for="text-1">Search for:</label>
-					<select id="searchFor">
-					<option value="patient">Patient</option>
-					<option value="practitioner">Practitioner</option>
-					</select>		
-					<label for="text-1">Search by:</label>
-					<select id="searchBy">
-					<option value="_id">ID</option>
-					<option value="name">Name</option>
-					</select>
-					
-					<label for="text-1">Search value:</label>
-					<input type="text" name="query" id="query" value="">	
-				</form>			
-
-				<input id="loginButton" type="submit" value="Search">		
-
-				<div style="height: 100%; text-align:center; ">
-					<p>
-						<a href="#UploadPatientPage" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b">Add Patient</a>
-					</p>
-				</div>
+		<article data-role="content">
+			<form id="loginForm">
+				<label for="text-1">Search for:</label>
+				<select id="searchFor">
+				<option value="patient">Patient</option>
+				<option value="practitioner">Practitioner</option>
+				</select>		
+				<label for="text-1">Search by:</label>
+				<select id="searchBy">
+				<option value="_id">ID</option>
+				<option value="name">Name</option>
+				</select>
 				
-				</br>
-				<div data-role="popup" id="serverResponseDialog">
-					<!-- <img src="CSS/themes/images/ajax-loader.gif"> -->
-					<!-- <img src="images/loading.gif" width="1" height="1"> -->
-					<img src="images/loading2_crop4.gif">
-				</div>					
-					
-			</article>
-			
-	</div><!-- /page -->
+				<label for="text-1">Search value:</label>
+				<input type="text" name="query" id="query" value="">	
+			</form>			
+
+			<input id="loginButton" type="submit" value="Search">		
+			<div style="height: 100%; text-align:center; ">
+				<p>
+					<a href="#UploadPatientPage" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b">Add Patient</a>
+				</p>
+			</div>				
+		</article>	
+	</div>
 	
 
 	<div data-role="page" data-theme="a" id="UploadPatientPage">
-
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1>Upload Patient Details</h1>
 		</header>
-		
-			<article data-role="content">
-			
-				<form id="patientUploadForm">				
-					<label for="text-1">Forename:</label>
-					<input type="text" name="forename" id="forename" value="">
-					<label for="text-1">Surname:</label>
-					<input type="text" name="surname" id="surname" value="">
-					<label for="text-2">Gender:</label>			
-					<select id="gender">
+		<article data-role="content">
+			<form id="patientUploadForm">				
+				<label for="text-1">Forename:</label>
+				<input type="text" name="forename" id="forename" value="">
+				<label for="text-1">Surname:</label>
+				<input type="text" name="surname" id="surname" value="">
+				<label for="text-2">Gender:</label>			
+				<select id="gender">
 					<option value="M">Male</option>
 					<option value="F">Female</option>
-					</select>
-					<label for="text-1">Date of Birth (YYYY-MM-DD):</label>
-					<input type="text" name="dob" id="dob" value="">
-					<label for="text-1">Phone Number:</label>
-					<input type="text" name="phone" id="phone" value="">
-					<label for="text-1">Address Line 1:</label>
-					<input type="text" name="address1" id="address1" value="">
-					<label for="text-1">City:</label>
-					<input type="text" name="city" id="city" value="">
-					<label for="text-1">County:</label>
-					<input type="text" name="county" id="county" value="">
-					<label for="text-1">Post Code:</label>
-					<input type="text" name="postcode" id="postcode" value="">
-					<input id="patientUploadButton" type="submit" value="Upload Record">
-				</form>			
-
-				</br>
-				<div data-role="popup" id="serverResponseDialog">
-					<img src="images/loading2_crop4.gif">
-				</div>					
-					
-			</article>
-	</div><!-- /page -->
+				</select>
+				<label for="text-1">Date of Birth (YYYY-MM-DD):</label>
+				<input type="text" name="dob" id="dob" value="">
+				<label for="text-1">Phone Number:</label>
+				<input type="text" name="phone" id="phone" value="">
+				<label for="text-1">Address Line 1:</label>
+				<input type="text" name="address1" id="address1" value="">
+				<label for="text-1">City:</label>
+				<input type="text" name="city" id="city" value="">
+				<label for="text-1">County:</label>
+				<input type="text" name="county" id="county" value="">
+				<label for="text-1">Post Code:</label>
+				<input type="text" name="postcode" id="postcode" value="">
+				<input id="patientUploadButton" type="submit" value="Upload Record">
+			</form>			
+		</article>
+	</div>
 	
 	<div data-role="page" data-theme="a" id="UploadCarePlan">
-
 		<header data-role="header" >
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1>Add new care plan</h1>
 		</header>
-			<article data-role="content">
-				<form id="carePlanUploadForm">				
-					<label for="text-1">Concern:</label>
-					<input type="text" id="concern" value="">
-					<label for="text-1">Goal: </label><a id="addGoal" style="text-decoration: none" href=javascript:void(0);>+</a>
-					<input type="text" id="goal" value="">
-					<div id="goalInputDiv">
-					</div>
-					<label for="text-1">Activity: </label><a id="addActivity" style="text-decoration: none" href=javascript:void(0);>+</a>
-					<input type="text" id="activity" value="">
-					<div id="activityInputDiv">
-					</div>
-					<input id="carePlanUploadButton" type="submit" value="Upload Care Plan">
-				</form>			
-				
-				</br>
-				<div data-role="popup" id="serverResponseDialog">
-					<img src="images/loading2_crop4.gif">
-				</div>					
-					
-			</article>
-	</div><!-- /page -->
+		<article data-role="content">
+			<form id="carePlanUploadForm">				
+				<label for="text-1">Concern:</label>
+				<input type="text" id="concern" value="">
+				<label for="text-1">Goal: </label><a id="addGoal" style="text-decoration: none" href=javascript:void(0);>+</a>
+				<input type="text" id="goal" value="">
+				<div id="goalInputDiv">
+				</div>
+				<label for="text-1">Activity: </label><a id="addActivity" style="text-decoration: none" href=javascript:void(0);>+</a>
+				<input type="text" id="activity" value="">
+				<div id="activityInputDiv">
+				</div>
+				<input id="carePlanUploadButton" type="submit" value="Upload Care Plan">
+			</form>									
+		</article>
+	</div>
+
+	<div data-role="page" data-theme="a" id="UploadAppointment">
+		<header data-role="header" >
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1>Add new care plan</h1>
+		</header>
+		<article data-role="content">
+			<form id="appointmentUploadForm">				
+				<label for="text-1">Concern:</label>
+				<input type="text" id="concern" value="">
+				<label for="text-1">Goal: </label><a id="addGoal" style="text-decoration: none" href=javascript:void(0);>+</a>
+				<input type="text" id="goal" value="">
+				<label for="text-1">Activity: </label><a id="addActivity" style="text-decoration: none" href=javascript:void(0);>+</a>
+				<input type="text" id="activity" value="">
+				<input id="appointmentUploadButton" type="submit" value="Upload Care Plan">
+			</form>					
+		</article>
+	</div>
 
 	<div data-role="page" id="PatientListPage">
-
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1>Search Results</h1>
@@ -162,20 +154,14 @@
 			<div id="wardTime"></div>
 		</div>
 		
-		<input type="text" id="searchPatients" />
-
-		<div data-role="popup" id="serverResponseLoading">
-			<img src="images/loading2_crop4.gif">
-		</div>	
+		<input type="text" id="searchPatients"/>
 
 		<ul data-role="listview" data-inset="false" data-theme="a" id="patientRows">
 		</ul>
-
-	</div><!-- /page -->
+	</div>
 	
 	
 	<div data-role="page" id="DiagnosticReportPage">
-
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="pageHeader">Diagnostic Report</h1>
@@ -186,16 +172,14 @@
 			<div id="wardTime"></div>
 		</div>	
 		<ul id="reportRows">
-		</ul>	
-				
+		</ul>
+
 		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="reportCollabsibleSet">
 		</div>
 
 	</div>
-	
 
 	<div data-role="page" id="CarePlanPage">
-
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="carePlanHeader">Care Plan</h1>
@@ -211,10 +195,24 @@
 		<div id="carePlanDiv">
 		</div>
 	</div>
+
+	<div data-role="page" id="AppointmentPage">
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1 id="appointmentHeader">Appointments</h1>
+		</header>
+		
+		<div id="headerUnderBar"> 
+			<div id="wardDoctor"></div>
+			<div id="wardTime"></div>
+		</div>
+
+		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="appointmentCollabsibleSet">
+		</div>
+	</div>
 	
 	
 	<div data-role="page" data-theme="a" id="PatientOverviewPage">
-
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="patientOverviewHeader">Patient Overview</h1>
@@ -228,58 +226,27 @@
 		<ul id="patientOverviewRow" data-role="listview" data-theme="b">
 		</ul>
 
-		<div data-role="popup" id="serverResponseDialog2">
-			<img src="images/loading2_crop4.gif">
-		</div>		
-
 		<div style="height: 100%; text-align:center; ">
 			<p>
-	    		<a href="#popupDiagnosticReport" class="show-page-loading-msg" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="diagnosticReportClick();">Diagnostic Report</a>
+	    		<a href="#popupDiagnosticReport" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="diagnosticReportClick();">Diagnostic Report</a>
 	    		<div data-role="popup" id="popupDiagnosticReport">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				    <p>This patient doesn't have any diagnostic reports to show.</p>
+				    <p>This patient doesn't have any diagnostic reports.</p>
 				</div>
 	    		<a href="#popupCarePlan" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="carePlanClick();">Care Plan</a>
 	    		<div data-role="popup" id="popupCarePlan">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				    <p>This patient doesn't have a care plan to show.</p>
+				    <p>This patient doesn't have a care plan.</p>
+				</div>
+				<a href="#popupAppointment" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewAppointmentsClick();">View Appointments</a>
+	    		<div data-role="popup" id="popupAppointment">
+	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				    <p>This patient doesn't have any appointments.</p>
 				</div>
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Add Care Plan</a>
+				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addAppointment();">Add Appointment</a>
 			</p>
 		</div>
 	</div>
-	
-	<script>
-		$('#addGoal').click(function() {
-		var uploadCarePlanForm = document.getElementById('goalInputDiv');
-		var goalInputDiv = document.createElement('div');
-		goalInputDiv.className = 'ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-a';
-		var goalInput = document.createElement('input');
-		goalInput.id = 'goal2';             // No setAttribute required
-		goalInput.type = 'text' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
-		goalInput.value = ''
-		goalInput.className = 'ui-input-text ui-body-a';
-		goalInputDiv.appendChild(goalInput);
-		uploadCarePlanForm.appendChild(goalInputDiv);
-		//document.body.appendChild(uploadCarePlanForm);
-		//gotoCarePlanUploadPage(patientInfo);
-	});
-	
-	$('#addActivity').click(function() {
-		var addActivityDiv = document.getElementById('activityInputDiv');
-		var activityInputDiv = document.createElement('div');
-		activityInputDiv.className = 'ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-a';
-		var activityInput = document.createElement('input');
-		// TODO: MAKE A GLOBAL VARIALBE TO HOLD THE ID NUMBER
-		activityInput.id = 'activity2';             // 
-		activityInput.type = 'text' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
-		activityInput.value = ''
-		activityInput.className = 'ui-input-text ui-body-a';
-		activityInputDiv.appendChild(activityInput);
-		addActivityDiv.appendChild(activityInputDiv);
-		//document.body.appendChild(uploadCarePlanForm);
-		//gotoCarePlanUploadPage(patientInfo);
-	});
-	</script>
 </body>
 </html>

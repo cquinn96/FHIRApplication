@@ -1,7 +1,6 @@
 var patientArray = [];
 
 function getPatientDetails(entry){
-
 		if(entry.content.name[0].given != null && entry.content.name[0].family != null)
 		{
 			var name = entry.content.name[0].given[0] + ' ' + entry.content.name[0].family[0];
@@ -30,13 +29,13 @@ function getPatientDetails(entry){
 			dob: dob,
 			hosNumber: hosNumber};
 
-
 		return patientInfo;
 }
 
 //populates results into table when data has been received from server
 function populateListOfPatients(entries) {
 	$('#patientRows').children('li').remove();
+
 	for (var i = 0; i < entries.length; i++){
 
 		var patient = getPatientDetails(entries[i]);
@@ -59,7 +58,7 @@ function populateListOfPatients(entries) {
 		// 	var summary = entries[i].summary;
 		// }
 
-		$('#patientRows').append('<li><a href="#">'+
+		$('#patientRows').append('<li id="patient'+i+'"><a href="#">'+
 									'<h2>'+name+'</h2>' +
 				        '<p><strong>Date of birth - '+dob+'</strong></p>'+
 				        '<p>Click to view more details about '+name+'</p>'+
@@ -95,12 +94,11 @@ function populateListOfPatients(entries) {
 		// 	patientOverview(patientArray[pos], entries.length);
 		// });
 		
-		// if(isNaN(patientID))
-		// {
-		// 	console.log('Patient ID is not a number, its: ' + patientID);
-		// 	var toRemove = 'patient'+i;
-		// 	$('#patient'+i).remove();
-		// }
+		if(isNaN(patientID))
+		{
+			console.log('Patient ID is not a number, its: ' + patientID);
+			$('#patient'+i).remove();
+		}
 	}	
 }
 
@@ -140,137 +138,8 @@ function populateListOfPractitioners(entries) {
 		}	
 }
 
-//fetch a list of patients from server
-function fetchAllResourcesOLD(type, searchBy, query) {
-    $.ajax({
-       type: "GET",
-	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/'+type+'/_search?'+searchBy+'='+query+'&_format=json',
-       success: function(msg, status) {   		
-			//console.log(JSON.stringify(msg));
-            if (msg.title == 'Search results for resource type Patient') {
-				//change page
-     //            $.getJSON('http://fhir.beltech2014.com/JSON/allPatients.json', function(json) {
-					// console.log('Getting json 2');
-     //                console.log(json);
-     //            });
-
-  				// var url = 'http://fhir.beltech2014.com/JSON/allPatients.json';
-
-			   //  $.get(url, function (data) {
-			   //    console.log('success');
-			   //    console.log(data.entry);
-			   //    $.mobile.changePage("index.html#PatientListPage");
-				  // populateListOfPatients(data.entry);
-			   //    //var obj = $.parseJSON(data);
-			   //    //console.log(obj);
-			   //  });
-
-
-				$.mobile.changePage("index.html#PatientListPage");
-				populateListOfPatients(msg.entry);
-				//document.write(JSON.stringify(msg.entry[0].content.Patient));
-            }
-			else if (msg.title == 'Search results for resource type Practitioner'){
-				$.mobile.changePage("index.html#PatientListPage");
-				populateListOfPractitioners(msg.entry);
-			}
-            else {
-                // Request failed
-				alert('Oops, something went wrong');
-			}
-        },
-        error: function (msg) {
-            // search request failed
-			//document.write(JSON.stringify(msg, 2));
-			console.log('Server is Down');
-			alert('Server is down, accessing local patient information instead');
-		    $.getJSON('/JSON/allPatients.json', function(json) {
-                $.mobile.changePage("index.html#PatientListPage");
-			    populateListOfPatients(json.entry);
-            });
-        }
-    });
-}
-
-function fetchResourceByPatientID(patientID, name, resource) {
-	console.log('Fetching ' + resource);
-
-	// Searching for a Care Plan
-	var searchFor = 'patient._id'
-
-	// Searching for a Diagnostic Report
-	if(resource == 'Diagnosticreport')
-		searchFor = 'subject._id';
-
-	// Searching for patient overview
-	if(resource == 'patient')
-		searchFor = '_id';
-
-    $.ajax({
-       type: "GET",
-	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/'+resource+'/_search?'+searchFor+'='+patientID+'&_format=json',
-       success: function(msg, status) {   		
-            if (msg.title == 'Search results for resource type CarePlan') {
-            	if(msg.entry.length == 0)
-				{
-					$.mobile.loading('hide');
-					$( "#popupCarePlan" ).popup( "open" );
-				}
-				else
-				{
-					$.mobile.changePage("index.html#CarePlanPage");
-					populateCarePlanRows(msg.entry, msg.totalResults);
-				}
-            }
-            else if (msg.title == 'Search results for resource type DiagnosticReport') {
-            	if(msg.entry.length == 0)
-				{
-					$.mobile.loading('hide');
-					$( "#popupDiagnosticReport" ).popup( "open" );
-				}
-				else
-				{
-					$.mobile.changePage("index.html#DiagnosticReportPage");
-					displayReports(msg.entry, msg.totalResults);
-				}
-            }
-            else if (msg.title == 'Search results for resource type Patient') {
-				$.mobile.changePage("index.html#PatientOverviewPage");
-				populatePatientOverview(msg.entry[0]);	
-            }
-            else {
-                // Request failed
-				alert('Oops, something went wrong');
-			}
-        },
-        error: function (msg) {
-            // search request failed
-			//document.write(JSON.stringify(msg, 2));
-			console.log('Request to server failed');
-			//alert('Server is down, accessing local patient information instead');
-		    $.getJSON('/JSON/patientOverview1.json', function(json) {
-                $.mobile.changePage("index.html#PatientOverviewPage");
-			    populateListOfPatients(json.entry);
-            });
-        }
-    });
-}
-
-function fetchAllResources(resource, searchFor, query, initialSearch) {
-	console.log('test');
-	// Searching for a Care Plan
-	//var searchFor = 'patient._id'
-
-	// Searching for a Diagnostic Report
-	//if(resource == 'Diagnosticreport')
-		//searchFor = 'subject._id';
-
-	// Searching for patient overview
-	//if(resource == 'patient')
-		//searchFor = '_id';
-
+// This function handles Search, PatientOverviews, Care Plans, Diagnostic Reports
+function fetchResource(resource, searchFor, query, initialSearch) {
     $.ajax({
        type: "GET",
 	   dataType: 'json',
@@ -319,6 +188,18 @@ function fetchAllResources(resource, searchFor, query, initialSearch) {
 					$.mobile.changePage("index.html#PatientOverviewPage");
 					populatePatientOverview(msg.entry[0]);	
 	            }
+	            else if (msg.title == 'Search results for resource type Appointment') {
+					if(msg.entry.length == 0)
+					{
+						$.mobile.loading('hide');
+						$( "#popupAppointment" ).popup( "open" );
+					}
+					else
+					{
+						$.mobile.changePage("index.html#AppointmentPage");
+						displayAppointments(msg.entry, msg.totalResults);
+					}
+	            }
 	            else {
 	                // Request failed
 					alert('Oops, something went wrong');
@@ -348,32 +229,37 @@ function fetchAllResources(resource, searchFor, query, initialSearch) {
 }
 
 $(document).ready(function(){
-	//run after the page has loaded. 
-
-	//search button has a click/touch
+	// Search button has a click/touch
 	$('#loginButton').bind('vmousedown', function () {
+		// Search for Patient or Practictior
 		var searchForDropDown = document.getElementById('searchFor');
-		var searchFor = searchForDropDown.options[searchForDropDown.selectedIndex].value;
+		var resourceToSearchFor = searchForDropDown.options[searchForDropDown.selectedIndex].value;
 		
+		// Search by ID or name
     	var searchByDropDown = document.getElementById('searchBy');
 		var searchBy = searchByDropDown.options[searchByDropDown.selectedIndex].value;
+
+		// Actual search value
 		var query =  document.getElementById('query').value;
-		//$( "#serverResponseDialog" ).popup( "open" );
-		//var searchObject = { searchBy : query };	
+
 		$.mobile.loading('show');
-		fetchAllResources(searchFor, searchBy, query, true);	
+		fetchResource(resourceToSearchFor, searchBy, query, true);	
 	});
 
-	// bind to the submit event of our form
+	// Bind to the submit event of our form
 	$("#patientUploadForm").submit(function() {
-		uploadPatient(event)
+		uploadPatient(event);
 	});
 
 	$("#carePlanUploadForm").submit(function() {
-		uploadCarePlan(event)
+		uploadCarePlan(event);
 	});
 
-	//function to handle the click of a cell in patient list.
+	$("#appointmentUploadForm").submit(function() {
+		uploadAppointment(event);
+	});
+
+	// Function to handle the click of a cell in patient list.
 	$('#patientRows').on('click', 'li', function () {
 		$.mobile.loading('show');
 		var selected_index = $(this).index();
@@ -381,8 +267,38 @@ $(document).ready(function(){
 		patientID = patientArray[selected_index].key
 
 		//patientOverview(patientArray[selected_index]);
-		fetchResourceByPatientID(patientID, name,  'patient');
+		//fetchResourceByPatientID(patientID, name,  'patient');
+		// Fetching a patient overview
+		fetchResource('patient', '_id', patientID, false);
 	});
+
+	$('#addGoal').click(function() {
+		var uploadCarePlanForm = document.getElementById('goalInputDiv');
+		var goalInputDiv = document.createElement('div');
+		goalInputDiv.className = 'ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-a';
+		var goalInput = document.createElement('input');
+		goalInput.id = 'goal2';             // No setAttribute required
+		goalInput.type = 'text' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
+		goalInput.value = ''
+		goalInput.className = 'ui-input-text ui-body-a';
+		goalInputDiv.appendChild(goalInput);
+		uploadCarePlanForm.appendChild(goalInputDiv);
+	});
+	
+	$('#addActivity').click(function() {
+		var addActivityDiv = document.getElementById('activityInputDiv');
+		var activityInputDiv = document.createElement('div');
+		activityInputDiv.className = 'ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-a';
+		var activityInput = document.createElement('input');
+		// TODO: MAKE A GLOBAL VARIALBE TO HOLD THE ID NUMBER
+		activityInput.id = 'activity2';             // 
+		activityInput.type = 'text' // No setAttribute required, note it's "className" to avoid conflict with JavaScript reserved word
+		activityInput.value = ''
+		activityInput.className = 'ui-input-text ui-body-a';
+		activityInputDiv.appendChild(activityInput);
+		addActivityDiv.appendChild(activityInputDiv);
+	});
+
 })
 
 function goBack() {

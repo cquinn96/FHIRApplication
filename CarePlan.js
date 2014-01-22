@@ -5,23 +5,11 @@ function populateCarePlanRows(entries, totalCarePlans) {
 	//$('#carePlanHeader').text('Results for: ' + name + ' (' + totalCarePlans + ' found)');
 	$('#carePlanHeader').text(totalCarePlans + ' care plan(s) found');
 	$('#carePlanDiv').children('div').remove();
-	// if(entries.length == 0)
-	// {
-	// 	$('#carePlanRows').append('<li>'+
-	// 			'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-	// 				'<tr class="orange">'+
-	// 					'<td class="status"></td>'+
-	// 					'<td class="name"><h2>No care plan found for '+ name + '.<h2></td>'+
-	// 				'</tr>'+
-	// 				'<tr>');
-	// }
-	// else
-	// {
-		for(var i = 0; i < entries.length; i++)
-		{
-			displayCarePlan(entries[i], entries[i].title, i);
-		}
-	// }
+
+	for(var i = 0; i < entries.length; i++)
+	{
+		displayCarePlan(entries[i], entries[i].title, i);
+	}
 }
 
 function displayCarePlan(entry, reportTitle, rowNumber) {
@@ -93,10 +81,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 			}
 
 			$('#currentActivitesListView'+rowNumber).append('<li>'+activityDetails+'</li>');
-
-			// $('#carePlanListView'+rowNumber).append('<li><a href="">'+activityDetails+''+
-			// 		'<p class="ui-li-aside"><strong>'+date+'</strong></p>'+
-			// 		'</a></li>');
 		}
 	}	
 

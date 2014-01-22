@@ -3,35 +3,22 @@ function displayReports(entries, totalReports) {
 	
 	$('#reportCollabsibleSet').children('div').remove();
 	$('#pageHeader').text(totalReports + ' report(s) found');
-	// if(entries.length == 0)
-	// {
 
-	// 	// doesnt go in here, added popup instead
-	// 	$('#reportRows').append('<li>'+
-	// 			'<table class="tableContainer" cellspacing="0" cellpadding="0">'+
-	// 				'<tr class="orange">'+
-	// 					'<td class="status"></td>'+
-	// 					'<td class="name"><h2>No report found for '+ name + '.<h2></td>'+
-	// 				'</tr>'+
-	// 				'<tr>');
-	// }
-	// else {
-		for(var i = 0; i < entries.length; i++)
+	for(var i = 0; i < entries.length; i++)
+	{
+		if(entries[i].content.contained != null)
 		{
-			if(entries[i].content.contained != null)
-			{
-				if(entries[i].content.contained[0].name != null)
-					displayReport(entries[i].content.contained, entries[i].title, i);
-					//displayReportLikeDiv(entries[i].content.contained, entries[i].title, i);
-				else
-					displayReportDiv(entries[i], entries[i].title, i);
-			}
+			if(entries[i].content.contained[0].name != null)
+				displayReport(entries[i].content.contained, entries[i].title, i);
+				//displayReportLikeDiv(entries[i].content.contained, entries[i].title, i);
 			else
-			{
 				displayReportDiv(entries[i], entries[i].title, i);
-			}
 		}
-	// }
+		else
+		{
+			displayReportDiv(entries[i], entries[i].title, i);
+		}
+	}
 }
 
 //There is no contained, so only show the 'div' value returned
@@ -41,60 +28,7 @@ function displayReportDiv(entry, reportTitle, rowNumber) {
 	$('#report'+rowNumber).append('<p>'+entry.content.text.div+'</p>');
 	$("#reportCollabsibleSet" ).collapsibleset( "refresh" );
 							
-	// $('#row'+rowNumber).append('<tr>'+
-	// 								'<td>'+entry.content.text.div+'</td>'+
-	// 							'</tr>');
 }
-
-// function displayReportLikeDiv(containedResults, reportTitle, rowNumber) {
-// 	appendReportTitle(reportTitle, rowNumber);
-// 	var textDiv = '<?xml version=\"1.0\" encoding=\"UTF-8\"?> <div xmlns=\"http://www.w3.org/1999/xhtml\"> &#x0A;&#x0A;  <pre>&#x0A;';
-// 	textDiv +=  '<table><tr><th>SERUM/PLASMA</th><th>\t\tResult</th><th>\tUnits</th><th>\tReference Range</th>';
-// 	for (var i = 0; i < containedResults.length; i++){
-// 		textDiv += '<tr>';
-		
-// 		if(containedResults[i].name != null)
-// 		{
-// 			var testName = containedResults[i].name.coding[0].display;
-// 			testName = testName.replace(' in Serum or Plasma', '');
-// 			textDiv += '<td>';
-// 			textDiv += testName;
-// 			textDiv += '</td>';
-// 		}
-		
-// 		if(containedResults[i].valueQuantity != null)
-// 		{
-// 			if(containedResults[i].valueQuantity.value != null)
-// 			{
-// 				var value = containedResults[i].valueQuantity.value;
-// 				textDiv += '<td>';
-// 				textDiv += '\t\t' + value;
-// 				textDiv += '</td>';
-// 			}
-// 			if(containedResults[i].valueQuantity.units != null)
-// 			{
-// 				var units = containedResults[i].valueQuantity.units;
-// 				textDiv += '<td>';
-// 				textDiv += '\t' + units;
-// 				textDiv += '</td>';
-// 			}
-// 		}
-// 		if(containedResults[i].referenceRange != null)
-// 		{
-// 			var referenceRange = '(' + containedResults[i].referenceRange[0].low.value + ' - ' + containedResults[i].referenceRange[0].high.value + ')';
-// 			textDiv += '<td>';
-// 			textDiv += '\t' + referenceRange;
-// 			textDiv += '</td>';
-// 		}
-// 		textDiv += '</tr> &#x0A;';
-// 	}	
-	
-// 	textDiv += '</table></pre>&#x0A;</div>';
-	
-// 	// $('#row'+rowNumber).append('<tr>'+
-// 								// '<td>'+textDiv+'</td>'+
-// 							// '</tr>');
-// }
 
 function displayReport(containedResults, reportTitle, rowNumber) {
 	appendReportTitle(reportTitle, rowNumber);
@@ -105,17 +39,6 @@ function displayReport(containedResults, reportTitle, rowNumber) {
 							);
 						
 	$( '#reportListView'+rowNumber).listview();				
-	// $( '#reportListView'+rowNumber).listview({
-	//   create: function( event, ui ) {}
-	// });
-
-	// $('#reportCollabsible'+rowNumber).collapsibleset({
-	//    create: function(event, ui) {}
-	// });
-						
-	//$('#reportListView'+rowNumber).listview("refresh");
-
-
 
 	for (var i = 0; i < containedResults.length; i++){
 		
@@ -152,7 +75,6 @@ function displayReport(containedResults, reportTitle, rowNumber) {
 						// '</tr>');
 
 		//$('#reportListView'+rowNumber).append('<li><a href="">'+testName+'</a></li>');
-		
 		
 		$('#reportListView'+rowNumber).append(
 									'<li><a href="">'+

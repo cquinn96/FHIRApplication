@@ -30,10 +30,7 @@ function uploadPatient(event){
 	var postcode =  document.getElementById('postcode').value;
 	
 	var dob =  document.getElementById('dob').value;
-	console.log(dob);
 	var phoneNumber =  document.getElementById('phone').value;
-	console.log(phoneNumber);
-	
 	var hosNumber = 12345678;
 	
 	myData = '<Patient xmlns="http://hl7.org/fhir">'+
@@ -119,24 +116,24 @@ function uploadPatient(event){
 	
     // callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
-        // log a message to the console
-		
 		//console.log(response);
 		//console.log(textStatus);
-		console.log(jqXHR.getResponseHeader('Content-Location'));
+		// console.log(jqXHR.getResponseHeader('Content-Location'));
 
 		var patientUrl = jqXHR.getResponseHeader('Content-Location');
 
-		var newID = patientUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
+		var patientID = patientUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
 
-		var	patient = { 
-		key: newID,
-		value: name,
-		dob: dob,
-		hosNumber: hosNumber};
+		// var	patient = { 
+		// key: patientID,
+		// value: name,
+		// dob: dob,
+		// hosNumber: hosNumber};
 
 		//console.log(jqXHR.getAllResponseHeaders());
-		fetchPatientOverviewAfterUpload(patient);
+		//fetchPatientOverviewAfterUpload(patient);
+
+		fetchResource('patient', '_id', patientID, false);
     });
 
     // callback handler that will be called on failure
@@ -157,27 +154,4 @@ function uploadPatient(event){
 
     // prevent default posting of form
     event.preventDefault();
-}
-
-function fetchPatientOverviewAfterUpload(patient) {
-	patientID = patient.key;
-    $.ajax({
-       type: "GET",
-	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?_id='+patientID+'&_format=json',
-       success: function(msg, status) {   		
-            if (msg.title == 'Search results for resource type Patient') {
-				$.mobile.changePage("index.html#PatientOverviewPage");
-				populatePatientOverview(msg.entry[0], patient);	
-            }
-            else {
-                // request failed
-				document.write('failed');
-			}
-        },
-        error: function (msg) {
-            // search request failed
-			document.write(JSON.stringify(msg, 2));
-        }
-    });
 }

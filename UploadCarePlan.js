@@ -3,10 +3,6 @@ var request;
 
 function uploadCarePlan(event){
 
-	console.log('>>> uploadCarePlan()');
-	// console.log(patientID);
-	// console.log(name);
-
     // abort any pending request
     if (request) {
         request.abort();
@@ -17,15 +13,6 @@ function uploadCarePlan(event){
     var $inputs = $form.find("input, select, button, textarea");
     // serialize the data in the form
     var serializedData = $form.serialize();
-	
-	// var forename =  document.getElementById('forename').value;
-	// var surname =  document.getElementById('surname').value;
-	// var addressLine1 =  document.getElementById('address1').value;
-	// var city =  document.getElementById('city').value;
-	// var county =  document.getElementById('county').value;
-	// var postcode =  document.getElementById('postcode').value;
-	// var dob =  document.getElementById('dob').value;
-	// var phoneNumber =  document.getElementById('phone').value;
 	
 	//var reference = patientID;
 	var condition = "Obesity";
@@ -132,24 +119,20 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
 	
     // callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR){
-		console.log(response);
-		console.log(textStatus);
-		console.log(jqXHR.getResponseHeader('Content-Location'));
-		console.log(jqXHR.getAllResponseHeaders());
+		// console.log(response);
+		// console.log(textStatus);
+		// console.log(jqXHR.getResponseHeader('Content-Location'));
+		// console.log(jqXHR.getAllResponseHeaders());
 		//fetchPatientOverviewAfterUpload(patient);
+        // var patient = { 
+        // key: patientID,
+        // value: name,
+        // dob: dob,
+        // hosNumber: hosNumber};
 
+        alert('Success!');
 
-        var patient = { 
-        key: patientID,
-        value: name,
-        dob: dob,
-        hosNumber: hosNumber};
-
-        console.log(patientID);
-        console.log(name);
-
-        fetchResourceByPatientID(patientID, name,  'patient');
-
+        //fetchResource('patient', '_id', patientID, false);
         //patientOverview(patient);
     });
 
@@ -171,29 +154,27 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
 
     // prevent default posting of form
     event.preventDefault();
-	
-	console.log('<<< uploadCarePlan()');
 }
 
-function fetchCarePlanAfterUpload(patient) {
-	patientID = patient.key;
-    $.ajax({
-       type: "GET",
-	   dataType: 'json',
-       url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?_id='+patientID+'&_format=json',
-       success: function(msg, status) {   		
-            if (msg.title == 'Search results for resource type Patient') {
-				$.mobile.changePage("index.html#PatientOverviewPage");
-				populatePatientOverview(msg.entry[0], patient);	
-            }
-            else {
-                // Request failed
-				document.write('failed');
-			}
-        },
-        error: function (msg) {
-            // search request failed
-			document.write(JSON.stringify(msg, 2));
-        }
-    });
-}
+// function fetchCarePlanAfterUpload(patient) {
+// 	patientID = patient.key;
+//     $.ajax({
+//        type: "GET",
+// 	   dataType: 'json',
+//        url: 'http://hl7connect.healthintersections.com.au/open/patient/_search?_id='+patientID+'&_format=json',
+//        success: function(msg, status) {   		
+//             if (msg.title == 'Search results for resource type Patient') {
+// 				$.mobile.changePage("index.html#PatientOverviewPage");
+// 				populatePatientOverview(msg.entry[0], patient);	
+//             }
+//             else {
+//                 // Request failed
+// 				document.write('failed');
+// 			}
+//         },
+//         error: function (msg) {
+//             // search request failed
+// 			document.write(JSON.stringify(msg, 2));
+//         }
+//     });
+// }

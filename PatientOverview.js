@@ -8,13 +8,6 @@ function populatePatientOverview(entry) {
 	var dob = patient.dob;
 	var hosNumber = patient.hosNumber;
 
-	// var title = entry.title;
-	// var patientID = patient.key;
-	// var name = patient.value;
-	// var dob = patient.dob;
-	// var hosNumber = patient.hosNumber;
-	
-	
 	if(entry.content.telecom != null) {
 		var phoneNumber = entry.content.telecom[0].value;
 		var phoneNumberUse = entry.content.telecom[0].use;
@@ -26,10 +19,10 @@ function populatePatientOverview(entry) {
 	
 	if(entry.content.gender != null) {
 		var gender = entry.content.gender.coding[0].display;
+		
 		//if its the old way
 		if(gender == undefined)
 		{
-			console.log('its the old gender way');
 			gender = entry.content.gender.coding[0].code;
 		}
 	}
@@ -81,10 +74,6 @@ function populatePatientOverview(entry) {
 	//refresh list view, must be done in order to style
 	$("#patientOverviewRow").listview("refresh");
 				
-	$('#uploadCarePlan').click(function() {
-		gotoCarePlanUploadPage(patientInfo);
-	});
-				
 	if(phoneNumber == undefined)
 		$('#phoneRow').remove();
 		
@@ -96,24 +85,34 @@ function populatePatientOverview(entry) {
 function diagnosticReportClick(){
 	$.mobile.loading('show');
 	//fetch diag report and change page 
-	//fetchDiagnosticReport(patientID, name);
-	fetchResourceByPatientID(patientID, name, 'Diagnosticreport');
+	//fetchResourceByPatientID(patientID, name, );
+	fetchResource('Diagnosticreport', 'subject._id', patientID, false);
 }
 
 function carePlanClick(){
 	$.mobile.loading('show');
 	//fetch care plan
-    //fetchCarePlan(patientID, name);
-	fetchResourceByPatientID(patientID, name, 'careplan');
-
+	//fetchResourceByPatientID(patientID, name, 'careplan');
+	fetchResource('careplan', 'patient._id', patientID, false);
 	//fetchResourceByPatientID(patient, 'careplan');
+}
+
+function viewAppointmentsClick(){
+	$.mobile.loading('show');
+	fetchResource('appointment', 'subject._id', patientID, false);
 }
 
 function addCarePlan(){
 	//fetch care plan
-	gotoCarePlanUploadPage();
-}
-
-function gotoCarePlanUploadPage() {
+	//gotoCarePlanUploadPage();
 	$.mobile.changePage("index.html#UploadCarePlan");
 }
+
+function addAppointment(){
+	//fetch care plan
+	$.mobile.changePage("index.html#UploadAppointment");
+}
+
+// function gotoCarePlanUploadPage() {
+	//$.mobile.changePage("index.html#UploadCarePlan");
+// }
