@@ -26,8 +26,7 @@ function displayReportDiv(entry, reportTitle, rowNumber) {
 	appendReportTitle(reportTitle, rowNumber);
 
 	$('#report'+rowNumber).append('<p>'+entry.content.text.div+'</p>');
-	$("#reportCollabsibleSet" ).collapsibleset( "refresh" );
-							
+	$("#reportCollabsibleSet" ).collapsibleset( "refresh" );			
 }
 
 function displayReport(containedResults, reportTitle, rowNumber) {

@@ -1,6 +1,6 @@
 html, html a {
 	-webkit-font-smoothing: antialiased !important;
-	text-shadow: #333 0px 0px 1px; // for dark text 
+/* 	text-shadow: #333 0px 0px 1px; // for dark text  MY CHANGE*/
  }
 
 .footable{

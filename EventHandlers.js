@@ -89,17 +89,12 @@ function populateListOfPatients(entries) {
 
 		$("#patientRows").listview("refresh");
 		
-		// $('#patientOverview'+i).click(function() {
-		// 	var pos = this.id.substring(15);
-		// 	patientOverview(patientArray[pos], entries.length);
-		// });
-		
 		if(isNaN(patientID))
 		{
 			console.log('Patient ID is not a number, its: ' + patientID);
 			$('#patient'+i).remove();
 		}
-	}	
+	}
 }
 
 function populateListOfPractitioners(entries) {
@@ -135,7 +130,7 @@ function populateListOfPractitioners(entries) {
 										'</tr>'+
 									'</table>'+
 								'</li>');
-		}	
+		}
 }
 
 // This function handles Search, PatientOverviews, Care Plans, Diagnostic Reports
@@ -272,6 +267,19 @@ $(document).ready(function(){
 		fetchResource('patient', '_id', patientID, false);
 	});
 
+	// Function to handle the click of a cell in the appointment list.
+	$('#appointmentListView').on('click', 'li', function () {
+		$.mobile.loading('show');
+		var selected_index = $(this).index();
+		// console.log(name);
+		// console.log(patientID);
+		// console.log(selected_index);
+		// var appointment = patientAppointments[selected_index];
+		// console.log(appointment.comment);
+		populateAppointmentOverview(patientAppointments[selected_index]);
+		//fetchResource('appointment', '_id', patientID, false);
+	});
+
 	$('#addGoal').click(function() {
 		var uploadCarePlanForm = document.getElementById('goalInputDiv');
 		var goalInputDiv = document.createElement('div');
@@ -298,13 +306,37 @@ $(document).ready(function(){
 		activityInputDiv.appendChild(activityInput);
 		addActivityDiv.appendChild(activityInputDiv);
 	});
-
-	//$('#endDate').formatDate('yyyy/mm/dd');
-
 })
 
 function goBack() {
   window.history.back()
 }
 
+//fetch diag report and change page
+function diagnosticReportClick() {
+	$.mobile.loading('show');
+	fetchResource('Diagnosticreport', 'subject._id', patientID, false);
+}
 
+//fetch care plan
+function carePlanClick() {
+	$.mobile.loading('show');
+	fetchResource('careplan', 'patient._id', patientID, false);
+}
+
+function viewAppointmentsClick() {
+	$.mobile.loading('show');
+	fetchResource('appointment', 'subject._id', patientID, false);
+}
+
+function addCarePlan() {
+	$.mobile.changePage("index.html#UploadCarePlan");
+}
+
+function addAppointment() {
+	$.mobile.changePage("index.html#UploadAppointment");
+}
+
+function cancelAppointmentClick() {
+	//$.mobile.changePage("index.html#UploadAppointment");
+}

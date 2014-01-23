@@ -29,6 +29,7 @@
 	<script type="text/javascript" src="UploadCarePlan.js"></script>
 	<script type="text/javascript" src="UploadAppointment.js"></script>
 	<script type="text/javascript" src="PatientOverview.js"></script>
+	<script type="text/javascript" src="AppointmentOverview.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$('.footable').footable();
@@ -38,7 +39,6 @@
 </head>
 
 <body>
-
 	<div data-role="page" data-theme="a">
 		<header data-role="header" >
 			<h1>FHIR Application</h1>
@@ -69,7 +69,6 @@
 		</article>	
 	</div>
 	
-
 	<div data-role="page" data-theme="a" id="UploadPatientPage">
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
@@ -147,6 +146,9 @@
 
    				<label for="description">Description:</label>
 				<input type="text" id="description" value="">
+
+   				<label for="comment">Additional Comments:</label>
+				<input type="text" id="comment" value="">
 				<input id="appointmentUploadButton" type="submit" value="Add Appointment">
 			</form>					
 		</article>
@@ -216,11 +218,13 @@
 			<div id="wardTime"></div>
 		</div>
 
-		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="appointmentCollabsibleSet">
-		</div>
+<!-- 		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="appointmentCollabsibleSet">
+		</div> -->
+
+		<ul data-role="listview" data-inset="false" data-theme="a" data-filter="true" data-filter-placeholder="Search appointments..." id="appointmentListView">
+		</ul>
 	</div>
-	
-	
+		
 	<div data-role="page" data-theme="a" id="PatientOverviewPage">
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
@@ -252,8 +256,33 @@
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have any appointments.</p>
 				</div>
-				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Add Care Plan</a>
-				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addAppointment();">Add Appointment</a>
+				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Create Care Plan</a>
+				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addAppointment();">Create Appointment</a>
+			</p>
+		</div>
+	</div>
+
+	<div data-role="page" data-theme="a" id="AppointmentOverviewPage">
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1 id="appointmentOverviewHeader">Appointment Overview</h1>
+		</header>
+		
+		<div id="headerUnderBar"> 
+			<div id="wardDoctor">Appointment Details</div>
+			<div id="wardTime"></div>
+		</div>
+
+		<ul data-role="listview" id="appointmentOverviewRow" data-inset="false" data-theme="b">
+		</ul>
+
+		<div style="height: 100%; text-align:center; ">
+			<p>
+	    		<a href="#popupCancelAppointment" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="cancelAppointmentClick();">Cancel Appointment</a>
+	    		<div data-role="popup" id="popupCancelAppointment">
+	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				    <p>This appointment has aleady happened.</p>
+				</div>
 			</p>
 		</div>
 	</div>

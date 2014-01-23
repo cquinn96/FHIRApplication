@@ -15,16 +15,18 @@ function uploadAppointment(event){
     var serializedData = $form.serialize();
 	
 	var description = document.getElementById('description').value;
+  var comment = document.getElementById('comment').value;
 	var startDate =  document.getElementById('startDate').value;
 	var startTime =  document.getElementById('startTime').value;
-    var endDate =  document.getElementById('endDate').value;
-    var endTime =  document.getElementById('endTime').value;
+  var endDate =  document.getElementById('endDate').value;
+  var endTime =  document.getElementById('endTime').value;
 
     console.log('Start date: ' + startDate);
     console.log('End date: ' + endDate);
     console.log(endTime);
 
     //Discussion on the results of your recent MRI
+    //Further expand on the results of the MRI and determine the next actions that may be appropriate.
 	
 	var hosNumber = 12345678;
 	
@@ -44,7 +46,7 @@ myData = '<Appointment xmlns="http://hl7.org/fhir">'+
   '<location>'+
   '  <reference value="Location/1"/>'+
   '</location>'+
-  '<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate."/>'+
+  '<comment value="'+comment+'"/>'+
   '<participant>'+
   '  <individual>'+
   '    <reference value="Patient/'+patientID+'"/>'+

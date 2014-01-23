@@ -59,7 +59,6 @@ function populatePatientOverview(entry) {
 	if(dob == undefined)
 		dob = 'No data';
 
-	
 	$('#patientOverviewHeader').text(name);
 	//remove all items in list
 	$('#patientOverviewRow').children('li').remove();
@@ -81,38 +80,3 @@ function populatePatientOverview(entry) {
 		$('#addressRow').remove();
 	
 }
-
-function diagnosticReportClick(){
-	$.mobile.loading('show');
-	//fetch diag report and change page 
-	//fetchResourceByPatientID(patientID, name, );
-	fetchResource('Diagnosticreport', 'subject._id', patientID, false);
-}
-
-function carePlanClick(){
-	$.mobile.loading('show');
-	//fetch care plan
-	//fetchResourceByPatientID(patientID, name, 'careplan');
-	fetchResource('careplan', 'patient._id', patientID, false);
-	//fetchResourceByPatientID(patient, 'careplan');
-}
-
-function viewAppointmentsClick(){
-	$.mobile.loading('show');
-	fetchResource('appointment', 'subject._id', patientID, false);
-}
-
-function addCarePlan(){
-	//fetch care plan
-	//gotoCarePlanUploadPage();
-	$.mobile.changePage("index.html#UploadCarePlan");
-}
-
-function addAppointment(){
-	//fetch care plan
-	$.mobile.changePage("index.html#UploadAppointment");
-}
-
-// function gotoCarePlanUploadPage() {
-	//$.mobile.changePage("index.html#UploadCarePlan");
-// }
