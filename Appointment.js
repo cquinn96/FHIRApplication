@@ -49,9 +49,18 @@ function displayIndividualAppointment(content, rowNumber) {
 	var startTime = startPeriod.substring(11,16);
 	var endTime = endPeriod.substring(11,16);
 
-	var title = 'Date: ' + startDate + ' Time: ' + startTime + ' - ' + endTime;
+	var patientRef = content.participant[0].individual[0].reference;
+	var patientID = patientRef.replace( /^\D+/g, '');
+	var patientName = content.participant[0].individual[0].display;
+
+	var title = patientName + ' - ' + startDate + ' Time: ' + startTime + ' - ' + endTime;
 	$('#appointmentListView').append('<li id="appointment'+rowNumber+'"><a href="#">'+title+'</a></li>');
 	//appendAppointmentTitle(title, rowNumber);
+
+
+
+	console.log(patientID);
+	console.log(patientName);
 	
 	patientAppointments[rowNumber] = {
 		startDate: startDate,
@@ -61,9 +70,11 @@ function displayIndividualAppointment(content, rowNumber) {
 		priority: content.priority,
 		description: content.description, 
 		comment: content.comment,
+		patientID: patientID,
+		patientName: patientName
 	};
 }
 
-// function appendAppointmentTitle(appointmentTitle, rowNumber){									
-// 	$('#appointmentListView').append('<li id="appointment'+rowNumber+'"><a href="index.html">'+appointmentTitle+'</a></li>');
-// }
+function appendAppointmentTitle(appointmentTitle, rowNumber){									
+	$('#appointmentListView').append('<li id="appointment'+rowNumber+'"><a href="index.html">'+appointmentTitle+'</a></li>');
+}

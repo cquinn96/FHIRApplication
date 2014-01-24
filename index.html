@@ -60,7 +60,9 @@
 				<input type="text" name="query" id="query" value="">	
 			</form>			
 
-			<input id="loginButton" type="submit" value="Search">		
+			<input id="loginButton" type="submit" value="Search">
+
+			<button a="button" data-theme="a" class="ui-btn-hidden" aria-disabled="false" id="viewAllAppointmentsButton">View All Appointments</button>		
 			<div style="height: 100%; text-align:center; ">
 				<p>
 					<a href="#UploadPatientPage" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b">Add Patient</a>
@@ -144,6 +146,12 @@
 				<label for="endTime">End Time:</label>
    				<input type="time" data-clear-btn="false" name="time-1" id="endTime" value="">
 
+<!--    				<label for="priority">Priority (1-5):</label>
+				<input type="text" id="priority" value=""> -->
+
+				<label for="priority">Priority (1-5):</label>
+     			<input type="number" data-clear-btn="false" name="priority" pattern="[1-5]" id="priority" value="">
+
    				<label for="description">Description:</label>
 				<input type="text" id="description" value="">
 
@@ -222,6 +230,21 @@
 		</div> -->
 
 		<ul data-role="listview" data-inset="false" data-theme="a" data-filter="true" data-filter-placeholder="Search appointments..." id="appointmentListView">
+		</ul>
+	</div>
+
+	<div data-role="page" id="AllAppointmentsPage">
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1 id="allAppointmentsHeader">Appointments</h1>
+		</header>
+		
+		<div id="headerUnderBar"> 
+			<div id="wardDoctor"></div>
+			<div id="wardTime"></div>
+		</div>
+
+		<ul data-role="listview" data-inset="false" data-theme="a" data-filter="true" data-filter-placeholder="Search appointments..." id="allAppointmentsListView">
 		</ul>
 	</div>
 		

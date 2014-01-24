@@ -3,16 +3,16 @@ var request;
 
 function uploadAppointment(event){
 
-    // abort any pending request
-    if (request) {
-        request.abort();
-    }
-    // setup some local variables
-    var $form = $(this);
-    // let's select and cache all the fields
-    var $inputs = $form.find("input, select, button, textarea");
-    // serialize the data in the form
-    var serializedData = $form.serialize();
+  // abort any pending request
+  if (request) {
+      request.abort();
+  }
+  // setup some local variables
+  var $form = $(this);
+  // let's select and cache all the fields
+  var $inputs = $form.find("input, select, button, textarea");
+  // serialize the data in the form
+  var serializedData = $form.serialize();
 	
 	var description = document.getElementById('description').value;
   var comment = document.getElementById('comment').value;
@@ -20,60 +20,55 @@ function uploadAppointment(event){
 	var startTime =  document.getElementById('startTime').value;
   var endDate =  document.getElementById('endDate').value;
   var endTime =  document.getElementById('endTime').value;
+  var priority =  document.getElementById('priority').value;
 
-    console.log('Start date: ' + startDate);
-    console.log('End date: ' + endDate);
-    console.log(endTime);
-
-    //Discussion on the results of your recent MRI
-    //Further expand on the results of the MRI and determine the next actions that may be appropriate.
+  //Discussion on the results of your recent MRI
+  //Further expand on the results of the MRI and determine the next actions that may be appropriate.
 	
-	var hosNumber = 12345678;
-	
-//myData = '<Appointment xmlns="http://hl7.org/fhir">  <text>    <status value="generated"/>    <div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>  </text>  <priority value="5"/>  <status value="normal"/>  <description value="Discussion on the results of your recent MRI"/>  <start value="2013-12-10T09:00:00Z"/>  <end value="2013-12-10T11:00:00Z"/>  <timezone value="AEST"/>  <location>    <reference value="Location/1"/>  </location>  <comment value="TestFurther expand on the results of the MRI and determine the next actions that may be appropriate."/>  <participant>    <individual>      <reference value="Patient/362"/>      <display value="Cormac Test"/>    </individual>    <required value="required"/>    <status value="accepted"/>  </participant>  <participant>    <type>      <coding>        <code value="attending"/>      </coding>    </type>    <individual>      <reference value="Practitioner/example"/>      <display value="Dr Adam Careful"/>    </individual>    <required value="required"/>    <status value="accepted"/>  </participant>  <recorder>    <reference value="Practitioner/example"/>    <display value="Dr Adam Careful"/>  </recorder>  <recordedDate value="2012-09-17"/></Appointment>';
+  //myData = '<Appointment xmlns="http://hl7.org/fhir">  <text>    <status value="generated"/>    <div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>  </text>  <priority value="5"/>  <status value="normal"/>  <description value="Discussion on the results of your recent MRI"/>  <start value="2013-12-10T09:00:00Z"/>  <end value="2013-12-10T11:00:00Z"/>  <timezone value="AEST"/>  <location>    <reference value="Location/1"/>  </location>  <comment value="TestFurther expand on the results of the MRI and determine the next actions that may be appropriate."/>  <participant>    <individual>      <reference value="Patient/362"/>      <display value="Cormac Test"/>    </individual>    <required value="required"/>    <status value="accepted"/>  </participant>  <participant>    <type>      <coding>        <code value="attending"/>      </coding>    </type>    <individual>      <reference value="Practitioner/example"/>      <display value="Dr Adam Careful"/>    </individual>    <required value="required"/>    <status value="accepted"/>  </participant>  <recorder>    <reference value="Practitioner/example"/>    <display value="Dr Adam Careful"/>  </recorder>  <recordedDate value="2012-09-17"/></Appointment>';
 
-myData = '<Appointment xmlns="http://hl7.org/fhir">'+
-  '<text>'+
-  '  <status value="generated"/>'+
-  '  <div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>'+
-  '</text>'+
-  '<priority value="5"/>'+
-  '<status value="normal"/>'+
-  '<description value="'+description+'"/>'+
-  '<start value="'+startDate+'T'+startTime+':00Z"/>'+
-  '<end value="'+endDate+'T'+endTime+':00Z"/>'+
-  '<timezone value="AEST"/>'+
-  '<location>'+
-  '  <reference value="Location/1"/>'+
-  '</location>'+
-  '<comment value="'+comment+'"/>'+
-  '<participant>'+
-  '  <individual>'+
-  '    <reference value="Patient/'+patientID+'"/>'+
-  '    <display value="'+name+'"/>'+
-  '  </individual>'+
-  '  <required value="required"/>'+
-  '  <status value="accepted"/>'+
-  '</participant>'+
-  '<participant>'+
-  '  <type>'+
-  '    <coding>'+
-  '      <code value="attending"/>'+
-  '    </coding>'+
-  '  </type>'+
-  '  <individual>'+
-  '    <reference value="Practitioner/example"/>'+
+  myData = '<Appointment xmlns="http://hl7.org/fhir">'+
+    '<text>'+
+    '  <status value="generated"/>'+
+    '  <div xmlns="http://www.w3.org/1999/xhtml">'+description+'</div>'+
+    '</text>'+
+    '<priority value="'+priority+'"/>'+
+    '<status value="normal"/>'+
+    '<description value="'+description+'"/>'+
+    '<start value="'+startDate+'T'+startTime+':00Z"/>'+
+    '<end value="'+endDate+'T'+endTime+':00Z"/>'+
+    '<timezone value="AEST"/>'+
+    '<location>'+
+    '  <reference value="Location/1"/>'+
+    '</location>'+
+    '<comment value="'+comment+'"/>'+
+    '<participant>'+
+    '  <individual>'+
+    '    <reference value="Patient/'+patientID+'"/>'+
+    '    <display value="'+name+'"/>'+
+    '  </individual>'+
+    '  <required value="required"/>'+
+    '  <status value="accepted"/>'+
+    '</participant>'+
+    '<participant>'+
+    '  <type>'+
+    '    <coding>'+
+    '      <code value="attending"/>'+
+    '    </coding>'+
+    '  </type>'+
+    '  <individual>'+
+    '    <reference value="Practitioner/example"/>'+
+        '<display value="Dr Adam Careful"/>'+
+      '</individual>'+
+      '<required value="required"/>'+
+      '<status value="accepted"/>'+
+    '</participant>'+
+    '<recorder>'+
+      '<reference value="Practitioner/example"/>'+
       '<display value="Dr Adam Careful"/>'+
-    '</individual>'+
-    '<required value="required"/>'+
-    '<status value="accepted"/>'+
-  '</participant>'+
-  '<recorder>'+
-    '<reference value="Practitioner/example"/>'+
-    '<display value="Dr Adam Careful"/>'+
-  '</recorder>'+
-  '<recordedDate value="2012-09-17"/>'+
-'</Appointment>';
+    '</recorder>'+
+    '<recordedDate value="2012-09-17"/>'+
+  '</Appointment>';
 
     // let's disable the inputs for the duration of the ajax request
     $inputs.prop("disabled", true);

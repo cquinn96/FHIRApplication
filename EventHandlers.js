@@ -306,6 +306,12 @@ $(document).ready(function(){
 		activityInputDiv.appendChild(activityInput);
 		addActivityDiv.appendChild(activityInputDiv);
 	});
+
+	$('#viewAllAppointmentsButton').bind('vmousedown', function () {
+		console.log('clicked');
+		$.mobile.loading('show');
+		fetchResource('Appointment', '_id', '', false);	
+	});
 })
 
 function goBack() {
