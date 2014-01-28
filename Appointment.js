@@ -7,17 +7,17 @@ function displayAppointments(entries, totalAppointments) {
 
 	for(var i = 0; i < entries.length; i++)
 	{
-		displayIndividualAppointment(entries[i].content, i);
+		displayIndividualAppointment(entries[i].content, i, entries[i].title);
 	}
 	$('#appointmentListView').listview("refresh");
 
-	$("#appointmentListView").listview({
-		    autodividers: true,
-		    autodividersSelector: function (li) {
-		        var out = li.attr('date');
-		        return out;
-		    }
-		}).listview('refresh');
+	// $("#appointmentListView").listview({
+	// 	    autodividers: true,
+	// 	    autodividersSelector: function (li) {
+	// 	        var out = li.attr('date');
+	// 	        return out;
+	// 	    }
+	// 	}).listview('refresh');
 }
 
 // function displayIndividualAppointment(content, rowNumber) {
@@ -62,7 +62,7 @@ function createDate(date) {
 	return newDate;
 }
 
-function displayIndividualAppointment(content, rowNumber) {
+function displayIndividualAppointment(content, rowNumber, title) {
 
 	var startPeriod = content.start;
 	var endPeriod = content.end;
@@ -76,10 +76,12 @@ function displayIndividualAppointment(content, rowNumber) {
 	var newStartDate = createDate(startDate);
 	var today = new Date();
 
-	if(newStartDate<today) {
-		console.log('The date' + newStartDate + 'is before today');
-		//return;
-	}
+	// if(newStartDate<today) {
+	// 	console.log('The date' + newStartDate + 'is before today');
+	// 	//return;
+	// }
+
+	var appointmentID = title.match(/"([^"]+)"/)[1];
 
 	var patientRef = content.participant[0].individual[0].reference;
 	var patientID = patientRef.replace( /^\D+/g, '');
@@ -87,8 +89,9 @@ function displayIndividualAppointment(content, rowNumber) {
 	var title = patientName + ': ' + startTime + ' - ' + endTime;
 	$('#appointmentListView').append('<li date="'+startDate+'" id="appointment'+rowNumber+'"><a href="#">'+title+'</a></li>');
 	//appendAppointmentTitle(title, rowNumber);
-	
+
 	patientAppointments[rowNumber] = {
+		appointmentID: appointmentID,
 		startDate: startDate,
 		startTime: startTime,
 		endDate: endDate,
@@ -101,6 +104,6 @@ function displayIndividualAppointment(content, rowNumber) {
 	};
 }
 
-function appendAppointmentTitle(appointmentTitle, rowNumber){									
-	$('#appointmentListView').append('<li id="appointment'+rowNumber+'"><a href="index.html">'+appointmentTitle+'</a></li>');
-}
+// function appendAppointmentTitle(appointmentTitle, rowNumber){									
+// 	$('#appointmentListView').append('<li id="appointment'+rowNumber+'"><a href="index.html">'+appointmentTitle+'</a></li>');
+// }

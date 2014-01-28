@@ -1,5 +1,8 @@
+var appointmentID = '';
+
 function populateAppointmentOverview(appointment) {
 	$.mobile.changePage("index.html#AppointmentOverviewPage");
+	appointmentID = appointment.appointmentID
 	var startDate = appointment.startDate;
 	var startTime = appointment.startTime;
 	var endDate = appointment.endDate;
@@ -10,11 +13,12 @@ function populateAppointmentOverview(appointment) {
 	var patientID = appointment.patientID;
 	var patientName = appointment.patientName;
 
-	$('#appointmentOverviewHeader').text(name);
+	$('#appointmentOverviewHeader').text(patientName);
 	//remove all items in list
 	$('#appointmentOverviewRow').children('li').remove();
 	//populate new items for list
 	$('#appointmentOverviewRow').append('<li> <i>Patient ID</i> - ' + patientID +'</li>'+
+									'<li> <i>Appointment ID</i> - '+ appointmentID+'</li>'+
 									'<li> <i>Patient Name</i> - '+ patientName+'</li>'+
 									'<li> <i>Appointment Time</i> - ' + startTime +' - ' + endTime +'</li>'+
 									'<li> <i>Appointment Date</i> - '+ startDate +'</li>'+
@@ -29,4 +33,19 @@ function populateAppointmentOverview(appointment) {
 	else {
     	$('#appointmentOverviewRow').trigger('create');
      }
+}
+
+function deleteAppointment() {
+    $.ajax({
+       type: "delete",
+       url: 'http://hl7connect.healthintersections.com.au/open/appointment/_search?_id='+appointmentID,
+       success: function(msg, status) {        
+       		console.log('Success deleting apppointment');
+       },
+        error: function (msg) {
+            // search request failed
+			console.log('Error deleting apppointment');
+
+        }
+    });
 }

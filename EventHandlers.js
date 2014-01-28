@@ -1,35 +1,34 @@
 var patientArray = [];
-
 function getPatientDetails(entry){
-		if(entry.content.name[0].given != null && entry.content.name[0].family != null)
-		{
-			var name = entry.content.name[0].given[0] + ' ' + entry.content.name[0].family[0];
-		}
-		
-		if(entry.content.birthDate != null)
-		{
-			var dob = entry.content.birthDate;
-		}
-		if(entry.content.identifier != null)
-		{
-			var hosNumber = entry.content.identifier[0].value;
-		}
+	if(entry.content.name[0].given != null && entry.content.name[0].family != null)
+	{
+		var name = entry.content.name[0].given[0] + ' ' + entry.content.name[0].family[0];
+	}
+	
+	if(entry.content.birthDate != null)
+	{
+		var dob = entry.content.birthDate;
+	}
+	if(entry.content.identifier != null)
+	{
+		var hosNumber = entry.content.identifier[0].value;
+	}
 
-		if(dob == undefined)
-			dob = 'No data';
-		
-		var title = entry.title;
-		
-		// Gets the patient ID
-		var patientID = title.match(/"([^"]+)"/)[1];
+	if(dob == undefined)
+		dob = 'No data';
+	
+	var title = entry.title;
+	
+	// Gets the patient ID
+	var patientID = title.match(/"([^"]+)"/)[1];
 
-		var patientInfo = { 
-			key: patientID,
-			value: name,
-			dob: dob,
-			hosNumber: hosNumber};
+	var patientInfo = { 
+		key: patientID,
+		value: name,
+		dob: dob,
+		hosNumber: hosNumber};
 
-		return patientInfo;
+	return patientInfo;
 }
 
 //populates results into table when data has been received from server
@@ -37,7 +36,6 @@ function populateListOfPatients(entries) {
 	$('#patientRows').children('li').remove();
 
 	for (var i = 0; i < entries.length; i++){
-
 		var patient = getPatientDetails(entries[i]);
 
 		patientID = patient.key;
@@ -48,10 +46,8 @@ function populateListOfPatients(entries) {
 		if(name == undefined)
 			continue;
 
-
 		patientArray[i] = patient;
 
-		// var status;
 		// //var identifier = entries[i].content.Patient.identifier[0].label.value;
 		// if(entries[i].summary != null)
 		// {
@@ -271,11 +267,8 @@ $(document).ready(function(){
 	$('#appointmentListView').on('click', 'li', function () {
 		$.mobile.loading('show');
 		var selected_index = $(this).index();
-		// console.log(name);
-		// console.log(patientID);
-		// console.log(selected_index);
-		// var appointment = patientAppointments[selected_index];
-		// console.log(appointment.comment);
+		var appointmentID = $(this).attr('id');
+		console.log(appointmentID);
 		populateAppointmentOverview(patientAppointments[selected_index]);
 		//fetchResource('appointment', '_id', patientID, false);
 	});
@@ -308,7 +301,6 @@ $(document).ready(function(){
 	});
 
 	$('#viewAllAppointmentsButton').bind('vmousedown', function () {
-		console.log('clicked');
 		$.mobile.loading('show');
 		fetchResource('Appointment', '_id', '', false);	
 	});
@@ -331,6 +323,7 @@ function carePlanClick() {
 }
 
 function viewAppointmentsClick() {
+	console.log('viewAppointmentsClick() in EventHandlers')
 	$.mobile.loading('show');
 	fetchResource('appointment', 'subject._id', patientID, false);
 }
@@ -345,4 +338,5 @@ function addAppointment() {
 
 function cancelAppointmentClick() {
 	//$.mobile.changePage("index.html#UploadAppointment");
+	deleteAppointment();
 }
