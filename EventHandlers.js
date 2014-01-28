@@ -267,9 +267,21 @@ $(document).ready(function(){
 	$('#appointmentListView').on('click', 'li', function () {
 		$.mobile.loading('show');
 		var selected_index = $(this).index();
-		var appointmentID = $(this).attr('id');
-		console.log(appointmentID);
-		populateAppointmentOverview(patientAppointments[selected_index]);
+		var appointmentRowID = $(this).attr('id');
+		// Find the number in the row ID
+		//var appointmentID = appointmentRowID.replace( /^\D+/g, '');
+		var appointmentID = appointmentRowID.substring(11);
+		for(var i = 0; i < patientAppointments.length; i++)
+		{
+			if(patientAppointments[i].appointmentID == appointmentID){
+				console.log('AppoinmentID is ' + appointmentID);
+				console.log('AppoinmentID is in array is ' + patientAppointments[i].appointmentID);
+				populateAppointmentOverview(patientAppointments[i]);
+			}
+				
+		}
+
+		//populateAppointmentOverview(patientAppointments[selected_index]);
 		//fetchResource('appointment', '_id', patientID, false);
 	});
 

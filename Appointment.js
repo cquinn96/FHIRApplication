@@ -11,13 +11,13 @@ function displayAppointments(entries, totalAppointments) {
 	}
 	$('#appointmentListView').listview("refresh");
 
-	// $("#appointmentListView").listview({
-	// 	    autodividers: true,
-	// 	    autodividersSelector: function (li) {
-	// 	        var out = li.attr('date');
-	// 	        return out;
-	// 	    }
-	// 	}).listview('refresh');
+	$("#appointmentListView").listview({
+		    autodividers: true,
+		    autodividersSelector: function (li) {
+		        var out = li.attr('date');
+		        return out;
+		    }
+		}).listview('refresh');
 }
 
 // function displayIndividualAppointment(content, rowNumber) {
@@ -58,6 +58,7 @@ function displayAppointments(entries, totalAppointments) {
 
 function createDate(date) {
 	var newDate = new Date();
+	console.log('Year: ' + date.substring(0,4))
 	newDate.setFullYear(date.substring(0,4), date.substring(5,7), date.substring(8,10));
 	return newDate;
 }
@@ -73,21 +74,12 @@ function displayIndividualAppointment(content, rowNumber, title) {
 	var startTime = startPeriod.substring(11,16);
 	var endTime = endPeriod.substring(11,16);
 
-	var newStartDate = createDate(startDate);
-	var today = new Date();
-
-	// if(newStartDate<today) {
-	// 	console.log('The date' + newStartDate + 'is before today');
-	// 	//return;
-	// }
-
 	var appointmentID = title.match(/"([^"]+)"/)[1];
 
 	var patientRef = content.participant[0].individual[0].reference;
 	var patientID = patientRef.replace( /^\D+/g, '');
 	var patientName = content.participant[0].individual[0].display;
 	var title = patientName + ': ' + startTime + ' - ' + endTime;
-	$('#appointmentListView').append('<li date="'+startDate+'" id="appointment'+rowNumber+'"><a href="#">'+title+'</a></li>');
 	//appendAppointmentTitle(title, rowNumber);
 
 	patientAppointments[rowNumber] = {
@@ -102,6 +94,16 @@ function displayIndividualAppointment(content, rowNumber, title) {
 		patientID: patientID,
 		patientName: patientName
 	};
+
+	var newStartDate = createDate(startDate);
+	var today = new Date();
+
+	if(newStartDate<today) {
+		console.log('The date' + newStartDate + 'is before today');
+		return;
+	}
+
+	$('#appointmentListView').append('<li date="'+startDate+'" id="appointment'+appointmentID+'"><a href="#">'+title+'</a></li>');
 }
 
 // function appendAppointmentTitle(appointmentTitle, rowNumber){									
