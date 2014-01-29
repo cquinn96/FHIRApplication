@@ -274,8 +274,6 @@ $(document).ready(function(){
 		for(var i = 0; i < patientAppointments.length; i++)
 		{
 			if(patientAppointments[i].appointmentID == appointmentID){
-				console.log('AppoinmentID is ' + appointmentID);
-				console.log('AppoinmentID is in array is ' + patientAppointments[i].appointmentID);
 				populateAppointmentOverview(patientAppointments[i]);
 			}
 				
