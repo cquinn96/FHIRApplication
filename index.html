@@ -25,11 +25,13 @@
 	<script type="text/javascript" src="CarePlan.js"></script>
 	<script type="text/javascript" src="DiagnosticReport.js"></script>
 	<script type="text/javascript" src="Appointment.js"></script>
+	<script type="text/javascript" src="MedicationPrescription.js"></script>
 	<script type="text/javascript" src="UploadPatient.js"></script>
 	<script type="text/javascript" src="UploadCarePlan.js"></script>
 	<script type="text/javascript" src="UploadAppointment.js"></script>
 	<script type="text/javascript" src="PatientOverview.js"></script>
 	<script type="text/javascript" src="AppointmentOverview.js"></script>
+	<script type="text/javascript" src="PrescriptionOverview.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$('.footable').footable();
@@ -215,7 +217,7 @@
 		</div>
 	</div>
 
-	<div data-role="page" id="AppointmentPage">
+	<div data-role="page" id="AppointmentListPage">
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="appointmentHeader">Appointments</h1>
@@ -226,14 +228,26 @@
 			<div id="wardTime"></div>
 		</div>
 
-<!-- 		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="appointmentCollabsibleSet">
-		</div> -->
-
 		<ul data-role="listview" data-inset="false" data-theme="a" data-autodividers="true" data-filter="true" data-filter-placeholder="Search appointments..." id="appointmentListView">
 		</ul>
 	</div>
 
-	<div data-role="page" id="AllAppointmentsPage">
+	<div data-role="page" id="PrescriptionListPage">
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1 id="prescriptionHeader">Prescriptions</h1>
+		</header>
+		
+		<div id="headerUnderBar"> 
+			<div id="wardDoctor"></div>
+			<div id="wardTime"></div>
+		</div>
+
+		<ul data-role="listview" data-inset="false" data-theme="a" data-autodividers="true" data-filter="true" data-filter-placeholder="Search prescriptions..." id="prescriptionListView">
+		</ul>
+	</div>
+
+<!-- 	<div data-role="page" id="AllAppointmentsPage">
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
 			<h1 id="allAppointmentsHeader">Appointments</h1>
@@ -246,7 +260,7 @@
 
 		<ul data-role="listview" data-inset="false" data-theme="a" data-filter="true" data-filter-placeholder="Search appointments..." id="allAppointmentsListView">
 		</ul>
-	</div>
+	</div> -->
 		
 	<div data-role="page" data-theme="a" id="PatientOverviewPage">
 		<header data-role="header">
@@ -279,6 +293,11 @@
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have any appointments.</p>
 				</div>
+				<a href="#popupPrescriptions" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewPrescriptionsClick();">View Prescriptions</a>
+	    		<div data-role="popup" id="popupPrescriptions">
+	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				    <p>This patient doesn't have any prescriptions.</p>
+				</div>
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Create Care Plan</a>
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addAppointment();">Create Appointment</a>
 			</p>
@@ -308,6 +327,21 @@
 				</div>
 			</p>
 		</div>
+	</div>
+
+	<div data-role="page" data-theme="a" id="PrescriptionOverviewPage">
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1 id="prescriptionOverviewHeader">Prescription Overview</h1>
+		</header>
+		
+		<div id="headerUnderBar"> 
+			<div id="wardDoctor">Prescription Details</div>
+			<div id="wardTime"></div>
+		</div>
+
+		<ul data-role="listview" id="prescriptionOverviewRow" data-inset="false" data-theme="b">
+		</ul>
 	</div>
 </body>
 </html>

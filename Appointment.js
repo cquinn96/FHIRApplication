@@ -16,10 +16,10 @@ function displayAppointments(entries, totalAppointments) {
 	{
 		var title = patientAppointments[i].patientName + ': ' + patientAppointments[i].startTime + ' - ' + patientAppointments[i].endTime;
 		var today = new Date();
+
 		// If the date of the appointment is before today, don't show it
 		if(patientAppointments[i].realDate<today) {
 			//console.log('The date ' + patientAppointments[i].realStartDate + 'is before today, so we will remove this appointment: ' + patientAppointments[i].appointmentID + patientAppointments[i].patientName);
-			//return;
 			continue;
 		}
 

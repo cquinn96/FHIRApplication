@@ -1,0 +1,40 @@
+function populatePrescriptionOverview(prescription) {
+	$.mobile.changePage("index.html#PrescriptionOverviewPage");
+
+	var prescriptionID = prescription.prescriptionID
+	var status = prescription.status;
+	var patientID = prescription.patientID;
+	var patientName = prescription.patientName;
+	var prescriberID = prescription.prescriberID;
+	var prescriberName = prescription.prescriberName;
+	var medicationID = prescription.medicationID;
+	var medicationName = prescription.medicationName;
+	var duration = prescription.duration;
+	var frequency = prescription.frequency;
+	var doseQuantity = prescription.doseQuantity;
+	var doseUnits = prescription.doseUnits;
+	var route = prescription.route;
+	var dispenseQuantity = prescription.dispenseQuantity;
+	var dispenseUnits = prescription.dispenseUnits;
+
+	$('#prescriptionOverviewHeader').text(patientName);
+	//remove all items in list
+	$('#prescriptionOverviewRow').children('li').remove();
+	//populate new items for list
+	$('#prescriptionOverviewRow').append('<li> <i>Patient ID</i> - ' + patientID +'</li>'+
+									'<li> <i>Patient Name</i> - '+ patientName+'</li>'+
+									'<li> <i>Prescribed By</i> - ' + prescriberName +'</li>'+
+									'<li> <i>Medication Name</i> - '+ medicationName +'</li>'+
+									'<li> <i>Duration</i> - ' + duration +'</li>'+
+									'<li> <i>Frequency</i> - ' + frequency +'</li>'+
+									'<li> <i>Doseage</i> - ' + doseQuantity + doseUnits + '</li>'+
+									'<li> <i>Route</i> - ' + route +'</li>');
+
+	//if the listview exsists, refresh it, otherwise create it
+	if ($('#prescriptionOverviewRow').hasClass('ui-listview')) {
+    	$('#prescriptionOverviewRow').listview('refresh');
+     } 
+	else {
+    	$('#prescriptionOverviewRow').trigger('create');
+     }
+}

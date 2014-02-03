@@ -187,8 +187,20 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					}
 					else
 					{
-						$.mobile.changePage("index.html#AppointmentPage");
+						$.mobile.changePage("index.html#AppointmentListPage");
 						displayAppointments(msg.entry, msg.totalResults);
+					}
+	            }
+	            else if (msg.title == 'Search results for resource type MedicationPrescription') {
+					if(msg.entry.length == 0)
+					{
+						$.mobile.loading('hide');
+						$( "#popupPrescription" ).popup( "open" );
+					}
+					else
+					{
+						$.mobile.changePage("index.html#PrescriptionListPage");
+						displayPrescriptions(msg.entry, msg.totalResults);
 					}
 	            }
 	            else {
@@ -283,6 +295,27 @@ $(document).ready(function(){
 		//fetchResource('appointment', '_id', patientID, false);
 	});
 
+	// Function to handle the click of a cell in the prescription list.
+	$('#prescriptionListView').on('click', 'li', function () {
+		$.mobile.loading('show');
+		var selected_index = $(this).index();
+		var prescriptionRowID = $(this).attr('id');
+		// Find the number in the row ID
+		//var appointmentID = appointmentRowID.replace( /^\D+/g, '');
+		// Removes the first 12 characters (ie prescription) and leaves the ID
+		var prescriptionID = prescriptionRowID.substring(12);
+		for(var i = 0; i < prescriptions.length; i++)
+		{
+			if(prescriptions[i].prescriptionID == prescriptionID){
+				populatePrescriptionOverview(prescriptions[i]);
+			}
+				
+		}
+
+		//populateAppointmentOverview(patientAppointments[selected_index]);
+		//fetchResource('appointment', '_id', patientID, false);
+	});
+
 	$('#addGoal').click(function() {
 		var uploadCarePlanForm = document.getElementById('goalInputDiv');
 		var goalInputDiv = document.createElement('div');
@@ -312,7 +345,7 @@ $(document).ready(function(){
 
 	$('#viewAllAppointmentsButton').bind('vmousedown', function () {
 		$.mobile.loading('show');
-		fetchResource('Appointment', '_id', '', false);	
+		fetchResource('appointment', '_id', '', false);	
 	});
 })
 
@@ -323,7 +356,7 @@ function goBack() {
 //fetch diag report and change page
 function diagnosticReportClick() {
 	$.mobile.loading('show');
-	fetchResource('Diagnosticreport', 'subject._id', patientID, false);
+	fetchResource('diagnosticreport', 'subject._id', patientID, false);
 }
 
 //fetch care plan
@@ -332,10 +365,15 @@ function carePlanClick() {
 	fetchResource('careplan', 'patient._id', patientID, false);
 }
 
+// View all of a particular patients appointmnets
 function viewAppointmentsClick() {
-	console.log('viewAppointmentsClick() in EventHandlers')
 	$.mobile.loading('show');
 	fetchResource('appointment', 'subject._id', patientID, false);
+}
+
+function viewPrescriptionsClick() {
+	$.mobile.loading('show');
+	fetchResource('medicationprescription', 'patient._id', patientID, false);
 }
 
 function addCarePlan() {

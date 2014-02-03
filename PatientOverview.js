@@ -51,7 +51,7 @@ function populatePatientOverview(entry) {
 	}
 
 	if(address == undefined)
-			address = 'No data';
+		address = 'No data';
 
 	if(phoneNumber == undefined)
 		phoneNumber = 'No data';
