@@ -27,11 +27,11 @@ function displayIndividualPrescription(content, rowNumber, title) {
 	var patientName = content.patient.display;
 
 	var prescriberRef = content.prescriber.reference;
-	var prescriberID = patientRef.replace( /^\D+/g, '');
+	var prescriberID = prescriberRef.replace( /^\D+/g, '');
 	var prescriberName = content.prescriber.display;
 
 	var medicationRef = content.medication.reference;
-	var medicationID = patientRef.replace( /^\D+/g, '');
+	var medicationID = medicationRef.replace( /^\D+/g, '');
 	var medicationName = content.medication.display;
 
 	// Duration is the number you take at the time

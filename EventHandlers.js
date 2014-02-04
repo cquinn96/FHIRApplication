@@ -203,6 +203,18 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 						displayPrescriptions(msg.entry, msg.totalResults);
 					}
 	            }
+	            else if (msg.title == 'Search results for resource type MedicationAdministration') {
+					if(msg.entry.length == 0)
+					{
+						$.mobile.loading('hide');
+						$( "#popupAdministration" ).popup( "open" );
+					}
+					else
+					{
+						$.mobile.changePage("index.html#AdministrationListPage");
+						displayMedicationAdministrations(msg.entry, msg.totalResults);
+					}
+	            }
 	            else {
 	                // Request failed
 					alert('Oops, something went wrong');
@@ -374,6 +386,11 @@ function viewAppointmentsClick() {
 function viewPrescriptionsClick() {
 	$.mobile.loading('show');
 	fetchResource('medicationprescription', 'patient._id', patientID, false);
+}
+
+function viewAdministrationsClick() {
+	$.mobile.loading('show');
+	fetchResource('MedicationAdministration', 'patient._id', patientID, false);
 }
 
 function addCarePlan() {

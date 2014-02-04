@@ -26,6 +26,7 @@
 	<script type="text/javascript" src="DiagnosticReport.js"></script>
 	<script type="text/javascript" src="Appointment.js"></script>
 	<script type="text/javascript" src="MedicationPrescription.js"></script>
+	<script type="text/javascript" src="MedicationAdministration.js"></script>
 	<script type="text/javascript" src="UploadPatient.js"></script>
 	<script type="text/javascript" src="UploadCarePlan.js"></script>
 	<script type="text/javascript" src="UploadAppointment.js"></script>
@@ -247,6 +248,21 @@
 		</ul>
 	</div>
 
+	<div data-role="page" id="AdministrationListPage">
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1 id="administrationHeader">Administration</h1>
+		</header>
+		
+		<div id="headerUnderBar"> 
+			<div id="wardDoctor"></div>
+			<div id="wardTime"></div>
+		</div>
+
+		<ul data-role="listview" data-inset="false" data-theme="a" data-autodividers="true" data-filter="true" data-filter-placeholder="Search administration..." id="administrationListView">
+		</ul>
+	</div>
+
 <!-- 	<div data-role="page" id="AllAppointmentsPage">
 		<header data-role="header">
 			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
@@ -297,6 +313,11 @@
 	    		<div data-role="popup" id="popupPrescriptions">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have any prescriptions.</p>
+				</div>
+				<a href="#popupAdministrations" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewAdministrationsClick();">View Medication Administrations</a>
+	    		<div data-role="popup" id="popupAdministrations">
+	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				    <p>This patient doesn't have any administrations.</p>
 				</div>
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Create Care Plan</a>
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addAppointment();">Create Appointment</a>
