@@ -195,8 +195,8 @@
 		</div>	
 		<ul id="reportRows">
 		</ul>
-
-		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="false" id="reportCollabsibleSet">
+		<!-- Old way: data-inset="false" -->
+		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="true" id="reportCollabsibleSet">
 		</div>
 
 	</div>
@@ -292,7 +292,49 @@
 		<ul id="patientOverviewRow" data-role="listview" data-theme="b">
 		</ul>
 
-		<div style="height: 100%; text-align:center; ">
+		<div data-role="collapsible-set" data-theme="a" data-content-theme="a" >
+		    <div data-role="collapsible">
+		        <h2>View</h2><!-- data-theme="a" data-inset="false" data-filter="true" data-filter-theme="b" data-divider-theme="a" -->
+		        <ul data-role="listview" data-inset="true" data-theme="a" data-filter-theme="b" data-divider-theme="a">
+		            <li>
+		            	<a href="#popupDiagnosticReport" data-theme="b" onclick="diagnosticReportClick();">Diagnostic Report</a>
+			    		<div data-role="popup" id="popupDiagnosticReport">
+			    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+						    <p>This patient doesn't have any diagnostic reports.</p>
+						</div>
+					</li>
+		        <li><a href="#popupCarePlan" data-theme="a" onclick="carePlanClick();">Care Plan</a>
+		    		<div data-role="popup" id="popupCarePlan">
+		    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					    <p>This patient doesn't have a care plan.</p>
+					</div></li>
+		        <li><a href="#popupAppointment" data-mini="true" data-inline="true" data-theme="b" onclick="viewAppointmentsClick();">Appointments</a>
+		    		<div data-role="popup" id="popupAppointment">
+		    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					    <p>This patient doesn't have any appointments.</p>
+					</div></li>
+		        <li><a href="#popupPrescription" data-theme="b" onclick="viewPrescriptionsClick();">Prescriptions</a>
+		    		<div data-role="popup" id="popupPrescription">
+		    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					    <p>This patient doesn't have any prescriptions.</p>
+					</div></li>
+		        <li><a href="#popupAdministration" data-theme="b" onclick="viewAdministrationsClick();">Medication Administrations</a>
+		    		<div data-role="popup" id="popupAdministration">
+		    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					    <p>This patient doesn't have any administrations.</p>
+					</div></li>
+		        </ul>
+		    </div>
+		    <div data-role="collapsible">
+		        <h2>Create</h2>
+		        <ul data-role="listview" data-inset="true" data-theme="a" data-filter-theme="b" data-divider-theme="d">
+				<li><a href="#" data-theme="b" onclick="addCarePlan();">Care Plan</a></li>
+		        <li><a href="#" data-theme="b" onclick="addAppointment();">Appointment</a></li>
+		        </ul>
+		    </div>
+		</div>
+
+<!-- 		<div style="height: 100%; text-align:center; ">
 			<p>
 	    		<a href="#popupDiagnosticReport" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="diagnosticReportClick();">Diagnostic Report</a>
 	    		<div data-role="popup" id="popupDiagnosticReport">
@@ -304,25 +346,29 @@
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have a care plan.</p>
 				</div>
+			</p>
+			<p>
 				<a href="#popupAppointment" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewAppointmentsClick();">View Appointments</a>
 	    		<div data-role="popup" id="popupAppointment">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have any appointments.</p>
 				</div>
-				<a href="#popupPrescriptions" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewPrescriptionsClick();">View Prescriptions</a>
-	    		<div data-role="popup" id="popupPrescriptions">
+				<a href="#popupPrescription" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewPrescriptionsClick();">View Prescriptions</a>
+	    		<div data-role="popup" id="popupPrescription">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have any prescriptions.</p>
 				</div>
-				<a href="#popupAdministrations" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewAdministrationsClick();">View Medication Administrations</a>
-	    		<div data-role="popup" id="popupAdministrations">
+				<a href="#popupAdministration" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="viewAdministrationsClick();">View Medication Administrations</a>
+	    		<div data-role="popup" id="popupAdministration">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 				    <p>This patient doesn't have any administrations.</p>
 				</div>
+			</p>
+			<p>
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addCarePlan();">Create Care Plan</a>
 				<a href="#" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="addAppointment();">Create Appointment</a>
 			</p>
-		</div>
+		</div> -->
 	</div>
 
 	<div data-role="page" data-theme="a" id="AppointmentOverviewPage">

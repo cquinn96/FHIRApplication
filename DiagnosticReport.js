@@ -33,7 +33,7 @@ function displayReport(containedResults, reportTitle, rowNumber) {
 	appendReportTitle(reportTitle, rowNumber);
 
 	$('#report'+rowNumber).append(
-							'<ul data-role="listview" data-theme="a" data-inset="false" data-filter="true" data-filter-theme="b" data-divider-theme="a" id="reportListView'+rowNumber+'">'+
+							'<ul data-role="listview" data-theme="a" data-inset="true" data-filter="true" data-filter-theme="b" data-divider-theme="a" id="reportListView'+rowNumber+'">'+
 							'</ul>'
 							);
 						

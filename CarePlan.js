@@ -14,8 +14,45 @@ function populateCarePlanRows(entries, totalCarePlans) {
 
 function displayCarePlan(entry, reportTitle, rowNumber) {
 
+	// <div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="true" id="reportCollabsibleSet">
+	// 	</div>
+
+// 	$('#carePlanDiv').append(
+//     '<div data-role="collapsible-set" data-theme="a" data-content-theme="a" data-inset="true" id="carePlanCollabsibleSet">' +
+//     '<h2>'+reportTitle+'</h2>' +
+//     '<div id="innerC'+rowNumber+'"></div>'+
+//     '</div>');
+
+// 	$('#carePlanCollabsibleSet').collapsibleset();
+
+// 	$( "#carePlanCollabsibleSet" ).collapsibleset({
+//    create: function(event, ui) { console.log('created'); }
+// });
+  
+//     var $concernsC = $('<div data-role="collapsible" data-theme="a" data-collapsed="true"><h3>Current Concerns</h3><span id="concernSpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
+//     $concernsC.collapsible();  
+    
+//     var $goalsC = $('<div data-role="collapsible" data-theme="a" data-collapsed="true"><h3>Current Goals</h3><span id="goalSpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
+//     $goalsC.collapsible();  
+
+//     var $activitiesC = $('<div data-role="collapsible" data-theme="a" data-collapsed="true"><h3>Current Activities</h3><span id="activitySpan'+rowNumber+'"></span></div>').appendTo($('#innerC'+rowNumber));
+//     $activitiesC.collapsible();  
+    
+//     // List views
+//     var $concernList = $('<ul data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentConcernsListView'+rowNumber+'"></ul>').appendTo($('#concernSpan'+rowNumber));
+//     $concernList.listview();
+
+//     var $goalList = $('<ol data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentGoalsListView'+rowNumber+'"></ol>').appendTo($('#goalSpan'+rowNumber));
+//     $goalList.listview();
+
+//     var $activityList = $('<ol data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentActivitesListView'+rowNumber+'"></ol>').appendTo($('#activitySpan'+rowNumber));
+//     $activityList.listview();
+
+
+
+
     $('#carePlanDiv').append(
-    '<div data-role="collapsible" data-theme="a" data-content-theme="d" data-inset="false" id="carePlanCollabsible'+rowNumber+'">' +
+    '<div data-role="collapsible" data-theme="a" data-content-theme="a" data-inset="true" id="carePlanCollabsible'+rowNumber+'">' +
     '<h2>'+reportTitle+'</h2>' +
     '<div id="innerC'+rowNumber+'"></div>'+
     '</div>');
@@ -40,8 +77,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 
     var $activityList = $('<ol data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentActivitesListView'+rowNumber+'"></ol>').appendTo($('#activitySpan'+rowNumber));
     $activityList.listview();
-    
-    //$myList.listview('refresh');
 
 	var content = entry.content;
 	if(content.concern != null)
