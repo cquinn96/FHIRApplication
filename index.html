@@ -33,11 +33,42 @@
 	<script type="text/javascript" src="PatientOverview.js"></script>
 	<script type="text/javascript" src="AppointmentOverview.js"></script>
 	<script type="text/javascript" src="PrescriptionOverview.js"></script>
+	<script type="text/javascript" src="LocationOverview.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$('.footable').footable();
 		});
 	</script>
+	 <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+	<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBh4KIOvkBN-eTVZFMekQKsPz_rqrmZ8KI&sensor=true">
+    </script>
+     <script type="text/javascript">
+      // function initialize() {
+      // 	console.log('should show a map');
+      //   var mapOptions = {
+      //     center: new google.maps.LatLng(-34.397, 150.644),
+      //     zoom: 8
+      //   };
+      //   var map = new google.maps.Map(document.getElementById("map-canvas"),
+      //       mapOptions);
+      // }
+       //google.maps.event.addDomListener(window, 'load', initialize);
+      // console.log('finished initialize');
+
+            $(document).on('pageshow', '#LocationOverviewPage', initialize);
+
+      // $(document).on('pageshow', '#LocationOverviewPage', function() {  
+      //           $('#map-canvas').gmap();
+      //           $('#map-canvas').gmap({ 'center': '42.345573,-71.098326' });               
+      //           $('#map-canvas').gmap({ 'zoom': 8 });
+      //           $('#map-canvas').gmap('refresh');
+      //       });
+    </script>
  
 </head>
 
@@ -52,6 +83,7 @@
 				<select id="searchFor">
 				<option value="patient">Patient</option>
 				<option value="practitioner">Practitioner</option>
+				<option value="appointment">Appointment</option>
 				</select>		
 				<label for="text-1">Search by:</label>
 				<select id="searchBy">
@@ -64,6 +96,15 @@
 			</form>			
 
 			<input id="loginButton" type="submit" value="Search">
+			<div data-role="popup" id="popupAppointmentSearch">
+		    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					    <p>That appointment doesn't exsist.</p>
+			</div>
+
+			<div data-role="popup" id="popupAppointmentSearchWrong">
+		    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+					    <p>Sorry, you cannot search appointments by name.</p>
+			</div>
 
 			<button a="button" data-theme="a" class="ui-btn-hidden" aria-disabled="false" id="viewAllAppointmentsButton">View All Appointments</button>		
 			<div style="height: 100%; text-align:center; ">
@@ -71,7 +112,7 @@
 					<a href="#UploadPatientPage" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b">Add Patient</a>
 				</p>
 			</div>				
-		</article>	
+		</article>
 	</div>
 	
 	<div data-role="page" data-theme="a" id="UploadPatientPage">
@@ -387,6 +428,13 @@
 
 		<div style="height: 100%; text-align:center; ">
 			<p>
+	    		<a href="#popupGetDirections" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="getDirectionsClick();">Get Directions</a>
+	    		<div data-role="popup" id="popupGetDirections">
+	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				    <p>Directions could not be found.</p>
+				</div>
+			</p>
+			<p>
 	    		<a href="#popupCancelAppointment" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="b" onclick="cancelAppointmentClick();">Cancel Appointment</a>
 	    		<div data-role="popup" id="popupCancelAppointment">
 	    			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
@@ -394,6 +442,29 @@
 				</div>
 			</p>
 		</div>
+	</div>
+
+	<div data-role="page" data-theme="a" id="LocationOverviewPage">
+		<header data-role="header">
+			<a href="" data-role="button" data-mini="true" data-inline="true" data-icon="arrow-l" data-theme="b" onclick="goBack()">Back</a>
+			<h1 id="locationOverviewHeader">Location Overview</h1>
+		</header>
+		
+		<div id="headerUnderBar"> 
+			<div id="wardDoctor">Location Details</div>
+			<div id="wardTime"></div>
+		</div>
+
+		<ul data-role="listview" id="locationOverviewRow" data-inset="false" data-theme="b">
+		</ul>
+
+		<!-- <div id="googleMap" style="width:500px;height:380px;"></div> -->
+		<div data-role="content">	
+			<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+				<div id="map-canvas" style="height:350px;"></div>
+			</div>
+		</div>
+
 	</div>
 
 	<div data-role="page" data-theme="a" id="PrescriptionOverviewPage">

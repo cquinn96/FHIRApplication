@@ -131,6 +131,16 @@ function populateListOfPractitioners(entries) {
 
 // This function handles Search, PatientOverviews, Care Plans, Diagnostic Reports
 function fetchResource(resource, searchFor, query, initialSearch) {
+
+	if(resource == 'appointment' && searchFor == 'name')
+	{
+		// $( "#popupAppointmentSearchWrong" ).popup( "open" );
+		// $.mobile.loading('hide');
+		// return;
+		initialSearch = false;
+		searchFor = 'subject.name'
+	}
+
     $.ajax({
        type: "GET",
 	   dataType: 'json',
@@ -145,8 +155,23 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					$.mobile.changePage("index.html#PatientListPage");
 					populateListOfPractitioners(msg.entry);
 				}
+				else if (msg.title == 'Search results for resource type Appointment') {
+					if(msg.entry.length == 0)
+					{
+						$.mobile.loading('hide');
+						$( "#popupAppointmentSearch" ).popup( "open" );
+					}
+					else
+					{
+						//$.mobile.changePage("index.html#AppointmentListPage");
+						patientAppointments = [];
+						displayIndividualAppointment(msg.entry[0].content, 0, msg.entry[0].title);
+						populateAppointmentOverview(patientAppointments[0]);
+					}
+	            }
 	            else {
 	                // Request failed
+	                $.mobile.loading('hide');
 					alert('Oops, something went wrong');
 				}
        		}
@@ -215,8 +240,21 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 						displayMedicationAdministrations(msg.entry, msg.totalResults);
 					}
 	            }
+	            else if (msg.title == 'Search results for resource type Location') {
+					if(msg.entry.length == 0)
+					{
+						$.mobile.loading('hide');
+						$( "#popupGetDirections" ).popup( "open" );
+					}
+					else
+					{
+						$.mobile.changePage("index.html#LocationOverviewPage");
+						populateLocationOverview(msg.entry[0]);
+					}
+	            }
 	            else {
 	                // Request failed
+	                $.mobile.loading('hide');
 					alert('Oops, something went wrong');
 				}
 			}
@@ -225,6 +263,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
             // search request failed
 			//document.write(JSON.stringify(msg, 2));
 			console.log('Server is Down');
+			$.mobile.loading('hide');
 			if(initialSearch){
 				alert('Server is down, accessing local patient information instead');
 			    $.getJSON('/JSON/allPatients.json', function(json) {

@@ -48,9 +48,6 @@ function displayCarePlan(entry, reportTitle, rowNumber) {
 //     var $activityList = $('<ol data-role="listview" data-inset="true" data-filter="false" data-theme="a" data-divider-theme="d" id="currentActivitesListView'+rowNumber+'"></ol>').appendTo($('#activitySpan'+rowNumber));
 //     $activityList.listview();
 
-
-
-
     $('#carePlanDiv').append(
     '<div data-role="collapsible" data-theme="a" data-content-theme="a" data-inset="true" id="carePlanCollabsible'+rowNumber+'">' +
     '<h2>'+reportTitle+'</h2>' +

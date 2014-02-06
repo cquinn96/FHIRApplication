@@ -60,6 +60,9 @@ function displayIndividualAppointment(content, rowNumber, title) {
 	var patientRef = content.participant[0].individual[0].reference;
 	var patientID = patientRef.replace( /^\D+/g, '');
 	var patientName = content.participant[0].individual[0].display;
+
+	var locationRef = content.location.reference;
+	var locationID = locationRef.replace( /^\D+/g, '');
 	var title = patientName + ': ' + startTime + ' - ' + endTime;
 	//appendAppointmentTitle(title, rowNumber);
 
@@ -76,7 +79,8 @@ function displayIndividualAppointment(content, rowNumber, title) {
 		description: content.description, 
 		comment: content.comment,
 		patientID: patientID,
-		patientName: patientName
+		patientName: patientName,
+		locationID: locationID
 	};
 
 	// // If the date of the appointment is before today, don't show it
