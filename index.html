@@ -60,7 +60,7 @@
        //google.maps.event.addDomListener(window, 'load', initialize);
       // console.log('finished initialize');
 
-            $(document).on('pageshow', '#LocationOverviewPage', initialize);
+       $(document).on('pageshow', '#LocationOverviewPage', initialize);
 
       // $(document).on('pageshow', '#LocationOverviewPage', function() {  
       //           $('#map-canvas').gmap();
@@ -69,6 +69,18 @@
       //           $('#map-canvas').gmap('refresh');
       //       });
     </script>
+
+    <script type="text/javascript"> 
+
+// function stopRKey(evt) { 
+//   var evt = (evt) ? evt : ((event) ? event : null); 
+//   var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+//   if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+// } 
+
+// document.onkeypress = stopRKey; 
+
+</script>
  
 </head>
 
@@ -78,7 +90,7 @@
 			<h1>FHIR Application</h1>
 		</header>
 		<article data-role="content">
-			<form id="loginForm">
+<!-- 			<form id="loginForm"> -->
 				<label for="text-1">Search for:</label>
 				<select id="searchFor">
 				<option value="patient">Patient</option>
@@ -92,8 +104,10 @@
 				</select>
 				
 				<label for="text-1">Search value:</label>
-				<input type="text" name="query" id="query" value="">	
-			</form>			
+				<input type="text" name="query" id="query" class="noEnterSubmit" value="">	
+
+				<!-- <input id="loginButton" type="submit" value="Search"> -->
+<!-- 			</form>		 -->	
 
 			<input id="loginButton" type="submit" value="Search">
 			<div data-role="popup" id="popupAppointmentSearch">
