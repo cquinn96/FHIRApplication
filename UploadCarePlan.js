@@ -132,9 +132,7 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
 
         var carePlanUrl = jqXHR.getResponseHeader('Content-Location');
         var carePlanID = carePlanUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
-        console.log(carePlanID);
         fetchResource('careplan', '_id', carePlanID, false);
-        //alert('Added care plan successfully');
 
         //fetchResource('patient', '_id', patientID, false);
         //patientOverview(patient);

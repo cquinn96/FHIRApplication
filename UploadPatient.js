@@ -122,17 +122,12 @@ function uploadPatient(event){
 
 		var patientUrl = jqXHR.getResponseHeader('Content-Location');
 		var patientID = patientUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
-
+		fetchResource('patient', '_id', patientID, false);
 		// var	patient = { 
 		// key: patientID,
 		// value: name,
 		// dob: dob,
-		// hosNumber: hosNumber};
-
-		//console.log(jqXHR.getAllResponseHeaders());
-		//fetchPatientOverviewAfterUpload(patient);
-
-		fetchResource('patient', '_id', patientID, false);
+		// hosNumber: hosNumber};	
     });
 
     // callback handler that will be called on failure

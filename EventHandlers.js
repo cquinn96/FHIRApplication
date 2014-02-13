@@ -148,11 +148,11 @@ function fetchResource(resource, searchFor, query, initialSearch) {
        success: function(msg, status) {   	
        		if(initialSearch) {
 	            if (msg.title == 'Search results for resource type Patient') {
-					$.mobile.changePage("#PatientListPage");
+					$.mobile.changePage("#PatientListPage", { transition: "slide", changeHash: true });
 					populateListOfPatients(msg.entry);
 	            }
 				else if (msg.title == 'Search results for resource type Practitioner'){
-					$.mobile.changePage("index.html#PatientListPage");
+					$.mobile.changePage("#PatientListPage", { transition: "slide", changeHash: true });
 					populateListOfPractitioners(msg.entry);
 				}
 				else if (msg.title == 'Search results for resource type Appointment') {
@@ -263,21 +263,23 @@ function fetchResource(resource, searchFor, query, initialSearch) {
         error: function (msg) {
             // search request failed
 			//document.write(JSON.stringify(msg, 2));
-			console.log('Server is Down');
+			console.log('Request to server failed.');
 			$.mobile.loading('hide');
 			if(initialSearch){
 				alert('Server is down, accessing local patient information instead');
 			    $.getJSON('/JSON/allPatients.json', function(json) {
-	                $.mobile.changePage("index.html#PatientListPage");
+	                $.mobile.changePage("#PatientListPage", { transition: "slide", changeHash: true });
 				    populateListOfPatients(json.entry);
 	            });
 			}
-			else {
-				console.log('Request to server failed');
+			else if(resource == 'patient') {
 			    $.getJSON('/JSON/patientOverview1.json', function(json) {
-	                $.mobile.changePage("index.html#PatientOverviewPage");
+	                $.mobile.changePage("PatientOverviewPage", { transition: "slide", changeHash: true });
 				    populatePatientOverview(json.entry);	
 	            });
+			}
+			else if(resource == 'appointment') {
+				$( "#popupAppointmentError" ).popup( "open" );
 			}
         }
     });
@@ -365,9 +367,9 @@ $('#query').keypress(function(e) {
 
 
 	// Bind to the submit event of our form
-	$("#patientUploadForm").submit(function() {
-		uploadPatient(event);
-	});
+	// $("#patientUploadForm").submit(function() {
+	// 	uploadPatient(event);
+	// });
 
 	// $("#carePlanUploadForm").submit(function() {
 	// 	uploadCarePlan(event);
@@ -376,6 +378,11 @@ $('#query').keypress(function(e) {
 	// $("#appointmentUploadForm").submit(function() {
 	// 	uploadAppointment(event);
 	// });
+
+	$("#patientUploadButton").click(function() {
+		$.mobile.loading('show');
+		uploadPatient(event);
+	});
 
 	$("#carePlanUploadButton").click(function() {
 		$.mobile.loading('show');

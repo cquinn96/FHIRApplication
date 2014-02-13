@@ -244,22 +244,19 @@ function handleNoGeolocation(errorFlag) {
 		position: end,
 		map: map,
 		zoom: 16,
-		title: name,
-		content: 'hey'
+		animation: google.maps.Animation.DROP
 	});
-	//$('#map-canvas').gmap('addMarker', marker);
 
-	marker.click(function() { 
-		$('#map-canvas').gmap('openInfoWindow', { 'content': marker.content }, this);
-		});
-// { 
-// 				'position': end, 
-// 				'bounds': true 
-// 			}
+	//var marker = new google.maps.Marker({map: map, position: point, clickable: true});
 
-	// $('#map-canvas').gmap('addMarker', marker).click(function() {
-	// 			$('#map-canvas').gmap('openInfoWindow', { 'content': marker.content }, this);
-	// 		});
+	marker.info = new google.maps.InfoWindow({
+	  content: name
+	});
+
+	google.maps.event.addListener(marker, 'click', function() {
+	  marker.info.open(map, marker);
+	});
+
 }
 
 

@@ -39,7 +39,7 @@ function uploadAppointment(event){
     '<end value="'+endDate+'T'+endTime+':00Z"/>'+
     '<timezone value="AEST"/>'+
     '<location>'+
-    '  <reference value="Location/3685C26C-BFD1-4A29-89DD-58BC2EDC3CC5"/>'+
+    '  <reference value="Location/4CB69EC7-4DCB-4BD6-9A43-ACA9498EB6C"/>'+
     '</location>'+
     '<comment value="'+comment+'"/>'+
     '<participant>'+
