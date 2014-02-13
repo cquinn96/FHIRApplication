@@ -121,7 +121,6 @@ function uploadPatient(event){
 		// console.log(jqXHR.getResponseHeader('Content-Location'));
 
 		var patientUrl = jqXHR.getResponseHeader('Content-Location');
-
 		var patientID = patientUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
 
 		// var	patient = { 

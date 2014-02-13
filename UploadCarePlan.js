@@ -14,7 +14,7 @@ function uploadCarePlan(event){
     // serialize the data in the form
     var serializedData = $form.serialize();
 	
-	//var reference = patientID;
+	//var reference = patientID; 
 	var condition = "Obesity";
 	var concern = document.getElementById('concern').value;;
 	var goal =  document.getElementById('goal').value;
@@ -130,7 +130,11 @@ myData = '<CarePlan xmlns="http://hl7.org/fhir">'+
         // dob: dob,
         // hosNumber: hosNumber};
 
-        alert('Added care plan successfully');
+        var carePlanUrl = jqXHR.getResponseHeader('Content-Location');
+        var carePlanID = carePlanUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
+        console.log(carePlanID);
+        fetchResource('careplan', '_id', carePlanID, false);
+        //alert('Added care plan successfully');
 
         //fetchResource('patient', '_id', patientID, false);
         //patientOverview(patient);

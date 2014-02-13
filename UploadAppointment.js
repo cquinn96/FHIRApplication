@@ -39,7 +39,7 @@ function uploadAppointment(event){
     '<end value="'+endDate+'T'+endTime+':00Z"/>'+
     '<timezone value="AEST"/>'+
     '<location>'+
-    '  <reference value="Location/1"/>'+
+    '  <reference value="Location/3685C26C-BFD1-4A29-89DD-58BC2EDC3CC5"/>'+
     '</location>'+
     '<comment value="'+comment+'"/>'+
     '<participant>'+
@@ -84,11 +84,14 @@ function uploadAppointment(event){
     request.done(function (response, textStatus, jqXHR){
 		// console.log(response);
 		// console.log(textStatus);
-		// console.log(jqXHR.getResponseHeader('Content-Location'));
-		// console.log(jqXHR.getAllResponseHeaders());   
-        alert('Added appointment successfully');
-        //TODO: TEST THE RELOAD
-        //location.reload();
+		 //console.log(jqXHR.getResponseHeader('Content-Location'));
+		 //console.log(jqXHR.getAllResponseHeaders());   
+
+      var appointmentUrl = jqXHR.getResponseHeader('Content-Location');
+      var appointmentID = appointmentUrl.replace( /(^.+\D)(\d+)(\D.+$)/i,'$2');
+      //alert('Added appointment successfully');
+
+      fetchResource('appointment', '_id', appointmentID, true); 
     });
 
     // callback handler that will be called on failure

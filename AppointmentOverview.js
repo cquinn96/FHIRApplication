@@ -15,8 +15,6 @@ function populateAppointmentOverview(appointment) {
 	var patientName = appointment.patientName;
 	locationID = appointment.locationID
 
-	console.log('LocationID: ' + locationID);
-
 	$('#appointmentOverviewHeader').text(patientName);
 	//remove all items in list
 	$('#appointmentOverviewRow').children('li').remove();
@@ -56,6 +54,5 @@ function deleteAppointment() {
 
 function getDirectionsClick() {
 	$.mobile.loading('show');
-	console.log('LocationID: ' + locationID);
 	fetchResource('location', '_id', locationID, false);
 }

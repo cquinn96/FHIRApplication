@@ -34,6 +34,11 @@
 	<script type="text/javascript" src="AppointmentOverview.js"></script>
 	<script type="text/javascript" src="PrescriptionOverview.js"></script>
 	<script type="text/javascript" src="LocationOverview.js"></script>
+
+
+	<script src="jquery-ui-map-3.0-rc/ui/jquery.ui.map.js" type="text/javascript"></script>
+
+
 	<script type="text/javascript">
 		$(function () {
 			$('.footable').footable();
@@ -168,7 +173,7 @@
 			<h1>Create New Care Plan</h1>
 		</header>
 		<article data-role="content">
-			<form id="carePlanUploadForm">				
+<!-- 			<form id="carePlanUploadForm">			 -->	
 				<label for="text-1">Concern:</label>
 				<input type="text" id="concern" value="">
 				<label for="text-1">Goal: </label><a id="addGoal" style="text-decoration: none" href=javascript:void(0);>+</a>
@@ -180,7 +185,7 @@
 				<div id="activityInputDiv">
 				</div>
 				<input id="carePlanUploadButton" type="submit" value="Upload Care Plan">
-			</form>									
+<!-- 			</form>	 -->								
 		</article>
 	</div>
 
@@ -190,7 +195,7 @@
 			<h1>Create Appointment</h1>
 		</header>
 		<article data-role="content">
-			<form id="appointmentUploadForm">				
+			<!-- <form id="appointmentUploadForm"> -->				
 				<label for="startDate">Start Date:</label>
 				<!-- <input type="text" id="startDate" value=""> -->
 				<input type="date" data-clear-btn="false" name="date-1" id="startDate" value="">
@@ -216,7 +221,7 @@
    				<label for="comment">Additional Comments:</label>
 				<input type="text" id="comment" value="">
 				<input id="appointmentUploadButton" type="submit" value="Add Appointment">
-			</form>					
+			<!-- </form>	 -->				
 		</article>
 	</div>
 

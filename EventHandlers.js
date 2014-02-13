@@ -148,7 +148,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
        success: function(msg, status) {   	
        		if(initialSearch) {
 	            if (msg.title == 'Search results for resource type Patient') {
-					$.mobile.changePage("index.html#PatientListPage");
+					$.mobile.changePage("#PatientListPage");
 					populateListOfPatients(msg.entry);
 	            }
 				else if (msg.title == 'Search results for resource type Practitioner'){
@@ -164,6 +164,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					else
 					{
 						//$.mobile.changePage("index.html#AppointmentListPage");
+						// Searching for an appointment by its ID
 						patientAppointments = [];
 						displayIndividualAppointment(msg.entry[0].content, 0, msg.entry[0].title);
 						populateAppointmentOverview(patientAppointments[0]);
@@ -184,7 +185,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					}
 					else
 					{
-						$.mobile.changePage("index.html#CarePlanPage");
+						$.mobile.changePage("index.html#CarePlanPage", { transition: "slide", changeHash: true });
 						populateCarePlanRows(msg.entry, msg.totalResults);
 					}
 	            }
@@ -196,12 +197,12 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					}
 					else
 					{
-						$.mobile.changePage("index.html#DiagnosticReportPage");
+						$.mobile.changePage("index.html#DiagnosticReportPage", { transition: "slide", changeHash: true });
 						displayReports(msg.entry, msg.totalResults);
 					}
 	            }
 	            else if (msg.title == 'Search results for resource type Patient') {
-					$.mobile.changePage("index.html#PatientOverviewPage");
+					$.mobile.changePage("#PatientOverviewPage", { transition: "slide", changeHash: true });
 					populatePatientOverview(msg.entry[0]);	
 	            }
 	            else if (msg.title == 'Search results for resource type Appointment') {
@@ -212,7 +213,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					}
 					else
 					{
-						$.mobile.changePage("index.html#AppointmentListPage");
+						$.mobile.changePage("index.html#AppointmentListPage", { transition: "slide", changeHash: true });
 						displayAppointments(msg.entry, msg.totalResults);
 					}
 	            }
@@ -224,7 +225,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					}
 					else
 					{
-						$.mobile.changePage("index.html#PrescriptionListPage");
+						$.mobile.changePage("index.html#PrescriptionListPage", { transition: "slide", changeHash: true });
 						displayPrescriptions(msg.entry, msg.totalResults);
 					}
 	            }
@@ -236,7 +237,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					}
 					else
 					{
-						$.mobile.changePage("index.html#AdministrationListPage");
+						$.mobile.changePage("index.html#AdministrationListPage", { transition: "slide", changeHash: true });
 						displayMedicationAdministrations(msg.entry, msg.totalResults);
 					}
 	            }
@@ -248,7 +249,7 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 					}
 					else
 					{
-						$.mobile.changePage("index.html#LocationOverviewPage");
+						$.mobile.changePage("index.html#LocationOverviewPage", { transition: "slide", changeHash: true });
 						populateLocationOverview(msg.entry[0]);
 					}
 	            }
@@ -325,8 +326,6 @@ $(document).ready(function(){
 	});
 
 
-
-
 	//$('#loginForm').submit(false);
 
 	// 	$('#loginForm').bind("keyup keypress", function(e) {
@@ -370,11 +369,22 @@ $('#query').keypress(function(e) {
 		uploadPatient(event);
 	});
 
-	$("#carePlanUploadForm").submit(function() {
+	// $("#carePlanUploadForm").submit(function() {
+	// 	uploadCarePlan(event);
+	// });
+
+	// $("#appointmentUploadForm").submit(function() {
+	// 	uploadAppointment(event);
+	// });
+
+	$("#carePlanUploadButton").click(function() {
+		$.mobile.loading('show');
 		uploadCarePlan(event);
 	});
 
-	$("#appointmentUploadForm").submit(function() {
+
+	$("#appointmentUploadButton").click(function() {
+		$.mobile.loading('show');
 		uploadAppointment(event);
 	});
 
@@ -499,11 +509,11 @@ function viewAdministrationsClick() {
 }
 
 function addCarePlan() {
-	$.mobile.changePage("index.html#UploadCarePlan");
+	$.mobile.changePage("index.html#UploadCarePlan", { transition: "slide", changeHash: true });
 }
 
 function addAppointment() {
-	$.mobile.changePage("index.html#UploadAppointment");
+	$.mobile.changePage("index.html#UploadAppointment", { transition: "slide", changeHash: true });
 }
 
 function cancelAppointmentClick() {
