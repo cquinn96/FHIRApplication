@@ -294,24 +294,8 @@ function fetchResource(resource, searchFor, query, initialSearch) {
 // });
 
 $(document).ready(function(){
-	// Search button has a click/touch
-	// $('#loginButton').bind('vmousedown', function () {
-	// 	// Search for Patient or Practictior
-	// 	var searchForDropDown = document.getElementById('searchFor');
-	// 	var resourceToSearchFor = searchForDropDown.options[searchForDropDown.selectedIndex].value;
-		
-	// 	// Search by ID or name
- //    	var searchByDropDown = document.getElementById('searchBy');
-	// 	var searchBy = searchByDropDown.options[searchByDropDown.selectedIndex].value;
 
-	// 	// Actual search value
-	// 	var query =  document.getElementById('query').value;
-
-	// 	$.mobile.loading('show');
-	// 	fetchResource(resourceToSearchFor, searchBy, query, true);	
-	// });
-
-	$('#loginButton').click(function () {
+	$('#searchButton').click(function () {
 		// Search for Patient or Practictior
 		var searchForDropDown = document.getElementById('searchFor');
 		var resourceToSearchFor = searchForDropDown.options[searchForDropDown.selectedIndex].value;
@@ -327,57 +311,11 @@ $(document).ready(function(){
 		fetchResource(resourceToSearchFor, searchBy, query, true);	
 	});
 
-
-	//$('#loginForm').submit(false);
-
-	// 	$('#loginForm').bind("keyup keypress", function(e) {
-// 	  var code = e.keyCode || e.which; 
-// 	  if (code  == 13) { 
-// 	  	console.log('should stop enter');    
-// 	  	//$('#loginButton').submit();          
-// 	    e.preventDefault();
-// 	    return false;
-// 	  }
-// 	});
-
-$('#query').keypress(function(e) {
-  //return e.which !== 13  
-  if ( e.which == 13 ) $('#loginButton').click();
-});
-
-	// $("#loginForm").submit(function (e) {
-	// 	console.log('stop submit');  
- //        e.preventDefault();
- //        return false;
- //        });
-
-	// $("loginForm").bind("submit", function (e) {
-	// 	console.log('stop submit');  
- //        e.preventDefault();
- //        });
-
- //$('.noEnterSubmit').bind('keypress', false);
-
-// $('.noEnterSubmit').keypress(function(e){
-//     if ( e.which == 13 ) return false;
-//     //or...
-//     if ( e.which == 13 ) e.preventDefault();
-// });
-
-
-
-	// Bind to the submit event of our form
-	// $("#patientUploadForm").submit(function() {
-	// 	uploadPatient(event);
-	// });
-
-	// $("#carePlanUploadForm").submit(function() {
-	// 	uploadCarePlan(event);
-	// });
-
-	// $("#appointmentUploadForm").submit(function() {
-	// 	uploadAppointment(event);
-	// });
+	//make enter button click the searchButton
+	$('#query').keypress(function(e) {
+	  //return e.which !== 13  
+	  if ( e.which == 13 ) $('#searchButton').click();
+	});
 
 	$("#patientUploadButton").click(function() {
 		$.mobile.loading('show');
@@ -388,7 +326,6 @@ $('#query').keypress(function(e) {
 		$.mobile.loading('show');
 		uploadCarePlan(event);
 	});
-
 
 	$("#appointmentUploadButton").click(function() {
 		$.mobile.loading('show');
